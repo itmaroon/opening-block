@@ -1,0 +1,67 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "itmar/logo-anime",
+	"title": "Logo Anime",
+	"category": "design",
+	"version": "0.1.0",
+	"description": "ロゴをアニメーションするオープニングです。",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"link": false,
+			"text": false
+		},
+		"html": false
+	},
+	"attributes": {
+		"logo_text": {
+			"type": "string",
+			"default": "LOGO"
+		},
+		"logo_font": {
+			"type": "string",
+			"default": "Roboto-Black.ttf"
+		},
+		"logo_size": {
+			"type": "number",
+			"default": 120
+		},
+		"logo_gap": {
+			"type": "number",
+			"default": 20
+		},
+		"logo_strokeColor": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"logo_fillColor": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"logo_fillGradient": {
+			"type": "string"
+		},
+		"char_paths": {
+			"type": "array",
+			"default": []
+		},
+		"trigger_anime": {
+			"type": "boolean",
+			"default": false
+		},
+		"is_anime": {
+			"type": "boolean",
+			"default": false
+		},
+		"fontFamilyOptions": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"textdomain": "opening-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

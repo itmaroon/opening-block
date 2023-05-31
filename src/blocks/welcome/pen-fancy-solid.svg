@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 24 24"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="pen-fancy-solid.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2675781"
+     inkscape:cx="255.60555"
+     inkscape:cy="130.16949"
+     inkscape:window-width="1600"
+     inkscape:window-height="829"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+  <path
+     d="M 19.186185,1.2745444 C 19.891652,0.46560847 20.912228,0 21.984539,0 24.035097,0 25.7,1.664903 25.7,3.7154615 c 0,1.0723104 -0.465608,2.0975896 -1.274544,2.803057 L 14.6806,15.002939 14.196179,14.518519 11.186185,11.508524 10.697061,11.0194 Z m -9.5567317,10.8077606 0.4891237,0.489124 3.009994,3.009994 0.489124,0.489124 -0.902998,3.922398 c -0.183421,0.804233 -0.794826,1.443857 -1.589653,1.664903 L 2.7676073,24 7.2543798,19.513228 c 0.122281,0.03292 0.2539682,0.05173 0.3903586,0.05173 0.8324515,0 1.504997,-0.672546 1.504997,-1.504997 0,-0.832452 -0.6725455,-1.504997 -1.504997,-1.504997 -0.8324515,0 -1.5049971,0.672545 -1.5049971,1.504997 0,0.13639 0.018813,0.263374 0.051734,0.390358 L 1.7,22.932393 4.0421517,14.579659 c 0.2210464,-0.794827 0.8606702,-1.406232 1.664903,-1.589653 l 3.9223986,-0.902998 z"
+     id="path2"
+     style="stroke-width:0.0470312" />
+</svg>

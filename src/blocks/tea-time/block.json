@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "itmar/tea-time",
+	"version": "0.1.0",
+	"title": "Tea Time",
+	"category": "design",
+	"description": "Webサイトのオープニングに使用するブロックです",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"link": false,
+			"text": false
+		},
+		"html": false
+	},
+	"attributes": {
+		"telop": {
+			"type": "string",
+			"default": "Let's coffee break"
+		}
+	},
+	"textdomain": "opening-block",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

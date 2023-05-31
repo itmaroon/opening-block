@@ -1,0 +1,21 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.wp-block-itmar-logo-anime {
+  border: 1px dotted #f00;
+}
+
+.logoSizeCtrl .components-base-control {
+  width: 100%;
+}
+.logoSizeCtrl.spacing {
+  align-items: baseline;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.logoSizeCtrl.spacing .components-base-control {
+  margin-bottom: 0;
+}
+/*# sourceMappingURL=editor.css.map */
