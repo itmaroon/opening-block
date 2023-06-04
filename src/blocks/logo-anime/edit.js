@@ -90,21 +90,53 @@ export default function Edit({ attributes, setAttributes }) {
 	const strokeRef = useRef(null);
 
 	useEffect(() => {
+		const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
+		//iframeの有無で操作するドキュメント要素を峻別
+		const target_doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document
+		// iframe内の特定の要素を取得
+		const logoElement = target_doc.getElementById('logo_anime');
+		console.log(logoElement);
 		if (strokeRef.current) {
+
 			//一旦クラスを削除
-			document.getElementById('logo_anime').classList.remove('done');
-			strokeRef.current = new Vivus('logo_anime', {
-				start: 'manual',
-				type: 'scenario-sync',
-				duration: 30,
-				forceRender: false,
-				animTimingFunction: Vivus.EASE,
-			}, function () {
-				document.getElementById('logo_anime').classList.add('done');
-				setAttributes({ is_anime: false });//アニメーション終了
-			});
-			strokeRef.current.reset().play();
-			setAttributes({ is_anime: true });//アニメーション実行中
+			logoElement.classList.remove('done');
+
+			if (iframe) {
+				const script = target_doc.createElement('script');
+				script.src = 'https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js'; // VivusのCDNのURL
+				script.onload = () => {
+					const logoElement = target_doc.getElementById('logo_anime');
+					if (logoElement) {
+						iframe.contentWindow.VivusConstructor = new iframe.contentWindow.Vivus(logoElement, {
+							start: 'autostart',
+							type: 'scenario-sync',
+							duration: 30,
+							forceRender: false,
+							animTimingFunction: Vivus.EASE,
+						}, function () {
+							logoElement.classList.add('done');
+							setAttributes({ is_anime: false });
+						});
+						iframe.contentWindow.VivusConstructor.reset().play();
+						setAttributes({ is_anime: true });//アニメーション実行中
+					}
+				};
+				target_doc.body.appendChild(script);
+			} else {
+				strokeRef.current = new Vivus(logoElement, {
+					start: 'manual',
+					type: 'scenario-sync',
+					duration: 30,
+					forceRender: false,
+					animTimingFunction: Vivus.EASE,
+				}, function () {
+					logoElement.classList.add('done');
+					setAttributes({ is_anime: false });//アニメーション終了
+				});
+				strokeRef.current.reset().play();
+				setAttributes({ is_anime: true });//アニメーション実行中
+			}
+
 		} else {
 			strokeRef.current = true;
 		}
