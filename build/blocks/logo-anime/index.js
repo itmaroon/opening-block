@@ -2406,6 +2406,8 @@ function Edit(_ref) {
     logo_font,
     char_paths,
     logo_size,
+    logo_width,
+    logo_height,
     logo_gap,
     logo_strokeColor,
     logo_fillColor,
@@ -2451,14 +2453,21 @@ function Edit(_ref) {
         const char_arr = logo_text.split('');
         let path_arr = [];
         let path_width = 0;
-        {
-          char_arr.map((char, i) => {
-            const pathObj = font.getPath(char, path_width, 0, logo_size);
-            const bbox = pathObj.getBoundingBox();
-            path_width += bbox.x2 - bbox.x1 + logo_gap;
-            path_arr.push(pathObj.toPathData());
-          });
-        }
+        let path_height = 0;
+        char_arr.map((char, i) => {
+          const pathObj = font.getPath(char, path_width, 0, logo_size);
+          const bbox = pathObj.getBoundingBox();
+          path_width += bbox.x2 - bbox.x1 + logo_gap;
+          path_height = path_height > bbox.y2 - bbox.y1 ? path_height : bbox.y2 - bbox.y1;
+          path_arr.push(pathObj.toPathData());
+        });
+        //SVG情報の記録
+        setAttributes({
+          logo_width: path_width
+        });
+        setAttributes({
+          logo_height: path_height
+        });
         setAttributes({
           char_paths: path_arr
         });
@@ -2466,63 +2475,55 @@ function Edit(_ref) {
     });
   }, [logo_text, logo_font, logo_size, logo_gap]);
 
-  // Vivusインスタンスを保持するためのrefを作成します。
+  // マウント後の最初のuseEffectの内容をスキップするためのフラグ
   const strokeRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
-    //iframeの有無で操作するドキュメント要素を峻別
-    const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
-    // iframe内の特定の要素を取得
-    const logoElement = target_doc.getElementById('logo_anime');
-    console.log(logoElement);
     if (strokeRef.current) {
-      //一旦クラスを削除
+      //マウント時には実行しない
+      const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
+      //iframeの有無で操作するドキュメント要素を峻別
+      const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
+      // 要素を取得
+      const logoElement = target_doc.getElementById('logo_anime');
+      const paths = logoElement.getElementsByTagName('path');
+      for (let path of paths) {
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+      }
+
+      // アニメーションを開始
+      setAttributes({
+        is_anime: true
+      }); // アニメーション開始
       logoElement.classList.remove('done');
-      if (iframe) {
-        const script = target_doc.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js'; // VivusのCDNのURL
-        script.onload = () => {
-          const logoElement = target_doc.getElementById('logo_anime');
-          if (logoElement) {
-            iframe.contentWindow.VivusConstructor = new iframe.contentWindow.Vivus(logoElement, {
-              start: 'autostart',
-              type: 'scenario-sync',
-              duration: 30,
-              forceRender: false,
-              animTimingFunction: Vivus.EASE
-            }, function () {
-              logoElement.classList.add('done');
+      const animatePaths = paths => {
+        Array.from(paths).forEach((path, index) => {
+          const length = path.getTotalLength();
+          path.animate([{
+            strokeDashoffset: length
+          }, {
+            strokeDashoffset: 0
+          }], {
+            duration: 1000,
+            fill: "both",
+            delay: index * 800
+          }).addEventListener("finish", () => {
+            if (index === paths.length - 1) {
+              logoElement.classList.add("done");
               setAttributes({
                 is_anime: false
-              });
-            });
-            iframe.contentWindow.VivusConstructor.reset().play();
-            setAttributes({
-              is_anime: true
-            }); //アニメーション実行中
-          }
-        };
-
-        target_doc.body.appendChild(script);
-      } else {
-        strokeRef.current = new Vivus(logoElement, {
-          start: 'manual',
-          type: 'scenario-sync',
-          duration: 30,
-          forceRender: false,
-          animTimingFunction: Vivus.EASE
-        }, function () {
-          logoElement.classList.add('done');
-          setAttributes({
-            is_anime: false
-          }); //アニメーション終了
+              }); // アニメーション終了
+              // Reset all paths
+              for (let path of paths) {
+                path.style.strokeDashoffset = "";
+                path.style.strokeDasharray = "";
+              }
+            }
+          });
         });
-
-        strokeRef.current.reset().play();
-        setAttributes({
-          is_anime: true
-        }); //アニメーション実行中
-      }
+      };
+      animatePaths(paths);
     } else {
       strokeRef.current = true;
     }
@@ -2552,26 +2553,26 @@ function Edit(_ref) {
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
     value: logo_size,
     label: "\u30ED\u30B4\u306E\u5927\u304D\u3055",
-    max: 200,
-    min: 50,
+    max: 100,
+    min: 10,
     onChange: val => setAttributes({
       logo_size: val
     }),
     separatorType: "none",
-    step: 10,
+    step: 5,
     withInputField: false
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, {
     className: "logoSizeCtrl"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
     value: logo_gap,
     label: "\u30ED\u30B4\u306E\u9593\u9694",
-    max: 100,
-    min: 10,
+    max: 20,
+    min: 1,
     onChange: val => setAttributes({
       logo_gap: val
     }),
     separatorType: "none",
-    step: 5,
+    step: 1,
     withInputField: false
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalPanelColorGradientSettings, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Logo Color Setting"),
@@ -2613,9 +2614,9 @@ function Edit(_ref) {
     id: "splash_logo"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     id: "logo_anime",
-    width: "1010.6px",
-    height: "121px",
-    viewBox: "0 0 1010.6 121"
+    width: "250px",
+    height: "120px",
+    viewBox: `${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => is_anime ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     style: {
       fill: "none",
@@ -2692,7 +2693,9 @@ function save(_ref) {
   const {
     logo_strokeColor,
     logo_fillColor,
-    char_paths
+    char_paths,
+    logo_width,
+    logo_height
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
@@ -2702,9 +2705,9 @@ function save(_ref) {
     id: "splash_logo"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     id: "logo_anime",
-    width: "1010.6px",
-    height: "121px",
-    viewBox: "0 0 1010.6 121"
+    width: "250px",
+    height: "120px",
+    viewBox: `${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     key: i,
     d: path
@@ -25530,7 +25533,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"color":{"background":true,"gradients":true,"link":false,"text":false},"html":false},"attributes":{"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":120},"logo_gap":{"type":"number","default":20},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"fontFamilyOptions":{"type":"array","default":[]}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"color":{"background":true,"gradients":true,"link":false,"text":false},"html":false},"attributes":{"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"fontFamilyOptions":{"type":"array","default":[]}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

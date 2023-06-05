@@ -26,11 +26,19 @@
 		},
 		"logo_size": {
 			"type": "number",
-			"default": 120
+			"default": 30
+		},
+		"logo_width": {
+			"type": "number",
+			"default": 0
+		},
+		"logo_height": {
+			"type": "number",
+			"default": 0
 		},
 		"logo_gap": {
 			"type": "number",
-			"default": 20
+			"default": 5
 		},
 		"logo_strokeColor": {
 			"type": "string",

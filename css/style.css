@@ -49,7 +49,6 @@
   fill: none;
   /*塗りがない状態*/
   stroke: #fff;
-  /*線の色*/
 }
 .wp-block-itmar-logo-anime #logo_anime.done path {
   fill: #fff;
@@ -57,6 +56,5 @@
   fill-opacity: 1;
   /*透過1で見える状態*/
   stroke: none;
-  /*線の色なし*/
 }
 /*# sourceMappingURL=style.css.map */

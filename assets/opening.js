@@ -11,42 +11,46 @@ jQuery(function ($) {
     let splashElement = $('#splash');
     let fillColor = splashElement.data('fill-color');
     let strokeColor = splashElement.data('stroke-color');
-    //初期の設定
-    $("#logo_anime path").css({
-      'stroke': strokeColor
+    //初期設定
+    $("#logo_anime path").each(function () {
+      const length = $(this).get(0).getTotalLength();
+      $(this).css({
+        'stroke': strokeColor,
+        'strokeDasharray': length,
+        'strostrokeDashoffsetke': length
+      });
     });
-    var stroke;
-    stroke = new Vivus('logo_anime', {//アニメーションをするIDの指定
-      start: 'autostart',//自動再生
-      type: 'scenario-sync',// アニメーションのタイプを設定
-      duration: 30,//アニメーションの時間設定。数字が小さくなるほど速い
-      forceRender: false,//パスが更新された場合に再レンダリングさせない
-      animTimingFunction: Vivus.EASE,//動きの加速減速設定
-    },
-      function () {
-        $("#logo_anime").attr("class", "done");//描画が終わったらdoneというクラスを追加
-        $("#logo_anime path").css({
-          'fill': fillColor, 'stroke': 'none'
+
+    // アニメーションを開始
+
+    const animatePaths = (paths) => {
+      paths.each((index, pathElement) => {
+        const path = $(pathElement);
+        const length = path.get(0).getTotalLength();
+
+        path.get(0).animate(
+          [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
+          { duration: 1000, fill: "both", delay: index * 800 }
+        ).addEventListener("finish", () => {
+          if (index === paths.length - 1) {
+            $("#logo_anime").addClass("done"); //描画が終わったらdoneというクラスを追加
+            $("#logo_anime path").css({
+              'fill': fillColor, 'stroke': 'none'
+            });
+            // Reset all paths
+            paths.each((i, pathToReset) => {
+              $(pathToReset).css({
+                'stroke-dashoffset': '',
+                'stroke-dasharray': ''
+              });
+            });
+          }
         });
-      }
-    );
+      });
+    };
 
-    // if (document.getElementById('svg_file')) {
-    //   $.ajax({
-    //     type: 'GET',
-    //     url: plugin.asset_url + '/1_animated.svg',
-    //     dataType: 'text',
-    //   }).done(function (data) {
-    //     console.log("done")
-    //     // SVGファイルの内容をHTMLドキュメントに挿入
-    //     $('#svg_file').html(data);
-    //     var svgElement = document.querySelector("#svg_file svg");
-    //     svgElement.id = "my-svg";
-    //     // Vivusでアニメーションを適用
-    //     new Vivus('my-svg', { type: 'delayed', duration: 200 });
+    animatePaths($("#logo_anime path"));
 
-    //   });
-    // }
   }
 
 

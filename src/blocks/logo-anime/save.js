@@ -5,7 +5,9 @@ export default function save({ attributes }) {
 	const {
 		logo_strokeColor,
 		logo_fillColor,
-		char_paths
+		char_paths,
+		logo_width,
+		logo_height
 	} = attributes;
 	return (
 		<div {...useBlockProps.save()}>
@@ -15,7 +17,7 @@ export default function save({ attributes }) {
 				data-stroke-color={logo_strokeColor}
 			>
 				<div id="splash_logo">
-					<svg id="logo_anime" width="1010.6px" height="121px" viewBox="0 0 1010.6 121">
+					<svg id="logo_anime" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>
 						<g>
 							{char_paths.map((path, i) => (
 								<path key={i} d={path} />
