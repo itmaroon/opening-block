@@ -2286,6 +2286,66 @@ var SvgLSolid = function SvgLSolid(props) {
 
 /***/ }),
 
+/***/ "./src/blocks/logo-anime/turn-down.svg":
+/*!*********************************************!*\
+  !*** ./src/blocks/logo-anime/turn-down.svg ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnDown),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgTurnDown = function SvgTurnDown(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 384 512"
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M350 334.5c3.8 8.8 2 19-4.6 26l-136 144c-4.5 4.8-10.8 7.5-17.4 7.5s-12.9-2.7-17.4-7.5l-136-144c-6.6-7-8.4-17.2-4.6-26S46.5 320 56 320h88V128c0-17.7-14.3-32-32-32H32C14.3 96 0 81.7 0 64V32C0 14.3 14.3 0 32 0h80c70.7 0 128 57.3 128 128v192h88c9.6 0 18.2 5.7 22 14.5z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDMzNC41YzMuOCA4LjggMiAxOS00LjYgMjZsLTEzNiAxNDRjLTQuNSA0LjgtMTAuOCA3LjUtMTcuNCA3LjVzLTEyLjktMi43LTE3LjQtNy41bC0xMzYtMTQ0Yy02LjYtNy04LjQtMTcuMi00LjYtMjZzMTIuNS0xNC41IDIyLTE0LjVoODhsMC0xOTJjMC0xNy43LTE0LjMtMzItMzItMzJIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NFYzMkMwIDE0LjMgMTQuMyAwIDMyIDBsODAgMGM3MC43IDAgMTI4IDU3LjMgMTI4IDEyOGwwIDE5Mmg4OGM5LjYgMCAxOC4yIDUuNyAyMiAxNC41eiIvPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "./src/blocks/logo-anime/turn-up.svg":
+/*!*******************************************!*\
+  !*** ./src/blocks/logo-anime/turn-up.svg ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnUp),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgTurnUp = function SvgTurnUp(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 384 512"
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M350 177.5c3.8-8.8 2-19-4.6-26l-136-144C204.9 2.7 198.6 0 192 0s-12.9 2.7-17.4 7.5l-136 144c-6.6 7-8.4 17.2-4.6 26S46.5 192 56 192h88v192c0 17.7-14.3 32-32 32H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h80c70.7 0 128-57.3 128-128V192h88c9.6 0 18.2-5.7 22-14.5z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDE3Ny41YzMuOC04LjggMi0xOS00LjYtMjZsLTEzNi0xNDRDMjA0LjkgMi43IDE5OC42IDAgMTkyIDBzLTEyLjkgMi43LTE3LjQgNy41bC0xMzYgMTQ0Yy02LjYgNy04LjQgMTcuMi00LjYgMjZzMTIuNSAxNC41IDIyIDE0LjVoODhsMCAxOTJjMCAxNy43LTE0LjMgMzItMzIgMzJIMzJjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMybDgwIDBjNzAuNyAwIDEyOC01Ny4zIDEyOC0xMjhsMC0xOTJoODhjOS42IDAgMTguMi01LjcgMjItMTQuNXoiLz48L3N2Zz4=");
+
+/***/ }),
+
 /***/ "./CustomFontFace.js":
 /*!***************************!*\
   !*** ./CustomFontFace.js ***!
@@ -2381,10 +2441,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./circle-play.svg */ "./src/blocks/logo-anime/circle-play.svg");
 /* harmony import */ var _circle_pause_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./circle-pause.svg */ "./src/blocks/logo-anime/circle-pause.svg");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/logo-anime/editor.scss");
-/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
-/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var _turn_up_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./turn-up.svg */ "./src/blocks/logo-anime/turn-up.svg");
+/* harmony import */ var _turn_down_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./turn-down.svg */ "./src/blocks/logo-anime/turn-down.svg");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/logo-anime/editor.scss");
+/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
+/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+
+
 
 
 
@@ -2414,6 +2478,7 @@ function Edit(_ref) {
     logo_fillGradient,
     is_anime,
     trigger_anime,
+    is_front,
     fontFamilyOptions
   } = attributes;
 
@@ -2427,6 +2492,11 @@ function Edit(_ref) {
       fontStyle: state.data.fontStyle
     })
   };
+  const blockProps = is_front ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)() : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+    style: {
+      zIndex: -1
+    }
+  });
   const FontSelect = _ref2 => {
     let {
       label,
@@ -2434,7 +2504,7 @@ function Edit(_ref) {
     } = _ref2;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       className: "components-base-control__label"
-    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
       options: fontFamilyOptions,
       value: fontFamilyOptions.find(option => option.value === value),
       onChange: newOption => {
@@ -2446,7 +2516,7 @@ function Edit(_ref) {
     }));
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    opentype_js__WEBPACK_IMPORTED_MODULE_8__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
+    opentype_js__WEBPACK_IMPORTED_MODULE_10__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
       if (err) {
         console.error('Could not load the font: ' + err);
       } else {
@@ -2528,7 +2598,7 @@ function Edit(_ref) {
       strokeRef.current = true;
     }
   }, [trigger_anime]);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_9__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
@@ -2594,10 +2664,10 @@ function Edit(_ref) {
       })
     }]
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
-  //属性 isEditMode の値により表示するラベルを切り替え
+  //表示するラベルを切り替え
   , {
     label: is_anime ? "実行中" : "停止中"
-    //属性 isEditMode の値により表示するアイコンを切り替え
+    //表示するアイコンを切り替え
     ,
     icon: is_anime ? _circle_pause_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent : _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
 
@@ -2608,7 +2678,22 @@ function Edit(_ref) {
         trigger_anime: !trigger_anime
       });
     }
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
+  //表示するラベルを切り替え
+  , {
+    label: is_front ? "最背面へ" : "最前面へ"
+    //表示するアイコンを切り替え
+    ,
+    icon: is_front ? _turn_down_svg__WEBPACK_IMPORTED_MODULE_7__.ReactComponent : _turn_up_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent
+
+    //setAttributes を使って属性の値を更新（真偽値を反転）
+    ,
+    onClick: () => {
+      setAttributes({
+        is_front: !is_front
+      });
+    }
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash_logo"
@@ -2695,9 +2780,15 @@ function save(_ref) {
     logo_fillColor,
     char_paths,
     logo_width,
-    logo_height
+    logo_height,
+    is_front
   } = attributes;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  const blockProps = is_front ? _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save() : _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
+    style: {
+      zIndex: -1
+    }
+  });
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
     "data-fill-color": logo_fillColor,
     "data-stroke-color": logo_strokeColor
@@ -25533,7 +25624,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"color":{"background":true,"gradients":true,"link":false,"text":false},"html":false},"attributes":{"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"fontFamilyOptions":{"type":"array","default":[]}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"color":{"background":true,"gradients":true,"link":false,"text":false},"html":false},"attributes":{"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"fontFamilyOptions":{"type":"array","default":[]}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

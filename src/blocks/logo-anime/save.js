@@ -7,10 +7,12 @@ export default function save({ attributes }) {
 		logo_fillColor,
 		char_paths,
 		logo_width,
-		logo_height
+		logo_height,
+		is_front
 	} = attributes;
+	const blockProps = is_front ? useBlockProps.save() : useBlockProps.save({ style: { zIndex: -1 } });
 	return (
-		<div {...useBlockProps.save()}>
+		<div {...blockProps}>
 			<div
 				id="splash"
 				data-fill-color={logo_fillColor}

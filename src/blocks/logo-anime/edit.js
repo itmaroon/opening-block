@@ -17,6 +17,8 @@ import {
 
 import { ReactComponent as play } from './circle-play.svg';
 import { ReactComponent as pause } from './circle-pause.svg';
+import { ReactComponent as toFront } from './turn-up.svg';
+import { ReactComponent as toBack } from './turn-down.svg';
 import { useEffect, useRef } from '@wordpress/element';
 import './editor.scss';
 import CustomFontFace from '../../../CustomFontFace'
@@ -37,6 +39,7 @@ export default function Edit({ attributes, setAttributes }) {
 		logo_fillGradient,
 		is_anime,
 		trigger_anime,
+		is_front,
 		fontFamilyOptions
 	} = attributes;
 
@@ -51,6 +54,8 @@ export default function Edit({ attributes, setAttributes }) {
 			fontStyle: state.data.fontStyle,
 		}),
 	};
+
+	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
 
 	const FontSelect = ({ label, value }) => (
 		<>
@@ -212,9 +217,9 @@ export default function Edit({ attributes, setAttributes }) {
 			<BlockControls>
 				<Toolbar>
 					<Button
-						//属性 isEditMode の値により表示するラベルを切り替え
+						//表示するラベルを切り替え
 						label={is_anime ? "実行中" : "停止中"}
-						//属性 isEditMode の値により表示するアイコンを切り替え
+						//表示するアイコンを切り替え
 						icon={is_anime ? pause : play}
 
 						//setAttributes を使って属性の値を更新（真偽値を反転）
@@ -222,10 +227,21 @@ export default function Edit({ attributes, setAttributes }) {
 							setAttributes({ trigger_anime: !trigger_anime })
 						}}
 					/>
+					<Button
+						//表示するラベルを切り替え
+						label={is_front ? "最背面へ" : "最前面へ"}
+						//表示するアイコンを切り替え
+						icon={is_front ? toBack : toFront}
+
+						//setAttributes を使って属性の値を更新（真偽値を反転）
+						onClick={() => {
+							setAttributes({ is_front: !is_front })
+						}}
+					/>
 				</Toolbar>
 			</BlockControls>
 
-			<div {...useBlockProps()}>
+			<div {...blockProps}>
 				<div id="splash">
 					<div id="splash_logo">
 						<svg id="logo_anime" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>

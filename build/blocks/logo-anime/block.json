@@ -63,6 +63,10 @@
       "type": "boolean",
       "default": false
     },
+    "is_front": {
+      "type": "boolean",
+      "default": true
+    },
     "fontFamilyOptions": {
       "type": "array",
       "default": []
