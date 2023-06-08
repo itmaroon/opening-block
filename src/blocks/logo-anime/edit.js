@@ -6,7 +6,8 @@ import {
 	TextControl,
 	Button,
 	RangeControl,
-	Toolbar
+	Toolbar,
+	RadioControl
 } from '@wordpress/components';
 import {
 	useBlockProps,
@@ -16,7 +17,6 @@ import {
 } from '@wordpress/block-editor';
 
 import { ReactComponent as play } from './circle-play.svg';
-import { ReactComponent as pause } from './circle-pause.svg';
 import { ReactComponent as toFront } from './turn-up.svg';
 import { ReactComponent as toBack } from './turn-down.svg';
 import { useEffect, useRef } from '@wordpress/element';
@@ -27,6 +27,8 @@ import Select from 'react-select';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
+		bg_Color,
+		bg_Gradient,
 		logo_text,
 		logo_font,
 		char_paths,
@@ -40,10 +42,12 @@ export default function Edit({ attributes, setAttributes }) {
 		is_anime,
 		trigger_anime,
 		is_front,
-		fontFamilyOptions
+		fontFamilyOptions,
+		ending_type
 	} = attributes;
 
 	//単色かグラデーションかの選択
+	const bgColor = bg_Color || bg_Gradient;
 	const fillColor = logo_fillColor || logo_fillGradient;
 
 	const customStyles = {
@@ -54,7 +58,7 @@ export default function Edit({ attributes, setAttributes }) {
 			fontStyle: state.data.fontStyle,
 		}),
 	};
-
+	//is_frontフラグによってブロックのzIndexを設定
 	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
 
 	const FontSelect = ({ label, value }) => (
@@ -106,6 +110,13 @@ export default function Edit({ attributes, setAttributes }) {
 			const target_doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document
 			// 要素を取得
 			const logoElement = target_doc.getElementById('logo_anime');
+			const splash_logo = target_doc.getElementById('splash_logo');
+			const splash = target_doc.getElementById('splash');
+			const splashbg = target_doc.getElementsByClassName('splashbg')[0];
+			const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
+			const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
+			const fixbg = target_doc.getElementsByClassName('fixbg')[0];
+			//パスの初期化
 			const paths = logoElement.getElementsByTagName('path');
 			for (let path of paths) {
 				const length = path.getTotalLength();
@@ -125,15 +136,105 @@ export default function Edit({ attributes, setAttributes }) {
 						[{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
 						{ duration: 1000, fill: "both", delay: index * 800 }
 					).addEventListener("finish", () => {
-
+						// アニメーション終了
 						if (index === paths.length - 1) {
 							logoElement.classList.add("done");
-							setAttributes({ is_anime: false }); // アニメーション終了
 							// Reset all paths
 							for (let path of paths) {
 								path.style.strokeDashoffset = "";
 								path.style.strokeDasharray = "";
 							}
+							//ロゴのフェードアウト
+							splash_logo.animate(
+								[
+									{ opacity: 1 },
+									{ opacity: 0 }
+								],
+								{
+									delay: 800,
+									duration: 1000,
+									fill: 'both'
+								}
+							).addEventListener("finish", () => {
+								//ここからオープニング終了アニメーション
+								//オープン型
+								if (ending_type === 'virtical_open' || ending_type === 'horizen_open') {
+									fixbg.classList.add('hide');//フェード用背景非表示
+									//splash.classList.add('disappear');
+									splash.animate([{ opacity: 0 }], { duration: 0, fill: 'both' });
+									splashbg.classList.add('appear');//フェードアウト後appearクラス付与
+									splashbg.classList.add(ending_type);//フェードアウト後クラス付与
+									splashbg2.classList.add('appear');//フェードアウト後appearクラス付与
+									splashbg2.classList.add(ending_type);//フェードアウト後appearクラス付与
+									//最終処理
+									splashbg2.addEventListener('animationend', function () {
+										fixbg.classList.remove('hide');//フェード用背景非表示
+										splashbg.classList.remove('appear');//フェードアウト後appearクラス付与
+										splashbg.classList.remove(ending_type);//フェードアウト後appearクラス付与
+										splashbg2.classList.remove('appear');//フェードアウト後appearクラス付与
+										splashbg2.classList.remove(ending_type);//フェードアウト後appearクラス付与
+										//splash.classList.remove('disappear');
+										splash.classList.remove('hide');
+										splash_logo.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+										splash.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+										setAttributes({ is_anime: false }); //アニメボタンの変更
+										setAttributes({ is_front: false }); //背面へ
+									});
+									//スライド型	
+								} else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
+									splash.animate(
+										[
+											{ opacity: 1 },
+											{ opacity: 0 }
+										],
+										{
+											delay: 800,
+											duration: 1000,
+											fill: 'both'
+										}
+									).addEventListener("finish", () => {
+										splashbg.classList.add('appear');//フェードアウト後appearクラス付与
+										splashbg.classList.add(ending_type);//フェードアウト後appearクラス付与
+										fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
+										//最終処理
+										fixbg.addEventListener('transitionend', function () {
+											splashbg.classList.remove('appear');//フェードアウト後appearクラス削除
+											splashbg.classList.remove(ending_type);//フェードアウト後appearクラス削除
+											fixbg.classList.remove('disappear');//背景を戻す
+											splash.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+											splash_logo.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+
+											setAttributes({ is_anime: false }); //アニメボタンの変更
+											setAttributes({ is_front: false }); //背面へ
+										});
+									});
+									//円形拡張型	
+								} else if (ending_type === 'circle_expand') {
+									splash.animate(
+										[
+											{ opacity: 1 },
+											{ opacity: 0 }
+										],
+										{
+											delay: 800,
+											duration: 1000,
+											fill: 'both'
+										}
+									).addEventListener("finish", () => {
+										splashCirclebg.classList.add('appear');//フェードアウト後appearクラス付与
+										fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
+										//最終処理
+										fixbg.addEventListener('transitionend', function () {
+											splashCirclebg.classList.remove('appear');//フェードアウト後appearクラス削除
+											fixbg.classList.remove('disappear');//背景を戻す
+											splash.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+											splash_logo.animate([{ opacity: 1 }], { duration: 0, fill: 'both' });
+											setAttributes({ is_anime: false }); //アニメボタンの変更
+											setAttributes({ is_front: false }); //背面へ
+										});
+									});
+								}
+							});
 						}
 					});
 				});
@@ -153,6 +254,26 @@ export default function Edit({ attributes, setAttributes }) {
 			/>
 
 			<InspectorControls group="settings">
+				<PanelBody title="背景設定" initialOpen={true} className="back_design_ctrl">
+
+					<PanelColorGradientSettings
+						title={__("Background Color Setting")}
+						settings={[
+							{
+								colorValue: bg_Color,
+								gradientValue: bg_Gradient,
+
+								label: __("Choice color or gradient"),
+								onColorChange: (newValue) => {
+									setAttributes({ bg_Color: newValue === undefined ? '' : newValue });
+								},
+								onGradientChange: (newValue) => {
+									setAttributes({ bg_Gradient: newValue });
+								},
+							}
+						]}
+					/>
+				</PanelBody>
 				<PanelBody title="ロゴ設定" initialOpen={true} className="logo_design_ctrl">
 					<PanelRow>
 						<TextControl
@@ -212,6 +333,22 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 					/>
 				</PanelBody>
+				<PanelBody title="エンディングアニメーション" initialOpen={true} className="ending_ctrl">
+
+					<RadioControl
+						selected={ending_type}
+						options={[
+							{ label: '縦方向スライド', value: "virtical_slide" },
+							{ label: '横方向スライド', value: "horizen_slide" },
+							{ label: '縦開きスライド', value: "virtical_open" },
+							{ label: '横開きスライド', value: "horizen_open" },
+							{ label: '円形エクスパンド', value: "circle_expand" },
+						]}
+						onChange={(newValue) => {
+							setAttributes({ ending_type: newValue });
+						}}
+					/>
+				</PanelBody>
 			</InspectorControls>
 
 			<BlockControls>
@@ -220,12 +357,14 @@ export default function Edit({ attributes, setAttributes }) {
 						//表示するラベルを切り替え
 						label={is_anime ? "実行中" : "停止中"}
 						//表示するアイコンを切り替え
-						icon={is_anime ? pause : play}
+						icon={play}
 
 						//setAttributes を使って属性の値を更新（真偽値を反転）
 						onClick={() => {
 							setAttributes({ trigger_anime: !trigger_anime })
+
 						}}
+						disabled={!is_front || is_anime}
 					/>
 					<Button
 						//表示するラベルを切り替え
@@ -237,26 +376,27 @@ export default function Edit({ attributes, setAttributes }) {
 						onClick={() => {
 							setAttributes({ is_front: !is_front })
 						}}
+						disabled={is_anime ? true : false}
 					/>
 				</Toolbar>
 			</BlockControls>
 
 			<div {...blockProps}>
-				<div id="splash">
+				<div id="splash" style={{ background: bgColor, display: is_front ? 'block' : 'none' }}>
 					<div id="splash_logo">
-						<svg id="logo_anime" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>
+						<svg id="logo_anime" className="done" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>
 							<g>
 								{char_paths.map((path, i) => (
-									is_anime
-										? <path style={{ fill: "none", stroke: logo_strokeColor }} key={i} d={path} />
-										: <path style={{ fill: fillColor, fillOpacity: 1, stroke: "none" }} key={i} d={path} />
-
+									<path style={{ fill: fillColor, stroke: logo_strokeColor }} key={i} d={path} />
 								))}
 							</g>
 						</svg>
 					</div>
 				</div>
-
+				<div className="fixbg"></div>
+				<div className="splashbg" style={{ background: bgColor }}></div>
+				<div className="splashbg2" style={{ background: bgColor }}></div>
+				<div className="splashCirclebg" style={{ background: bgColor }}></div>
 			</div>
 		</>
 

@@ -7,15 +7,16 @@
 	"version": "0.1.0",
 	"description": "ロゴをアニメーションするオープニングです。",
 	"supports": {
-		"color": {
-			"background": true,
-			"gradients": true,
-			"link": false,
-			"text": false
-		},
 		"html": false
 	},
 	"attributes": {
+		"bg_Color": {
+			"type": "string",
+			"default": "#504237"
+		},
+		"bg_Gradient": {
+			"type": "string"
+		},
 		"logo_text": {
 			"type": "string",
 			"default": "LOGO"
@@ -70,6 +71,10 @@
 		"fontFamilyOptions": {
 			"type": "array",
 			"default": []
+		},
+		"ending_type": {
+			"type": "string",
+			"default": "virtical_slide"
 		}
 	},
 	"textdomain": "opening-block",

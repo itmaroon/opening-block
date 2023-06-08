@@ -2194,36 +2194,6 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
-/***/ "./src/blocks/logo-anime/circle-pause.svg":
-/*!************************************************!*\
-  !*** ./src/blocks/logo-anime/circle-pause.svg ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ReactComponent: () => (/* binding */ SvgCirclePause),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var SvgCirclePause = function SvgCirclePause(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 512 512"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M464 256a208 208 0 1 0-416 0 208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0zm224-72v144c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0v144c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"
-  })));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNNDY0IDI1NkEyMDggMjA4IDAgMSAwIDQ4IDI1NmEyMDggMjA4IDAgMSAwIDQxNiAwek0wIDI1NmEyNTYgMjU2IDAgMSAxIDUxMiAwQTI1NiAyNTYgMCAxIDEgMCAyNTZ6bTIyNC03MlYzMjhjMCAxMy4zLTEwLjcgMjQtMjQgMjRzLTI0LTEwLjctMjQtMjRWMTg0YzAtMTMuMyAxMC43LTI0IDI0LTI0czI0IDEwLjcgMjQgMjR6bTExMiAwVjMyOGMwIDEzLjMtMTAuNyAyNC0yNCAyNHMtMjQtMTAuNy0yNC0yNFYxODRjMC0xMy4zIDEwLjctMjQgMjQtMjRzMjQgMTAuNyAyNCAyNHoiLz48L3N2Zz4=");
-
-/***/ }),
-
 /***/ "./src/blocks/logo-anime/circle-play.svg":
 /*!***********************************************!*\
   !*** ./src/blocks/logo-anime/circle-play.svg ***!
@@ -2440,14 +2410,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./circle-play.svg */ "./src/blocks/logo-anime/circle-play.svg");
-/* harmony import */ var _circle_pause_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./circle-pause.svg */ "./src/blocks/logo-anime/circle-pause.svg");
-/* harmony import */ var _turn_up_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./turn-up.svg */ "./src/blocks/logo-anime/turn-up.svg");
-/* harmony import */ var _turn_down_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./turn-down.svg */ "./src/blocks/logo-anime/turn-down.svg");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/logo-anime/editor.scss");
-/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
-/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-
+/* harmony import */ var _turn_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./turn-up.svg */ "./src/blocks/logo-anime/turn-up.svg");
+/* harmony import */ var _turn_down_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./turn-down.svg */ "./src/blocks/logo-anime/turn-down.svg");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/logo-anime/editor.scss");
+/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
+/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 
 
 
@@ -2466,6 +2434,8 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
+    bg_Color,
+    bg_Gradient,
     logo_text,
     logo_font,
     char_paths,
@@ -2479,10 +2449,12 @@ function Edit(_ref) {
     is_anime,
     trigger_anime,
     is_front,
-    fontFamilyOptions
+    fontFamilyOptions,
+    ending_type
   } = attributes;
 
   //単色かグラデーションかの選択
+  const bgColor = bg_Color || bg_Gradient;
   const fillColor = logo_fillColor || logo_fillGradient;
   const customStyles = {
     option: (provided, state) => ({
@@ -2492,6 +2464,7 @@ function Edit(_ref) {
       fontStyle: state.data.fontStyle
     })
   };
+  //is_frontフラグによってブロックのzIndexを設定
   const blockProps = is_front ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)() : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
     style: {
       zIndex: -1
@@ -2504,7 +2477,7 @@ function Edit(_ref) {
     } = _ref2;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       className: "components-base-control__label"
-    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_10__["default"], {
       options: fontFamilyOptions,
       value: fontFamilyOptions.find(option => option.value === value),
       onChange: newOption => {
@@ -2516,7 +2489,7 @@ function Edit(_ref) {
     }));
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    opentype_js__WEBPACK_IMPORTED_MODULE_10__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
+    opentype_js__WEBPACK_IMPORTED_MODULE_9__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
       if (err) {
         console.error('Could not load the font: ' + err);
       } else {
@@ -2555,6 +2528,13 @@ function Edit(_ref) {
       const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
       // 要素を取得
       const logoElement = target_doc.getElementById('logo_anime');
+      const splash_logo = target_doc.getElementById('splash_logo');
+      const splash = target_doc.getElementById('splash');
+      const splashbg = target_doc.getElementsByClassName('splashbg')[0];
+      const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
+      const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
+      const fixbg = target_doc.getElementsByClassName('fixbg')[0];
+      //パスの初期化
       const paths = logoElement.getElementsByTagName('path');
       for (let path of paths) {
         const length = path.getTotalLength();
@@ -2579,31 +2559,182 @@ function Edit(_ref) {
             fill: "both",
             delay: index * 800
           }).addEventListener("finish", () => {
+            // アニメーション終了
             if (index === paths.length - 1) {
               logoElement.classList.add("done");
-              setAttributes({
-                is_anime: false
-              }); // アニメーション終了
               // Reset all paths
               for (let path of paths) {
                 path.style.strokeDashoffset = "";
                 path.style.strokeDasharray = "";
               }
+              //ロゴのフェードアウト
+              splash_logo.animate([{
+                opacity: 1
+              }, {
+                opacity: 0
+              }], {
+                delay: 800,
+                duration: 1000,
+                fill: 'both'
+              }).addEventListener("finish", () => {
+                //ここからオープニング終了アニメーション
+                //オープン型
+                if (ending_type === 'virtical_open' || ending_type === 'horizen_open') {
+                  fixbg.classList.add('hide'); //フェード用背景非表示
+                  //splash.classList.add('disappear');
+                  splash.animate([{
+                    opacity: 0
+                  }], {
+                    duration: 0,
+                    fill: 'both'
+                  });
+                  splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
+                  splashbg.classList.add(ending_type); //フェードアウト後クラス付与
+                  splashbg2.classList.add('appear'); //フェードアウト後appearクラス付与
+                  splashbg2.classList.add(ending_type); //フェードアウト後appearクラス付与
+                  //最終処理
+                  splashbg2.addEventListener('animationend', function () {
+                    fixbg.classList.remove('hide'); //フェード用背景非表示
+                    splashbg.classList.remove('appear'); //フェードアウト後appearクラス付与
+                    splashbg.classList.remove(ending_type); //フェードアウト後appearクラス付与
+                    splashbg2.classList.remove('appear'); //フェードアウト後appearクラス付与
+                    splashbg2.classList.remove(ending_type); //フェードアウト後appearクラス付与
+                    //splash.classList.remove('disappear');
+                    splash.classList.remove('hide');
+                    splash_logo.animate([{
+                      opacity: 1
+                    }], {
+                      duration: 0,
+                      fill: 'both'
+                    });
+                    splash.animate([{
+                      opacity: 1
+                    }], {
+                      duration: 0,
+                      fill: 'both'
+                    });
+                    setAttributes({
+                      is_anime: false
+                    }); //アニメボタンの変更
+                    setAttributes({
+                      is_front: false
+                    }); //背面へ
+                  });
+                  //スライド型	
+                } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
+                  splash.animate([{
+                    opacity: 1
+                  }, {
+                    opacity: 0
+                  }], {
+                    delay: 800,
+                    duration: 1000,
+                    fill: 'both'
+                  }).addEventListener("finish", () => {
+                    splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
+                    splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
+                    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+                    //最終処理
+                    fixbg.addEventListener('transitionend', function () {
+                      splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
+                      splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
+                      fixbg.classList.remove('disappear'); //背景を戻す
+                      splash.animate([{
+                        opacity: 1
+                      }], {
+                        duration: 0,
+                        fill: 'both'
+                      });
+                      splash_logo.animate([{
+                        opacity: 1
+                      }], {
+                        duration: 0,
+                        fill: 'both'
+                      });
+                      setAttributes({
+                        is_anime: false
+                      }); //アニメボタンの変更
+                      setAttributes({
+                        is_front: false
+                      }); //背面へ
+                    });
+                  });
+                  //円形拡張型	
+                } else if (ending_type === 'circle_expand') {
+                  splash.animate([{
+                    opacity: 1
+                  }, {
+                    opacity: 0
+                  }], {
+                    delay: 800,
+                    duration: 1000,
+                    fill: 'both'
+                  }).addEventListener("finish", () => {
+                    splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
+                    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+                    //最終処理
+                    fixbg.addEventListener('transitionend', function () {
+                      splashCirclebg.classList.remove('appear'); //フェードアウト後appearクラス削除
+                      fixbg.classList.remove('disappear'); //背景を戻す
+                      splash.animate([{
+                        opacity: 1
+                      }], {
+                        duration: 0,
+                        fill: 'both'
+                      });
+                      splash_logo.animate([{
+                        opacity: 1
+                      }], {
+                        duration: 0,
+                        fill: 'both'
+                      });
+                      setAttributes({
+                        is_anime: false
+                      }); //アニメボタンの変更
+                      setAttributes({
+                        is_front: false
+                      }); //背面へ
+                    });
+                  });
+                }
+              });
             }
           });
         });
       };
+
       animatePaths(paths);
     } else {
       strokeRef.current = true;
     }
   }, [trigger_anime]);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_8__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
     group: "settings"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: "\u80CC\u666F\u8A2D\u5B9A",
+    initialOpen: true,
+    className: "back_design_ctrl"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.__experimentalPanelColorGradientSettings, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Background Color Setting"),
+    settings: [{
+      colorValue: bg_Color,
+      gradientValue: bg_Gradient,
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choice color or gradient"),
+      onColorChange: newValue => {
+        setAttributes({
+          bg_Color: newValue === undefined ? '' : newValue
+        });
+      },
+      onGradientChange: newValue => {
+        setAttributes({
+          bg_Gradient: newValue
+        });
+      }
+    }]
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
     title: "\u30ED\u30B4\u8A2D\u5B9A",
     initialOpen: true,
     className: "logo_design_ctrl"
@@ -2663,13 +2794,40 @@ function Edit(_ref) {
         logo_fillGradient: newValue
       })
     }]
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: "\u30A8\u30F3\u30C7\u30A3\u30F3\u30B0\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3",
+    initialOpen: true,
+    className: "ending_ctrl"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+    selected: ending_type,
+    options: [{
+      label: '縦方向スライド',
+      value: "virtical_slide"
+    }, {
+      label: '横方向スライド',
+      value: "horizen_slide"
+    }, {
+      label: '縦開きスライド',
+      value: "virtical_open"
+    }, {
+      label: '横開きスライド',
+      value: "horizen_open"
+    }, {
+      label: '円形エクスパンド',
+      value: "circle_expand"
+    }],
+    onChange: newValue => {
+      setAttributes({
+        ending_type: newValue
+      });
+    }
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
   //表示するラベルを切り替え
   , {
     label: is_anime ? "実行中" : "停止中"
     //表示するアイコンを切り替え
     ,
-    icon: is_anime ? _circle_pause_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent : _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
+    icon: _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
 
     //setAttributes を使って属性の値を更新（真偽値を反転）
     ,
@@ -2677,14 +2835,15 @@ function Edit(_ref) {
       setAttributes({
         trigger_anime: !trigger_anime
       });
-    }
+    },
+    disabled: !is_front || is_anime
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
   //表示するラベルを切り替え
   , {
     label: is_front ? "最背面へ" : "最前面へ"
     //表示するアイコンを切り替え
     ,
-    icon: is_front ? _turn_down_svg__WEBPACK_IMPORTED_MODULE_7__.ReactComponent : _turn_up_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent
+    icon: is_front ? _turn_down_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent : _turn_up_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
 
     //setAttributes を使って属性の値を更新（真偽値を反転）
     ,
@@ -2692,32 +2851,47 @@ function Edit(_ref) {
       setAttributes({
         is_front: !is_front
       });
-    }
+    },
+    disabled: is_anime ? true : false
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    id: "splash"
+    id: "splash",
+    style: {
+      background: bgColor,
+      display: is_front ? 'block' : 'none'
+    }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash_logo"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
     id: "logo_anime",
+    className: "done",
     width: "250px",
     height: "120px",
     viewBox: `${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => is_anime ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
     style: {
-      fill: "none",
+      fill: fillColor,
       stroke: logo_strokeColor
     },
     key: i,
     d: path
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "fixbg"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashbg",
     style: {
-      fill: fillColor,
-      fillOpacity: 1,
-      stroke: "none"
-    },
-    key: i,
-    d: path
-  }))))))));
+      background: bgColor
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashbg2",
+    style: {
+      background: bgColor
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashCirclebg",
+    style: {
+      background: bgColor
+    }
+  })));
 }
 
 /***/ }),
@@ -2781,17 +2955,20 @@ function save(_ref) {
     char_paths,
     logo_width,
     logo_height,
-    is_front
+    bg_Color,
+    bg_Gradient,
+    ending_type
   } = attributes;
-  const blockProps = is_front ? _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save() : _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-    style: {
-      zIndex: -1
-    }
-  });
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  const bgColor = bg_Color || bg_Gradient;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
     "data-fill-color": logo_fillColor,
-    "data-stroke-color": logo_strokeColor
+    "data-stroke-color": logo_strokeColor,
+    "data-ending-type": ending_type,
+    style: {
+      background: bgColor
+    }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash_logo"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -2803,7 +2980,22 @@ function save(_ref) {
     key: i,
     d: path
   })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    id: "svg_file"
+    className: "fixbg"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashbg",
+    style: {
+      background: bgColor
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashbg2",
+    style: {
+      background: bgColor
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "splashCirclebg",
+    style: {
+      background: bgColor
+    }
   }));
 }
 
@@ -25624,7 +25816,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"color":{"background":true,"gradients":true,"link":false,"text":false},"html":false},"attributes":{"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"fontFamilyOptions":{"type":"array","default":[]}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"html":false},"attributes":{"bg_Color":{"type":"string","default":"#504237"},"bg_Gradient":{"type":"string"},"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"fontFamilyOptions":{"type":"array","default":[]},"ending_type":{"type":"string","default":"virtical_slide"}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 
