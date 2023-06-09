@@ -10,7 +10,8 @@
 }
 
 .wp-block-itmar-logo-anime,
-.wp-block-itmar-tea-time {
+.wp-block-itmar-tea-time,
+.wp-block-itmar-welcom {
   /*=============== 全ブロック共通 =================*/
   position: fixed !important;
   top: 0;
@@ -21,13 +22,12 @@
   height: 100vh;
   /* Loading背景画面　*/
   /* Loading画像中央配置　*/
-  /*=============== tea-timeブロック内の指定 =================*/
-  /*=============== logo-animeブロック内の指定 =================*/
-  /*アニメーション後に.doneというクラス名がで付与された時の指定*/
   /*画面遷移アニメーション*/
+  /* =============== welcomブロック内の指定 ================= */
 }
 .wp-block-itmar-logo-anime #splash,
-.wp-block-itmar-tea-time #splash {
+.wp-block-itmar-tea-time #splash,
+.wp-block-itmar-welcom #splash {
   /*fixedで全面に固定*/
   position: fixed;
   top: 0;
@@ -38,11 +38,13 @@
   text-align: center;
 }
 .wp-block-itmar-logo-anime #splash.disappear,
-.wp-block-itmar-tea-time #splash.disappear {
+.wp-block-itmar-tea-time #splash.disappear,
+.wp-block-itmar-welcom #splash.disappear {
   opacity: 0;
 }
 .wp-block-itmar-logo-anime #splash_logo,
-.wp-block-itmar-tea-time #splash_logo {
+.wp-block-itmar-tea-time #splash_logo,
+.wp-block-itmar-welcom #splash_logo {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,121 +52,13 @@
   transition: opacity 1s ease 0.8s;
 }
 .wp-block-itmar-logo-anime #splash_logo.disappear,
-.wp-block-itmar-tea-time #splash_logo.disappear {
+.wp-block-itmar-tea-time #splash_logo.disappear,
+.wp-block-itmar-welcom #splash_logo.disappear {
   opacity: 0;
-}
-.wp-block-itmar-logo-anime .coffee,
-.wp-block-itmar-tea-time .coffee {
-  display: flex;
-  justify-content: center;
-  width: 20vw;
-  height: 50vh;
-  background-color: transparent;
-}
-.wp-block-itmar-logo-anime .coffee_text,
-.wp-block-itmar-tea-time .coffee_text {
-  position: absolute;
-  bottom: 240px;
-  width: 136px;
-  font-family: serif;
-}
-.wp-block-itmar-logo-anime .coffee_text > span,
-.wp-block-itmar-tea-time .coffee_text > span {
-  position: absolute;
-  display: block;
-  font-size: 16px;
-  offset-path: path("m61.498,27.295c9.366,9.437,4.071,22.205-6.929,23.205-10.006.91-19.834-7.567-19.834-23.475,0-13,12.942-24.525,31.834-24.525,18.704,0,25.174,19.976,25,32-.231,16.017-7.03,24.708-13,34-18.22,28.357-18.22,49.926-13,58");
-  opacity: 0;
-}
-.wp-block-itmar-logo-anime .coffee_text > span.play,
-.wp-block-itmar-tea-time .coffee_text > span.play {
-  -webkit-animation: move-text 3.2s linear infinite, distort-text 3.2s linear infinite;
-          animation: move-text 3.2s linear infinite, distort-text 3.2s linear infinite;
-}
-@-webkit-keyframes move-text {
-  0% {
-    offset-distance: 100%;
-    opacity: 0;
-  }
-  10%, 90% {
-    opacity: 1;
-  }
-  100% {
-    offset-distance: 0;
-    opacity: 0;
-  }
-}
-@keyframes move-text {
-  0% {
-    offset-distance: 100%;
-    opacity: 0;
-  }
-  10%, 90% {
-    opacity: 1;
-  }
-  100% {
-    offset-distance: 0;
-    opacity: 0;
-  }
-}
-@-webkit-keyframes distort-text {
-  45% {
-    transform: scaleY(1);
-  }
-  65% {
-    transform: scaleY(1.8);
-  }
-  85% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(0.5);
-  }
-}
-@keyframes distort-text {
-  45% {
-    transform: scaleY(1);
-  }
-  65% {
-    transform: scaleY(1.8);
-  }
-  85% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(0.5);
-  }
-}
-.wp-block-itmar-logo-anime .coffee_cup,
-.wp-block-itmar-tea-time .coffee_cup {
-  position: absolute;
-  bottom: 20px;
-  display: block;
-  width: 136px;
-  height: 100px;
-  background-image: url("./img/coffee_cup.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.wp-block-itmar-logo-anime #logo_anime path,
-.wp-block-itmar-tea-time #logo_anime path {
-  fill-opacity: 0;
-  /*fillは透過度0で見えない状態*/
-  stroke-opacity: 1;
-  /*strokeは透過度1で見える状態*/
-  transition: fill-opacity 0.5s;
-  /*カラーがつく際のアニメーション0.5秒で変化*/
-}
-.wp-block-itmar-logo-anime #logo_anime.done path,
-.wp-block-itmar-tea-time #logo_anime.done path {
-  stroke-opacity: 0;
-  /*透過度0で見えない状態*/
-  fill-opacity: 1;
-  /*透過1で見える状態*/
-  stroke: none;
 }
 .wp-block-itmar-logo-anime .fixbg,
-.wp-block-itmar-tea-time .fixbg {
+.wp-block-itmar-tea-time .fixbg,
+.wp-block-itmar-welcom .fixbg {
   display: block;
   position: fixed;
   z-index: 990;
@@ -179,23 +73,29 @@
   /*非表示*/
 }
 .wp-block-itmar-logo-anime .fixbg.disappear,
-.wp-block-itmar-tea-time .fixbg.disappear {
+.wp-block-itmar-tea-time .fixbg.disappear,
+.wp-block-itmar-welcom .fixbg.disappear {
   opacity: 0;
 }
 .wp-block-itmar-logo-anime .fixbg.hide,
-.wp-block-itmar-tea-time .fixbg.hide {
+.wp-block-itmar-tea-time .fixbg.hide,
+.wp-block-itmar-welcom .fixbg.hide {
   display: none;
 }
 .wp-block-itmar-logo-anime .splashbg,
 .wp-block-itmar-logo-anime .splashbg2,
 .wp-block-itmar-tea-time .splashbg,
-.wp-block-itmar-tea-time .splashbg2 {
+.wp-block-itmar-tea-time .splashbg2,
+.wp-block-itmar-welcom .splashbg,
+.wp-block-itmar-welcom .splashbg2 {
   display: none;
 }
 .wp-block-itmar-logo-anime .splashbg.appear,
 .wp-block-itmar-logo-anime .splashbg2.appear,
 .wp-block-itmar-tea-time .splashbg.appear,
-.wp-block-itmar-tea-time .splashbg2.appear {
+.wp-block-itmar-tea-time .splashbg2.appear,
+.wp-block-itmar-welcom .splashbg.appear,
+.wp-block-itmar-welcom .splashbg2.appear {
   display: block;
   position: fixed;
   z-index: 999;
@@ -212,7 +112,9 @@
 .wp-block-itmar-logo-anime .splashbg.appear.virtical_slide,
 .wp-block-itmar-logo-anime .splashbg2.appear.virtical_slide,
 .wp-block-itmar-tea-time .splashbg.appear.virtical_slide,
-.wp-block-itmar-tea-time .splashbg2.appear.virtical_slide {
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_slide,
+.wp-block-itmar-welcom .splashbg.appear.virtical_slide,
+.wp-block-itmar-welcom .splashbg2.appear.virtical_slide {
   top: 0;
   left: 0;
   transform: scaleY(0);
@@ -222,7 +124,9 @@
 .wp-block-itmar-logo-anime .splashbg.appear.horizen_slide,
 .wp-block-itmar-logo-anime .splashbg2.appear.horizen_slide,
 .wp-block-itmar-tea-time .splashbg.appear.horizen_slide,
-.wp-block-itmar-tea-time .splashbg2.appear.horizen_slide {
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_slide,
+.wp-block-itmar-welcom .splashbg.appear.horizen_slide,
+.wp-block-itmar-welcom .splashbg2.appear.horizen_slide {
   top: 0;
   left: 0;
   transform: scaleX(0);
@@ -232,7 +136,9 @@
 .wp-block-itmar-logo-anime .splashbg.appear.virtical_open,
 .wp-block-itmar-logo-anime .splashbg2.appear.virtical_open,
 .wp-block-itmar-tea-time .splashbg.appear.virtical_open,
-.wp-block-itmar-tea-time .splashbg2.appear.virtical_open {
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_open,
+.wp-block-itmar-welcom .splashbg.appear.virtical_open,
+.wp-block-itmar-welcom .splashbg2.appear.virtical_open {
   -webkit-animation-name: top_open;
           animation-name: top_open;
   -webkit-animation-duration: 1.4s;
@@ -244,7 +150,9 @@
 .wp-block-itmar-logo-anime .splashbg.appear.horizen_open,
 .wp-block-itmar-logo-anime .splashbg2.appear.horizen_open,
 .wp-block-itmar-tea-time .splashbg.appear.horizen_open,
-.wp-block-itmar-tea-time .splashbg2.appear.horizen_open {
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_open,
+.wp-block-itmar-welcom .splashbg.appear.horizen_open,
+.wp-block-itmar-welcom .splashbg2.appear.horizen_open {
   -webkit-animation-name: left_open;
           animation-name: left_open;
   -webkit-animation-duration: 1.8s;
@@ -254,7 +162,8 @@
   transform: scaleX(1);
 }
 .wp-block-itmar-logo-anime .splashbg2.appear.virtical_open,
-.wp-block-itmar-tea-time .splashbg2.appear.virtical_open {
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_open,
+.wp-block-itmar-welcom .splashbg2.appear.virtical_open {
   -webkit-animation-name: bottom_open;
           animation-name: bottom_open;
   -webkit-animation-duration: 1.4s;
@@ -264,7 +173,8 @@
   transform: scaleY(1);
 }
 .wp-block-itmar-logo-anime .splashbg2.appear.horizen_open,
-.wp-block-itmar-tea-time .splashbg2.appear.horizen_open {
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_open,
+.wp-block-itmar-welcom .splashbg2.appear.horizen_open {
   -webkit-animation-name: right_open;
           animation-name: right_open;
   -webkit-animation-duration: 1.4s;
@@ -274,7 +184,8 @@
   transform: scaleX(1);
 }
 .wp-block-itmar-logo-anime .splashCirclebg,
-.wp-block-itmar-tea-time .splashCirclebg {
+.wp-block-itmar-tea-time .splashCirclebg,
+.wp-block-itmar-welcom .splashCirclebg {
   display: none;
   position: fixed;
   transform: scale(100);
@@ -289,7 +200,8 @@
   height: 2rem;
 }
 .wp-block-itmar-logo-anime .splashCirclebg.appear,
-.wp-block-itmar-tea-time .splashCirclebg.appear {
+.wp-block-itmar-tea-time .splashCirclebg.appear,
+.wp-block-itmar-welcom .splashCirclebg.appear {
   display: block;
   border-radius: 50%;
   -webkit-animation-name: scale_down;
@@ -469,6 +381,100 @@
   100% {
     transform-origin: right;
     transform: scaleX(0);
+  }
+}
+.wp-block-itmar-logo-anime .wrapper__letters,
+.wp-block-itmar-tea-time .wrapper__letters,
+.wp-block-itmar-welcom .wrapper__letters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wp-block-itmar-logo-anime .letters,
+.wp-block-itmar-tea-time .letters,
+.wp-block-itmar-welcom .letters {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 30vw;
+  height: 27vw;
+}
+.wp-block-itmar-logo-anime .letters_pen,
+.wp-block-itmar-tea-time .letters_pen,
+.wp-block-itmar-welcom .letters_pen {
+  position: absolute;
+  display: block;
+  width: 14vw;
+  height: 14vw;
+  background-image: url("./img/letters_pen.png");
+  background-size: contain;
+  translate: 50% -50%;
+  /* ペン先を文字に合わせる */
+  pointer-events: none;
+  /* 🌟SVGの<mask>に指定するパスと同じ値です🌟 */
+  offset-path: path("m2.348,80.572s13.419,12.98,21.14,11.079c11.174-2.751,31.536-24.701,38.025-25.239,6.389-.53-21.385,25.693-24.459,29.718-5.413,7.09-11.605,25.283-4.55,31.493,7.863,6.923,13.393-.655,24.769-25.374,5.379-11.687-4.068,10.878-3.945,16.587.122,5.676,1.673,14.786,13.121,13.366,13.775-1.709,27.472-54.096,41.337-72.768C119.974,43.023,148.869,1.639,164.589,3.026c13.958,1.232,3.197,23.508,1.539,26.479-3.816,6.839-18.976,43.678-49.781,50.618-21.331,4.806-24.626,32.136-24.711,33.652-.236,4.194,10.144,9.91,24.458-1.367,7.269-5.726-15.819-2.254-28.611,11.33-5.506,5.846,2.166,14.859,22.055,6.01,8.209-3.652,10.733-19.208,20.994-35.927,16.136-26.291,41.535-63.148,44.543-63.683,2.451-.436-2.686,4.953-7.278,13.516-14.464,26.973-50.589,84.537-49.449,86.245,1.501,2.251,23.012-35.269,32.267-35.269s14.804,15.181,7.831,19.498c-.859.531.69-4.121-3.254-5.512-4.446-1.568-14.315,3.266-17.997,9.563-4.582,7.836,1.063,19.99,15.483,10.283,16.427-11.057,18.603-27.489,25.571-28.322,4.712-.563,6.287,6.287,6.287,6.287,0,0-6.17.676-11.059,5.378-7.294,7.016-14.107,18.556-6.59,19.339,10.68,1.112,26.25-15.425,19.163-24.49-3.502-4.48,19.11.016,19.11.016,0,0-15.172,22.934-13.202,21.95,7.36-3.68,22.652-16.087,27.364-18.532,3.843-1.994-8.655,18.608-8.655,18.608,0,0,24.492-19.558,28.995-18.558,2.483.552-7.782,13.937-17.175,36.307-7.761,18.484-17.071,46.77-18.527,55.455-4.023,23.99-1.911,60.906,17.765,61.991,15.992.882,21.799-8.424,33.696-21.683,16.131-17.979-26.993-113.133-15.873-120.355,4.078-2.648,22.063-3.576,25.628-8.464,5.299-7.265-7.086-6.176-13.13-3.134-8.208,4.131-16.046,20.071-1.059,20.888,13.104.714,43.015-28.192,43.015-28.192");
+  offset-rotate: 0deg;
+}
+.wp-block-itmar-logo-anime .letters_pen.play,
+.wp-block-itmar-tea-time .letters_pen.play,
+.wp-block-itmar-welcom .letters_pen.play {
+  -webkit-animation: move-pen 5.5s var(--custom-easing) forwards;
+          animation: move-pen 5.5s var(--custom-easing) forwards;
+}
+@-webkit-keyframes move-pen {
+  0% {
+    offset-distance: 0;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+@keyframes move-pen {
+  0% {
+    offset-distance: 0;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+.wp-block-itmar-logo-anime .letters_line,
+.wp-block-itmar-tea-time .letters_line,
+.wp-block-itmar-welcom .letters_line {
+  position: absolute;
+}
+.wp-block-itmar-logo-anime #letters-svg-text,
+.wp-block-itmar-tea-time #letters-svg-text,
+.wp-block-itmar-welcom #letters-svg-text {
+  mask: url("#letters-svg-mask");
+  -webkit-mask: url("#letters-svg-mask");
+}
+.wp-block-itmar-logo-anime #letters-svg-mask,
+.wp-block-itmar-tea-time #letters-svg-mask,
+.wp-block-itmar-welcom #letters-svg-mask {
+  stroke-dasharray: 1700px;
+  stroke-dashoffset: 1700px;
+}
+.wp-block-itmar-logo-anime #letters-svg-mask.play,
+.wp-block-itmar-tea-time #letters-svg-mask.play,
+.wp-block-itmar-welcom #letters-svg-mask.play {
+  -webkit-animation: dash 5.5s var(--custom-easing) forwards;
+          animation: dash 5.5s var(--custom-easing) forwards;
+}
+@-webkit-keyframes dash {
+  from {
+    stroke-dashoffset: 1700px;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1700px;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

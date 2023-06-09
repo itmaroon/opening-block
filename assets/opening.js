@@ -5,7 +5,6 @@ jQuery(function ($) {
   /*エンディングアニメーション*/
   /*===========================================================*/
   const endingAnimation = (ending_type) => {
-
     const splash = document.getElementById('splash');
     const splash_logo = document.getElementById('splash_logo');
     const splashbg = document.getElementsByClassName('splashbg')[0];
@@ -135,7 +134,7 @@ jQuery(function ($) {
   /*===========================================================*/
   /*コーヒーカップ*/
   /*===========================================================*/
-  if ($('.coffee')) {
+  if ($('#splash .coffee').get(0)) {
     let splashElement = $('#splash');
     let ending_type = splashElement.data('ending-type');
     let duration = splashElement.data('duration');
@@ -143,5 +142,20 @@ jQuery(function ($) {
       //ここからオープニング終了アニメーション
       endingAnimation(ending_type);
     }, duration * 1000);
+  }
+
+  /*===========================================================*/
+  /*Welcom*/
+  /*===========================================================*/
+  if ($('#splash .wrapper__letters').get(0)) {
+    let splashElement = $('#splash');
+    let ending_type = splashElement.data('ending-type');
+    // 要素を取得
+    const letter_mask = document.getElementById('letters-svg-mask');
+    letter_mask.addEventListener('animationend', function () {
+      //ここからオープニング終了アニメーション
+      endingAnimation(ending_type);
+    });
+
   }
 });
