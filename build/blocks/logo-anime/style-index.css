@@ -1,6 +1,6 @@
-/*!*********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/logo-anime/style.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 @charset "UTF-8";
 /**
  * The following styles get applied both on the front of your site
@@ -12,7 +12,9 @@
   --custom-easing: cubic-bezier(.34, .1, .85, 1.04);
 }
 
-.wp-block-itmar-logo-anime {
+.wp-block-itmar-logo-anime,
+.wp-block-itmar-tea-time {
+  /*=============== 全ブロック共通 =================*/
   position: fixed !important;
   top: 0;
   left: 0;
@@ -20,14 +22,15 @@
   color: #ffffff;
   width: 100vw;
   height: 100vh;
-  /* Loading背景画面設定　*/
+  /* Loading背景画面　*/
   /* Loading画像中央配置　*/
-  /*=============== SVGアニメーション内の指定 =================*/
-  /*アニメーション前の指定*/
+  /*=============== tea-timeブロック内の指定 =================*/
+  /*=============== logo-animeブロック内の指定 =================*/
   /*アニメーション後に.doneというクラス名がで付与された時の指定*/
   /*画面遷移アニメーション*/
 }
-.wp-block-itmar-logo-anime #splash {
+.wp-block-itmar-logo-anime #splash,
+.wp-block-itmar-tea-time #splash {
   /*fixedで全面に固定*/
   position: fixed;
   top: 0;
@@ -37,20 +40,89 @@
   z-index: 1000;
   text-align: center;
 }
-.wp-block-itmar-logo-anime #splash.disappear {
+.wp-block-itmar-logo-anime #splash.disappear,
+.wp-block-itmar-tea-time #splash.disappear {
   opacity: 0;
 }
-.wp-block-itmar-logo-anime #splash_logo {
+.wp-block-itmar-logo-anime #splash_logo,
+.wp-block-itmar-tea-time #splash_logo {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 1s ease 0.8s;
 }
-.wp-block-itmar-logo-anime #splash_logo.disappear {
+.wp-block-itmar-logo-anime #splash_logo.disappear,
+.wp-block-itmar-tea-time #splash_logo.disappear {
   opacity: 0;
 }
-.wp-block-itmar-logo-anime #logo_anime path {
+.wp-block-itmar-logo-anime .coffee,
+.wp-block-itmar-tea-time .coffee {
+  display: flex;
+  justify-content: center;
+  width: 20vw;
+  height: 50vh;
+  background-color: transparent;
+}
+.wp-block-itmar-logo-anime .coffee_text,
+.wp-block-itmar-tea-time .coffee_text {
+  position: absolute;
+  bottom: 240px;
+  width: 136px;
+  font-family: serif;
+}
+.wp-block-itmar-logo-anime .coffee_text > span,
+.wp-block-itmar-tea-time .coffee_text > span {
+  position: absolute;
+  display: block;
+  font-size: 16px;
+  offset-path: path("m61.498,27.295c9.366,9.437,4.071,22.205-6.929,23.205-10.006.91-19.834-7.567-19.834-23.475,0-13,12.942-24.525,31.834-24.525,18.704,0,25.174,19.976,25,32-.231,16.017-7.03,24.708-13,34-18.22,28.357-18.22,49.926-13,58");
+  opacity: 0;
+}
+.wp-block-itmar-logo-anime .coffee_text > span.play,
+.wp-block-itmar-tea-time .coffee_text > span.play {
+  animation: move-text 3.2s linear infinite, distort-text 3.2s linear infinite;
+}
+@keyframes move-text {
+  0% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 0;
+    opacity: 0;
+  }
+}
+@keyframes distort-text {
+  45% {
+    transform: scaleY(1);
+  }
+  65% {
+    transform: scaleY(1.8);
+  }
+  85% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.5);
+  }
+}
+.wp-block-itmar-logo-anime .coffee_cup,
+.wp-block-itmar-tea-time .coffee_cup {
+  position: absolute;
+  bottom: 20px;
+  display: block;
+  width: 136px;
+  height: 100px;
+  background-image: url(../../images/coffee_cup.9f518f3f.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.wp-block-itmar-logo-anime #logo_anime path,
+.wp-block-itmar-tea-time #logo_anime path {
   fill-opacity: 0;
   /*fillは透過度0で見えない状態*/
   stroke-opacity: 1;
@@ -58,14 +130,16 @@
   transition: fill-opacity 0.5s;
   /*カラーがつく際のアニメーション0.5秒で変化*/
 }
-.wp-block-itmar-logo-anime #logo_anime.done path {
+.wp-block-itmar-logo-anime #logo_anime.done path,
+.wp-block-itmar-tea-time #logo_anime.done path {
   stroke-opacity: 0;
   /*透過度0で見えない状態*/
   fill-opacity: 1;
   /*透過1で見える状態*/
   stroke: none;
 }
-.wp-block-itmar-logo-anime .fixbg {
+.wp-block-itmar-logo-anime .fixbg,
+.wp-block-itmar-tea-time .fixbg {
   display: block;
   position: fixed;
   z-index: 990;
@@ -79,18 +153,24 @@
   /*フェードアウト*/
   /*非表示*/
 }
-.wp-block-itmar-logo-anime .fixbg.disappear {
+.wp-block-itmar-logo-anime .fixbg.disappear,
+.wp-block-itmar-tea-time .fixbg.disappear {
   opacity: 0;
 }
-.wp-block-itmar-logo-anime .fixbg.hide {
+.wp-block-itmar-logo-anime .fixbg.hide,
+.wp-block-itmar-tea-time .fixbg.hide {
   display: none;
 }
 .wp-block-itmar-logo-anime .splashbg,
-.wp-block-itmar-logo-anime .splashbg2 {
+.wp-block-itmar-logo-anime .splashbg2,
+.wp-block-itmar-tea-time .splashbg,
+.wp-block-itmar-tea-time .splashbg2 {
   display: none;
 }
 .wp-block-itmar-logo-anime .splashbg.appear,
-.wp-block-itmar-logo-anime .splashbg2.appear {
+.wp-block-itmar-logo-anime .splashbg2.appear,
+.wp-block-itmar-tea-time .splashbg.appear,
+.wp-block-itmar-tea-time .splashbg2.appear {
   display: block;
   position: fixed;
   z-index: 999;
@@ -102,21 +182,27 @@
   animation-fill-mode: forwards;
 }
 .wp-block-itmar-logo-anime .splashbg.appear.virtical_slide,
-.wp-block-itmar-logo-anime .splashbg2.appear.virtical_slide {
+.wp-block-itmar-logo-anime .splashbg2.appear.virtical_slide,
+.wp-block-itmar-tea-time .splashbg.appear.virtical_slide,
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_slide {
   top: 0;
   left: 0;
   transform: scaleY(0);
   animation-name: virtical_open;
 }
 .wp-block-itmar-logo-anime .splashbg.appear.horizen_slide,
-.wp-block-itmar-logo-anime .splashbg2.appear.horizen_slide {
+.wp-block-itmar-logo-anime .splashbg2.appear.horizen_slide,
+.wp-block-itmar-tea-time .splashbg.appear.horizen_slide,
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_slide {
   top: 0;
   left: 0;
   transform: scaleX(0);
   animation-name: horizen_open;
 }
 .wp-block-itmar-logo-anime .splashbg.appear.virtical_open,
-.wp-block-itmar-logo-anime .splashbg2.appear.virtical_open {
+.wp-block-itmar-logo-anime .splashbg2.appear.virtical_open,
+.wp-block-itmar-tea-time .splashbg.appear.virtical_open,
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_open {
   animation-name: top_open;
   animation-duration: 1.4s;
   left: 0;
@@ -124,28 +210,33 @@
   transform: scaleY(1);
 }
 .wp-block-itmar-logo-anime .splashbg.appear.horizen_open,
-.wp-block-itmar-logo-anime .splashbg2.appear.horizen_open {
+.wp-block-itmar-logo-anime .splashbg2.appear.horizen_open,
+.wp-block-itmar-tea-time .splashbg.appear.horizen_open,
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_open {
   animation-name: left_open;
   animation-duration: 1.8s;
   top: 0;
   right: 50%;
   transform: scaleX(1);
 }
-.wp-block-itmar-logo-anime .splashbg2.appear.virtical_open {
+.wp-block-itmar-logo-anime .splashbg2.appear.virtical_open,
+.wp-block-itmar-tea-time .splashbg2.appear.virtical_open {
   animation-name: bottom_open;
   animation-duration: 1.4s;
   left: 0;
   top: 50%;
   transform: scaleY(1);
 }
-.wp-block-itmar-logo-anime .splashbg2.appear.horizen_open {
+.wp-block-itmar-logo-anime .splashbg2.appear.horizen_open,
+.wp-block-itmar-tea-time .splashbg2.appear.horizen_open {
   animation-name: right_open;
   animation-duration: 1.4s;
   top: 0;
   left: 50%;
   transform: scaleX(1);
 }
-.wp-block-itmar-logo-anime .splashCirclebg {
+.wp-block-itmar-logo-anime .splashCirclebg,
+.wp-block-itmar-tea-time .splashCirclebg {
   display: none;
   position: fixed;
   transform: scale(100);
@@ -159,7 +250,8 @@
   width: 2rem;
   height: 2rem;
 }
-.wp-block-itmar-logo-anime .splashCirclebg.appear {
+.wp-block-itmar-logo-anime .splashCirclebg.appear,
+.wp-block-itmar-tea-time .splashCirclebg.appear {
   display: block;
   border-radius: 50%;
   animation-name: scale_down;

@@ -2194,10 +2194,10 @@ var weakMemoize = function weakMemoize(func) {
 
 /***/ }),
 
-/***/ "./src/blocks/logo-anime/circle-play.svg":
-/*!***********************************************!*\
-  !*** ./src/blocks/logo-anime/circle-play.svg ***!
-  \***********************************************/
+/***/ "./assets/icon/circle-play.svg":
+/*!*************************************!*\
+  !*** ./assets/icon/circle-play.svg ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2221,6 +2221,66 @@ var SvgCirclePlay = function SvgCirclePlay(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNNDY0IDI1NkEyMDggMjA4IDAgMSAwIDQ4IDI1NmEyMDggMjA4IDAgMSAwIDQxNiAwek0wIDI1NmEyNTYgMjU2IDAgMSAxIDUxMiAwQTI1NiAyNTYgMCAxIDEgMCAyNTZ6TTE4OC4zIDE0Ny4xYzcuNi00LjIgMTYuOC00LjEgMjQuMyAuNWwxNDQgODhjNy4xIDQuNCAxMS41IDEyLjEgMTEuNSAyMC41cy00LjQgMTYuMS0xMS41IDIwLjVsLTE0NCA4OGMtNy40IDQuNS0xNi43IDQuNy0yNC4zIC41cy0xMi4zLTEyLjItMTIuMy0yMC45VjE2OGMwLTguNyA0LjctMTYuNyAxMi4zLTIwLjl6Ii8+PC9zdmc+");
+
+/***/ }),
+
+/***/ "./assets/icon/turn-down.svg":
+/*!***********************************!*\
+  !*** ./assets/icon/turn-down.svg ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnDown),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgTurnDown = function SvgTurnDown(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 384 512"
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M350 334.5c3.8 8.8 2 19-4.6 26l-136 144c-4.5 4.8-10.8 7.5-17.4 7.5s-12.9-2.7-17.4-7.5l-136-144c-6.6-7-8.4-17.2-4.6-26S46.5 320 56 320h88V128c0-17.7-14.3-32-32-32H32C14.3 96 0 81.7 0 64V32C0 14.3 14.3 0 32 0h80c70.7 0 128 57.3 128 128v192h88c9.6 0 18.2 5.7 22 14.5z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDMzNC41YzMuOCA4LjggMiAxOS00LjYgMjZsLTEzNiAxNDRjLTQuNSA0LjgtMTAuOCA3LjUtMTcuNCA3LjVzLTEyLjktMi43LTE3LjQtNy41bC0xMzYtMTQ0Yy02LjYtNy04LjQtMTcuMi00LjYtMjZzMTIuNS0xNC41IDIyLTE0LjVoODhsMC0xOTJjMC0xNy43LTE0LjMtMzItMzItMzJIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NFYzMkMwIDE0LjMgMTQuMyAwIDMyIDBsODAgMGM3MC43IDAgMTI4IDU3LjMgMTI4IDEyOGwwIDE5Mmg4OGM5LjYgMCAxOC4yIDUuNyAyMiAxNC41eiIvPjwvc3ZnPg==");
+
+/***/ }),
+
+/***/ "./assets/icon/turn-up.svg":
+/*!*********************************!*\
+  !*** ./assets/icon/turn-up.svg ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnUp),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+var SvgTurnUp = function SvgTurnUp(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 384 512"
+  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
+    d: "M350 177.5c3.8-8.8 2-19-4.6-26l-136-144C204.9 2.7 198.6 0 192 0s-12.9 2.7-17.4 7.5l-136 144c-6.6 7-8.4 17.2-4.6 26S46.5 192 56 192h88v192c0 17.7-14.3 32-32 32H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h80c70.7 0 128-57.3 128-128V192h88c9.6 0 18.2-5.7 22-14.5z"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDE3Ny41YzMuOC04LjggMi0xOS00LjYtMjZsLTEzNi0xNDRDMjA0LjkgMi43IDE5OC42IDAgMTkyIDBzLTEyLjkgMi43LTE3LjQgNy41bC0xMzYgMTQ0Yy02LjYgNy04LjQgMTcuMi00LjYgMjZzMTIuNSAxNC41IDIyIDE0LjVoODhsMCAxOTJjMCAxNy43LTE0LjMgMzItMzIgMzJIMzJjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMybDgwIDBjNzAuNyAwIDEyOC01Ny4zIDEyOC0xMjhsMC0xOTJoODhjOS42IDAgMTguMi01LjcgMjItMTQuNXoiLz48L3N2Zz4=");
 
 /***/ }),
 
@@ -2253,66 +2313,6 @@ var SvgLSolid = function SvgLSolid(props) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjxzdmcKICAgdmlld0JveD0iMCAwIDI0IDI0IgogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmc0IgogICBzb2RpcG9kaTpkb2NuYW1lPSJsLXNvbGlkLnN2ZyIKICAgaW5rc2NhcGU6dmVyc2lvbj0iMS4yLjIgKDczMmEwMWRhNjMsIDIwMjItMTItMDkpIgogICB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIKICAgeG1sbnM6c29kaXBvZGk9Imh0dHA6Ly9zb2RpcG9kaS5zb3VyY2Vmb3JnZS5uZXQvRFREL3NvZGlwb2RpLTAuZHRkIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM4IiAvPgogIDxzb2RpcG9kaTpuYW1lZHZpZXcKICAgICBpZD0ibmFtZWR2aWV3NiIKICAgICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgICAgYm9yZGVyY29sb3I9IiMwMDAwMDAiCiAgICAgYm9yZGVyb3BhY2l0eT0iMC4yNSIKICAgICBpbmtzY2FwZTpzaG93cGFnZXNoYWRvdz0iMiIKICAgICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMC4wIgogICAgIGlua3NjYXBlOnBhZ2VjaGVja2VyYm9hcmQ9IjAiCiAgICAgaW5rc2NhcGU6ZGVza2NvbG9yPSIjZDFkMWQxIgogICAgIHNob3dncmlkPSJmYWxzZSIKICAgICBpbmtzY2FwZTp6b29tPSIxLjI2NzU3ODEiCiAgICAgaW5rc2NhcGU6Y3g9IjE2MC4xNDc5MiIKICAgICBpbmtzY2FwZTpjeT0iMTMwLjE2OTQ5IgogICAgIGlua3NjYXBlOndpbmRvdy13aWR0aD0iMTYwMCIKICAgICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI4MjkiCiAgICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICAgIGlua3NjYXBlOndpbmRvdy15PSItOCIKICAgICBpbmtzY2FwZTp3aW5kb3ctbWF4aW1pemVkPSIxIgogICAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzQiIC8+CiAgPCEtLSEgRm9udCBBd2Vzb21lIFBybyA2LjQuMCBieSBAZm9udGF3ZXNvbWUgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbSBMaWNlbnNlIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20vbGljZW5zZSAoQ29tbWVyY2lhbCBMaWNlbnNlKSBDb3B5cmlnaHQgMjAyMyBGb250aWNvbnMsIEluYy4gLS0+CiAgPHBhdGgKICAgICBkPSJtIDMuNzM1ODU3NiwwLjQ0Mzc1OTYzIGMgMC45NDgyMTQsMCAxLjcxNDI4NSwwLjc2NjA3MDk3IDEuNzE0Mjg1LDEuNzE0Mjg1OTcgViAyMS4wMTUxODkgSCAxNS43MzU4NTggYyAwLjk0ODIxNCwwIDEuNzE0Mjg1LDAuNzY2MDcxIDEuNzE0Mjg1LDEuNzE0Mjg1IDAsMC45NDgyMTUgLTAuNzY2MDcxLDEuNzE0Mjg2IC0xLjcxNDI4NSwxLjcxNDI4NiBIIDMuNzM1ODU3NiBjIC0wLjk0ODIxNSwwIC0xLjcxNDI4NiwtMC43NjYwNzEgLTEuNzE0Mjg2LC0xLjcxNDI4NiBWIDIuMTU4MDQ1NiBjIDAsLTAuOTQ4MjE1IDAuNzY2MDcxLC0xLjcxNDI4NTk3IDEuNzE0Mjg2LC0xLjcxNDI4NTk3IHoiCiAgICAgaWQ9InBhdGgyIgogICAgIHN0eWxlPSJzdHJva2Utd2lkdGg6MC4wNTM1NzE0IiAvPgo8L3N2Zz4K");
-
-/***/ }),
-
-/***/ "./src/blocks/logo-anime/turn-down.svg":
-/*!*********************************************!*\
-  !*** ./src/blocks/logo-anime/turn-down.svg ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnDown),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var SvgTurnDown = function SvgTurnDown(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 384 512"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M350 334.5c3.8 8.8 2 19-4.6 26l-136 144c-4.5 4.8-10.8 7.5-17.4 7.5s-12.9-2.7-17.4-7.5l-136-144c-6.6-7-8.4-17.2-4.6-26S46.5 320 56 320h88V128c0-17.7-14.3-32-32-32H32C14.3 96 0 81.7 0 64V32C0 14.3 14.3 0 32 0h80c70.7 0 128 57.3 128 128v192h88c9.6 0 18.2 5.7 22 14.5z"
-  })));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDMzNC41YzMuOCA4LjggMiAxOS00LjYgMjZsLTEzNiAxNDRjLTQuNSA0LjgtMTAuOCA3LjUtMTcuNCA3LjVzLTEyLjktMi43LTE3LjQtNy41bC0xMzYtMTQ0Yy02LjYtNy04LjQtMTcuMi00LjYtMjZzMTIuNS0xNC41IDIyLTE0LjVoODhsMC0xOTJjMC0xNy43LTE0LjMtMzItMzItMzJIMzJDMTQuMyA5NiAwIDgxLjcgMCA2NFYzMkMwIDE0LjMgMTQuMyAwIDMyIDBsODAgMGM3MC43IDAgMTI4IDU3LjMgMTI4IDEyOGwwIDE5Mmg4OGM5LjYgMCAxOC4yIDUuNyAyMiAxNC41eiIvPjwvc3ZnPg==");
-
-/***/ }),
-
-/***/ "./src/blocks/logo-anime/turn-up.svg":
-/*!*******************************************!*\
-  !*** ./src/blocks/logo-anime/turn-up.svg ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ReactComponent: () => (/* binding */ SvgTurnUp),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-var SvgTurnUp = function SvgTurnUp(props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    viewBox: "0 0 384 512"
-  }, props), _path || (_path = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("path", {
-    d: "M350 177.5c3.8-8.8 2-19-4.6-26l-136-144C204.9 2.7 198.6 0 192 0s-12.9 2.7-17.4 7.5l-136 144c-6.6 7-8.4 17.2-4.6 26S46.5 192 56 192h88v192c0 17.7-14.3 32-32 32H32c-17.7 0-32 14.3-32 32v32c0 17.7 14.3 32 32 32h80c70.7 0 128-57.3 128-128V192h88c9.6 0 18.2-5.7 22-14.5z"
-  })));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48IS0tISBGb250IEF3ZXNvbWUgUHJvIDYuNC4wIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlIChDb21tZXJjaWFsIExpY2Vuc2UpIENvcHlyaWdodCAyMDIzIEZvbnRpY29ucywgSW5jLiAtLT48cGF0aCBkPSJNMzUwIDE3Ny41YzMuOC04LjggMi0xOS00LjYtMjZsLTEzNi0xNDRDMjA0LjkgMi43IDE5OC42IDAgMTkyIDBzLTEyLjkgMi43LTE3LjQgNy41bC0xMzYgMTQ0Yy02LjYgNy04LjQgMTcuMi00LjYgMjZzMTIuNSAxNC41IDIyIDE0LjVoODhsMCAxOTJjMCAxNy43LTE0LjMgMzItMzIgMzJIMzJjLTE3LjcgMC0zMiAxNC4zLTMyIDMydjMyYzAgMTcuNyAxNC4zIDMyIDMyIDMybDgwIDBjNzAuNyAwIDEyOC01Ny4zIDEyOC0xMjhsMC0xOTJoODhjOS42IDAgMTguMi01LjcgMjItMTQuNXoiLz48L3N2Zz4=");
 
 /***/ }),
 
@@ -2390,6 +2390,163 @@ const CustomFontFace = _ref => {
 
 /***/ }),
 
+/***/ "./EndingAnime.js":
+/*!************************!*\
+  !*** ./EndingAnime.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   endingAnimation: () => (/* binding */ endingAnimation)
+/* harmony export */ });
+function endingAnimation(ending_type, setAttributes) {
+  const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
+  //iframeの有無で操作するドキュメント要素を峻別
+  const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
+
+  //要素を取得
+  const splash = target_doc.getElementById('splash');
+  const splash_logo = target_doc.getElementById('splash_logo');
+  const splashbg = target_doc.getElementsByClassName('splashbg')[0];
+  const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
+  const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
+  const fixbg = target_doc.getElementsByClassName('fixbg')[0];
+  //ロゴのフェードアウト
+  splash_logo.animate([{
+    opacity: 1
+  }, {
+    opacity: 0
+  }], {
+    delay: 800,
+    duration: 1000,
+    fill: 'both'
+  }).addEventListener("finish", () => {
+    //オープン型
+    if (ending_type === 'virtical_open' || ending_type === 'horizen_open') {
+      fixbg.classList.add('hide'); //フェード用背景非表示
+      //splash.classList.add('disappear');
+      splash.animate([{
+        opacity: 0
+      }], {
+        duration: 0,
+        fill: 'both'
+      });
+      splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
+      splashbg.classList.add(ending_type); //フェードアウト後クラス付与
+      splashbg2.classList.add('appear'); //フェードアウト後appearクラス付与
+      splashbg2.classList.add(ending_type); //フェードアウト後appearクラス付与
+      //最終処理
+      splashbg2.addEventListener('animationend', function () {
+        fixbg.classList.remove('hide'); //フェード用背景非表示
+        splashbg.classList.remove('appear'); //フェードアウト後appearクラス付与
+        splashbg.classList.remove(ending_type); //フェードアウト後appearクラス付与
+        splashbg2.classList.remove('appear'); //フェードアウト後appearクラス付与
+        splashbg2.classList.remove(ending_type); //フェードアウト後appearクラス付与
+        //splash.classList.remove('disappear');
+        splash.classList.remove('hide');
+        splash_logo.animate([{
+          opacity: 1
+        }], {
+          duration: 0,
+          fill: 'both'
+        });
+        splash.animate([{
+          opacity: 1
+        }], {
+          duration: 0,
+          fill: 'both'
+        });
+        setAttributes({
+          is_anime: false
+        }); //アニメボタンの変更
+        setAttributes({
+          is_front: false
+        }); //背面へ
+      });
+      //スライド型	
+    } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
+      splash.animate([{
+        opacity: 1
+      }, {
+        opacity: 0
+      }], {
+        delay: 800,
+        duration: 1000,
+        fill: 'both'
+      }).addEventListener("finish", () => {
+        splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
+        splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
+        fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+        //最終処理
+        fixbg.addEventListener('transitionend', function () {
+          splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
+          splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
+          fixbg.classList.remove('disappear'); //背景を戻す
+          splash.animate([{
+            opacity: 1
+          }], {
+            duration: 0,
+            fill: 'both'
+          });
+          splash_logo.animate([{
+            opacity: 1
+          }], {
+            duration: 0,
+            fill: 'both'
+          });
+          setAttributes({
+            is_anime: false
+          }); //アニメボタンの変更
+          setAttributes({
+            is_front: false
+          }); //背面へ
+        });
+      });
+      //円形拡張型	
+    } else if (ending_type === 'circle_expand') {
+      splash.animate([{
+        opacity: 1
+      }, {
+        opacity: 0
+      }], {
+        delay: 800,
+        duration: 1000,
+        fill: 'both'
+      }).addEventListener("finish", () => {
+        splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
+        fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+        //最終処理
+        fixbg.addEventListener('transitionend', function () {
+          splashCirclebg.classList.remove('appear'); //フェードアウト後appearクラス削除
+          fixbg.classList.remove('disappear'); //背景を戻す
+          splash.animate([{
+            opacity: 1
+          }], {
+            duration: 0,
+            fill: 'both'
+          });
+          splash_logo.animate([{
+            opacity: 1
+          }], {
+            duration: 0,
+            fill: 'both'
+          });
+          setAttributes({
+            is_anime: false
+          }); //アニメボタンの変更
+          setAttributes({
+            is_front: false
+          }); //背面へ
+        });
+      });
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./src/blocks/logo-anime/edit.js":
 /*!***************************************!*\
   !*** ./src/blocks/logo-anime/edit.js ***!
@@ -2409,13 +2566,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./circle-play.svg */ "./src/blocks/logo-anime/circle-play.svg");
-/* harmony import */ var _turn_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./turn-up.svg */ "./src/blocks/logo-anime/turn-up.svg");
-/* harmony import */ var _turn_down_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./turn-down.svg */ "./src/blocks/logo-anime/turn-down.svg");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/logo-anime/editor.scss");
+/* harmony import */ var _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/icon/circle-play.svg */ "./assets/icon/circle-play.svg");
+/* harmony import */ var _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/icon/turn-up.svg */ "./assets/icon/turn-up.svg");
+/* harmony import */ var _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../assets/icon/turn-down.svg */ "./assets/icon/turn-down.svg");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../editor.scss */ "./src/editor.scss");
 /* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
-/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+/* harmony import */ var _EndingAnime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../EndingAnime */ "./EndingAnime.js");
+/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
+
 
 
 
@@ -2456,6 +2615,7 @@ function Edit(_ref) {
   //単色かグラデーションかの選択
   const bgColor = bg_Color || bg_Gradient;
   const fillColor = logo_fillColor || logo_fillGradient;
+  //フォント選択selectボックスオプションのカスタムスタイル
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
@@ -2477,7 +2637,7 @@ function Edit(_ref) {
     } = _ref2;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       className: "components-base-control__label"
-    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
       options: fontFamilyOptions,
       value: fontFamilyOptions.find(option => option.value === value),
       onChange: newOption => {
@@ -2489,7 +2649,7 @@ function Edit(_ref) {
     }));
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    opentype_js__WEBPACK_IMPORTED_MODULE_9__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
+    opentype_js__WEBPACK_IMPORTED_MODULE_10__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
       if (err) {
         console.error('Could not load the font: ' + err);
       } else {
@@ -2528,12 +2688,7 @@ function Edit(_ref) {
       const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
       // 要素を取得
       const logoElement = target_doc.getElementById('logo_anime');
-      const splash_logo = target_doc.getElementById('splash_logo');
-      const splash = target_doc.getElementById('splash');
-      const splashbg = target_doc.getElementsByClassName('splashbg')[0];
-      const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
-      const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
-      const fixbg = target_doc.getElementsByClassName('fixbg')[0];
+
       //パスの初期化
       const paths = logoElement.getElementsByTagName('path');
       for (let path of paths) {
@@ -2567,142 +2722,13 @@ function Edit(_ref) {
                 path.style.strokeDashoffset = "";
                 path.style.strokeDasharray = "";
               }
-              //ロゴのフェードアウト
-              splash_logo.animate([{
-                opacity: 1
-              }, {
-                opacity: 0
-              }], {
-                delay: 800,
-                duration: 1000,
-                fill: 'both'
-              }).addEventListener("finish", () => {
-                //ここからオープニング終了アニメーション
-                //オープン型
-                if (ending_type === 'virtical_open' || ending_type === 'horizen_open') {
-                  fixbg.classList.add('hide'); //フェード用背景非表示
-                  //splash.classList.add('disappear');
-                  splash.animate([{
-                    opacity: 0
-                  }], {
-                    duration: 0,
-                    fill: 'both'
-                  });
-                  splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
-                  splashbg.classList.add(ending_type); //フェードアウト後クラス付与
-                  splashbg2.classList.add('appear'); //フェードアウト後appearクラス付与
-                  splashbg2.classList.add(ending_type); //フェードアウト後appearクラス付与
-                  //最終処理
-                  splashbg2.addEventListener('animationend', function () {
-                    fixbg.classList.remove('hide'); //フェード用背景非表示
-                    splashbg.classList.remove('appear'); //フェードアウト後appearクラス付与
-                    splashbg.classList.remove(ending_type); //フェードアウト後appearクラス付与
-                    splashbg2.classList.remove('appear'); //フェードアウト後appearクラス付与
-                    splashbg2.classList.remove(ending_type); //フェードアウト後appearクラス付与
-                    //splash.classList.remove('disappear');
-                    splash.classList.remove('hide');
-                    splash_logo.animate([{
-                      opacity: 1
-                    }], {
-                      duration: 0,
-                      fill: 'both'
-                    });
-                    splash.animate([{
-                      opacity: 1
-                    }], {
-                      duration: 0,
-                      fill: 'both'
-                    });
-                    setAttributes({
-                      is_anime: false
-                    }); //アニメボタンの変更
-                    setAttributes({
-                      is_front: false
-                    }); //背面へ
-                  });
-                  //スライド型	
-                } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
-                  splash.animate([{
-                    opacity: 1
-                  }, {
-                    opacity: 0
-                  }], {
-                    delay: 800,
-                    duration: 1000,
-                    fill: 'both'
-                  }).addEventListener("finish", () => {
-                    splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
-                    splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
-                    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
-                    //最終処理
-                    fixbg.addEventListener('transitionend', function () {
-                      splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
-                      splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
-                      fixbg.classList.remove('disappear'); //背景を戻す
-                      splash.animate([{
-                        opacity: 1
-                      }], {
-                        duration: 0,
-                        fill: 'both'
-                      });
-                      splash_logo.animate([{
-                        opacity: 1
-                      }], {
-                        duration: 0,
-                        fill: 'both'
-                      });
-                      setAttributes({
-                        is_anime: false
-                      }); //アニメボタンの変更
-                      setAttributes({
-                        is_front: false
-                      }); //背面へ
-                    });
-                  });
-                  //円形拡張型	
-                } else if (ending_type === 'circle_expand') {
-                  splash.animate([{
-                    opacity: 1
-                  }, {
-                    opacity: 0
-                  }], {
-                    delay: 800,
-                    duration: 1000,
-                    fill: 'both'
-                  }).addEventListener("finish", () => {
-                    splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
-                    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
-                    //最終処理
-                    fixbg.addEventListener('transitionend', function () {
-                      splashCirclebg.classList.remove('appear'); //フェードアウト後appearクラス削除
-                      fixbg.classList.remove('disappear'); //背景を戻す
-                      splash.animate([{
-                        opacity: 1
-                      }], {
-                        duration: 0,
-                        fill: 'both'
-                      });
-                      splash_logo.animate([{
-                        opacity: 1
-                      }], {
-                        duration: 0,
-                        fill: 'both'
-                      });
-                      setAttributes({
-                        is_anime: false
-                      }); //アニメボタンの変更
-                      setAttributes({
-                        is_front: false
-                      }); //背面へ
-                    });
-                  });
-                }
-              });
+
+              //ここからオープニング終了アニメーション
+              (0,_EndingAnime__WEBPACK_IMPORTED_MODULE_9__.endingAnimation)(ending_type, setAttributes);
             }
           });
         });
       };
-
       animatePaths(paths);
     } else {
       strokeRef.current = true;
@@ -2827,7 +2853,7 @@ function Edit(_ref) {
     label: is_anime ? "実行中" : "停止中"
     //表示するアイコンを切り替え
     ,
-    icon: _circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
+    icon: _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
 
     //setAttributes を使って属性の値を更新（真偽値を反転）
     ,
@@ -2843,7 +2869,7 @@ function Edit(_ref) {
     label: is_front ? "最背面へ" : "最前面へ"
     //表示するアイコンを切り替え
     ,
-    icon: is_front ? _turn_down_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent : _turn_up_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
+    icon: is_front ? _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent : _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
 
     //setAttributes を使って属性の値を更新（真偽値を反転）
     ,
@@ -2908,7 +2934,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/logo-anime/style.scss");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../style.scss */ "./src/style.scss");
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./edit */ "./src/blocks/logo-anime/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./save */ "./src/blocks/logo-anime/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./block.json */ "./src/blocks/logo-anime/block.json");
@@ -3389,10 +3415,10 @@ function memoizeOne(resultFn, isEqual) {
 
 /***/ }),
 
-/***/ "./src/blocks/logo-anime/editor.scss":
-/*!*******************************************!*\
-  !*** ./src/blocks/logo-anime/editor.scss ***!
-  \*******************************************/
+/***/ "./src/editor.scss":
+/*!*************************!*\
+  !*** ./src/editor.scss ***!
+  \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -3402,10 +3428,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/logo-anime/style.scss":
-/*!******************************************!*\
-  !*** ./src/blocks/logo-anime/style.scss ***!
-  \******************************************/
+/***/ "./src/style.scss":
+/*!************************!*\
+  !*** ./src/style.scss ***!
+  \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

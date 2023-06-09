@@ -4,12 +4,14 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-itmar-logo-anime {
+.wp-block-itmar-logo-anime,
+.wp-block-itmar-tea-time {
 	border: 1px dotted #f00;
 
 }
 
-.logoSizeCtrl {
+.logoSizeCtrl,
+.durationCtrl {
 	.components-base-control {
 		width: 100%;
 	}

@@ -7,18 +7,43 @@
   "category": "design",
   "description": "Webサイトのオープニングに使用するブロックです",
   "supports": {
-    "color": {
-      "background": true,
-      "gradients": true,
-      "link": false,
-      "text": false
-    },
     "html": false
   },
   "attributes": {
+    "bg_Color": {
+      "type": "string",
+      "default": "#F1E8E8"
+    },
+    "bg_Gradient": {
+      "type": "string"
+    },
     "telop": {
       "type": "string",
       "default": "Let's coffee break"
+    },
+    "telop_Color": {
+      "type": "string",
+      "default": "#000"
+    },
+    "duration": {
+      "type": "number",
+      "default": 5
+    },
+    "trigger_anime": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_anime": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_front": {
+      "type": "boolean",
+      "default": true
+    },
+    "ending_type": {
+      "type": "string",
+      "default": "virtical_slide"
     }
   },
   "textdomain": "opening-block",

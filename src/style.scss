@@ -9,7 +9,10 @@
 	--custom-easing: cubic-bezier(.34, .1, .85, 1.04);
 }
 
-.wp-block-itmar-logo-anime {
+.wp-block-itmar-logo-anime,
+.wp-block-itmar-tea-time {
+	/*=============== 全ブロック共通 =================*/
+
 	position: fixed !important;
 	top: 0;
 	left: 0;
@@ -18,7 +21,7 @@
 	width: 100vw;
 	height: 100vh;
 
-	/* Loading背景画面設定　*/
+	/* Loading背景画面　*/
 	#splash {
 		/*fixedで全面に固定*/
 		position: fixed;
@@ -48,9 +51,84 @@
 		}
 	}
 
-	/*=============== SVGアニメーション内の指定 =================*/
+	/*=============== tea-timeブロック内の指定 =================*/
+	.coffee {
+		display: flex;
+		justify-content: center;
+		width: 20vw;
+		height: 50vh;
+		background-color: transparent;
 
-	/*アニメーション前の指定*/
+		&_text {
+			position: absolute;
+			bottom: 240px;
+			width: 136px;
+			font-family: serif;
+
+			>span {
+				position: absolute;
+				display: block;
+				font-size: 16px;
+				offset-path: path("m61.498,27.295c9.366,9.437,4.071,22.205-6.929,23.205-10.006.91-19.834-7.567-19.834-23.475,0-13,12.942-24.525,31.834-24.525,18.704,0,25.174,19.976,25,32-.231,16.017-7.03,24.708-13,34-18.22,28.357-18.22,49.926-13,58");
+				opacity: 0;
+
+				&.play {
+					animation: move-text 3.2s linear infinite, distort-text 3.2s linear infinite;
+				}
+			}
+
+			@keyframes move-text {
+				0% {
+					offset-distance: 100%;
+					opacity: 0;
+				}
+
+				10%,
+				90% {
+					opacity: 1;
+				}
+
+				100% {
+					offset-distance: 0;
+					opacity: 0;
+				}
+			}
+
+			@keyframes distort-text {
+				45% {
+					transform: scaleY(1);
+				}
+
+				65% {
+					transform: scaleY(1.8);
+				}
+
+				85% {
+					transform: scaleY(1);
+				}
+
+				100% {
+					transform: scaleY(0.5);
+				}
+			}
+		}
+
+		&_cup {
+			position: absolute;
+			bottom: 20px;
+			display: block;
+			width: 136px;
+			height: 100px;
+			background-image: url("./blocks/tea-time/img/coffee_cup.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+
+
+
+	/*=============== logo-animeブロック内の指定 =================*/
+
 	#logo_anime {
 		path {
 			fill-opacity: 0;
