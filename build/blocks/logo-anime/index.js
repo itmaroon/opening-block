@@ -2413,20 +2413,97 @@ function endingAnimation(ending_type, setAttributes) {
   const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
   const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
   const fixbg = target_doc.getElementsByClassName('fixbg')[0];
-  //ロゴのフェードアウト
-  splash_logo.animate([{
-    opacity: 1
-  }, {
-    opacity: 0
-  }], {
-    delay: 800,
-    duration: 1000,
-    fill: 'both'
-  }).addEventListener("finish", () => {
+  //イベントハンドラ
+  const open_listener = () => {
+    fixbg.classList.remove('hide'); //フェード用背景非表示
+    splashbg.classList.remove('appear'); //フェードアウト後appearクラス付与
+    splashbg.classList.remove(ending_type); //フェードアウト後appearクラス付与
+    splashbg2.classList.remove('appear'); //フェードアウト後appearクラス付与
+    splashbg2.classList.remove(ending_type); //フェードアウト後appearクラス付与
+    //splash.classList.remove('disappear');
+    splash.classList.remove('hide');
+    splash_logo.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    splash.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    setAttributes({
+      is_anime: false
+    }); //アニメボタンの変更
+    setAttributes({
+      is_front: false
+    }); //背面へ
+  };
+
+  const slide_end_listener = () => {
+    splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
+    splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
+    fixbg.classList.remove('disappear'); //背景を戻す
+    splash.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    splash_logo.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    setAttributes({
+      is_anime: false
+    }); //アニメボタンの変更
+    setAttributes({
+      is_front: false
+    }); //背面へ
+  };
+
+  const slide_listener = () => {
+    splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
+    splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
+    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+    fixbg.addEventListener('transitionend', slide_end_listener);
+  };
+  const circle_end_listener = () => {
+    splashCirclebg.classList.remove('appear'); //フェードアウト後appearクラス削除
+    fixbg.classList.remove('disappear'); //背景を戻す
+    splash.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    splash_logo.animate([{
+      opacity: 1
+    }], {
+      duration: 0,
+      fill: 'both'
+    });
+    setAttributes({
+      is_anime: false
+    }); //アニメボタンの変更
+    setAttributes({
+      is_front: false
+    }); //背面へ
+  };
+
+  const circle_listener = () => {
+    splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
+    fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
+    fixbg.addEventListener('transitionend', circle_end_listener);
+  };
+  const feedOut_listener = () => {
     //オープン型
     if (ending_type === 'virtical_open' || ending_type === 'horizen_open') {
       fixbg.classList.add('hide'); //フェード用背景非表示
-      //splash.classList.add('disappear');
       splash.animate([{
         opacity: 0
       }], {
@@ -2438,33 +2515,7 @@ function endingAnimation(ending_type, setAttributes) {
       splashbg2.classList.add('appear'); //フェードアウト後appearクラス付与
       splashbg2.classList.add(ending_type); //フェードアウト後appearクラス付与
       //最終処理
-      splashbg2.addEventListener('animationend', function () {
-        fixbg.classList.remove('hide'); //フェード用背景非表示
-        splashbg.classList.remove('appear'); //フェードアウト後appearクラス付与
-        splashbg.classList.remove(ending_type); //フェードアウト後appearクラス付与
-        splashbg2.classList.remove('appear'); //フェードアウト後appearクラス付与
-        splashbg2.classList.remove(ending_type); //フェードアウト後appearクラス付与
-        //splash.classList.remove('disappear');
-        splash.classList.remove('hide');
-        splash_logo.animate([{
-          opacity: 1
-        }], {
-          duration: 0,
-          fill: 'both'
-        });
-        splash.animate([{
-          opacity: 1
-        }], {
-          duration: 0,
-          fill: 'both'
-        });
-        setAttributes({
-          is_anime: false
-        }); //アニメボタンの変更
-        setAttributes({
-          is_front: false
-        }); //背面へ
-      });
+      splashbg2.addEventListener('animationend', open_listener);
       //スライド型	
     } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
       splash.animate([{
@@ -2475,35 +2526,8 @@ function endingAnimation(ending_type, setAttributes) {
         delay: 800,
         duration: 1000,
         fill: 'both'
-      }).addEventListener("finish", () => {
-        splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
-        splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
-        fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
-        //最終処理
-        fixbg.addEventListener('transitionend', function () {
-          splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
-          splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
-          fixbg.classList.remove('disappear'); //背景を戻す
-          splash.animate([{
-            opacity: 1
-          }], {
-            duration: 0,
-            fill: 'both'
-          });
-          splash_logo.animate([{
-            opacity: 1
-          }], {
-            duration: 0,
-            fill: 'both'
-          });
-          setAttributes({
-            is_anime: false
-          }); //アニメボタンの変更
-          setAttributes({
-            is_front: false
-          }); //背面へ
-        });
-      });
+      }).addEventListener("finish", slide_listener);
+
       //円形拡張型	
     } else if (ending_type === 'circle_expand') {
       splash.animate([{
@@ -2514,35 +2538,30 @@ function endingAnimation(ending_type, setAttributes) {
         delay: 800,
         duration: 1000,
         fill: 'both'
-      }).addEventListener("finish", () => {
-        splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
-        fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
-        //最終処理
-        fixbg.addEventListener('transitionend', function () {
-          splashCirclebg.classList.remove('appear'); //フェードアウト後appearクラス削除
-          fixbg.classList.remove('disappear'); //背景を戻す
-          splash.animate([{
-            opacity: 1
-          }], {
-            duration: 0,
-            fill: 'both'
-          });
-          splash_logo.animate([{
-            opacity: 1
-          }], {
-            duration: 0,
-            fill: 'both'
-          });
-          setAttributes({
-            is_anime: false
-          }); //アニメボタンの変更
-          setAttributes({
-            is_front: false
-          }); //背面へ
-        });
-      });
+      }).addEventListener("finish", circle_listener);
     }
-  });
+  };
+
+  //ロゴのフェードアウト
+  splash_logo.animate([{
+    opacity: 1
+  }, {
+    opacity: 0
+  }], {
+    delay: 800,
+    duration: 1000,
+    fill: 'both'
+  }).addEventListener("finish", feedOut_listener);
+
+  // Return a cleanup function
+  return () => {
+    splashbg2.removeEventListener('animationend', open_listener);
+    fixbg.removeEventListener('transitionend', slide_end_listener);
+    splash.removeEventListener("finish", slide_listener);
+    fixbg.removeEventListener('transitionend', circle_end_listener);
+    splash.removeEventListener("finish", circle_listener);
+    splash_logo.removeEventListener("finish", feedOut_listener);
+  };
 }
 
 /***/ }),
@@ -2678,8 +2697,10 @@ function Edit(_ref) {
     });
   }, [logo_text, logo_font, logo_size, logo_gap]);
 
-  // マウント後の最初のuseEffectの内容をスキップするためのフラグ
+  // マウント後の最初のuseEffectの内容をスキップするためのuseRef
   const strokeRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  //エンディングアニメーション関数参照用のuseRef
+  const cleanupRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (strokeRef.current) {
       //マウント時には実行しない
@@ -2723,13 +2744,21 @@ function Edit(_ref) {
                 path.style.strokeDasharray = "";
               }
 
-              //ここからオープニング終了アニメーション
-              (0,_EndingAnime__WEBPACK_IMPORTED_MODULE_9__.endingAnimation)(ending_type, setAttributes);
+              //エンディングアニメーション関数の実行と参照
+              cleanupRef.current = (0,_EndingAnime__WEBPACK_IMPORTED_MODULE_9__.endingAnimation)(ending_type, setAttributes);
             }
           });
         });
       };
       animatePaths(paths);
+
+      // Cleanup function
+      return () => {
+        // Check if cleanup function exists, and if so, call it
+        if (typeof cleanupRef.current === 'function') {
+          cleanupRef.current();
+        }
+      };
     } else {
       strokeRef.current = true;
     }
@@ -2985,7 +3014,13 @@ function save(_ref) {
     bg_Gradient,
     ending_type
   } = attributes;
-  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
+  //フロントは全面表示
+  const frontStyle = {
+    style: {
+      zIndex: 9999
+    }
+  };
+  const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(frontStyle);
   const bgColor = bg_Color || bg_Gradient;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
@@ -25842,7 +25877,7 @@ function combine (array, callback) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"html":false},"attributes":{"bg_Color":{"type":"string","default":"#504237"},"bg_Gradient":{"type":"string"},"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"fontFamilyOptions":{"type":"array","default":[]},"ending_type":{"type":"string","default":"virtical_slide"}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/logo-anime","title":"Logo Anime","category":"design","version":"0.1.0","description":"ロゴをアニメーションするオープニングです。","supports":{"multiple":false,"html":false},"attributes":{"bg_Color":{"type":"string","default":"#504237"},"bg_Gradient":{"type":"string"},"logo_text":{"type":"string","default":"LOGO"},"logo_font":{"type":"string","default":"Roboto-Black.ttf"},"logo_size":{"type":"number","default":30},"logo_width":{"type":"number","default":0},"logo_height":{"type":"number","default":0},"logo_gap":{"type":"number","default":5},"logo_strokeColor":{"type":"string","default":"#fff"},"logo_fillColor":{"type":"string","default":"#fff"},"logo_fillGradient":{"type":"string"},"char_paths":{"type":"array","default":[]},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"fontFamilyOptions":{"type":"array","default":[]},"ending_type":{"type":"string","default":"virtical_slide"}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

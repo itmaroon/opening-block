@@ -39,10 +39,12 @@ export default function Edit({ attributes, setAttributes }) {
 	const bgColor = bg_Color || bg_Gradient;
 	//is_frontフラグによってブロックのzIndexを設定
 	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
-	// マウント後の最初のuseEffectの内容をスキップするためのフラグ
+	// マウント後の最初のuseEffectの内容をスキップするためのuseRef
 	const strokeRef = useRef(null);
-	useEffect(() => {
+	//エンディングアニメーション関数参照用のuseRef
+	const cleanupRef = useRef(null);
 
+	useEffect(() => {
 		if (strokeRef.current) {//マウント時には実行しない
 			const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
 			//iframeの有無で操作するドキュメント要素を峻別
@@ -51,11 +53,21 @@ export default function Edit({ attributes, setAttributes }) {
 			const letter_mask = target_doc.getElementById('letters-svg-mask');
 			// アニメーションを開始
 			setAttributes({ is_anime: true });
-			letter_mask.addEventListener('animationend', function () {
-				//ここからオープニング終了アニメーション
-				endingAnimation(ending_type, setAttributes);
-			});
-
+			//ここからオープニング終了アニメーション
+			const handleAnimationEnd = () => {
+				//エンディングアニメーション関数の実行と参照
+				cleanupRef.current = endingAnimation(ending_type, setAttributes);
+			};
+			letter_mask.addEventListener('animationend', handleAnimationEnd);
+			// Cleanup function
+			return () => {
+				letter_mask.removeEventListener('animationend', handleAnimationEnd);
+				// エンディングアニメーション関数のイベントリスナをクリア
+				// Check if cleanup function exists, and if so, call it
+				if (typeof cleanupRef.current === 'function') {
+					cleanupRef.current();
+				}
+			}
 		} else {
 			strokeRef.current = true;
 		}

@@ -100,8 +100,10 @@ export default function Edit({ attributes, setAttributes }) {
 		});
 	}, [logo_text, logo_font, logo_size, logo_gap]);
 
-	// マウント後の最初のuseEffectの内容をスキップするためのフラグ
+	// マウント後の最初のuseEffectの内容をスキップするためのuseRef
 	const strokeRef = useRef(null);
+	//エンディングアニメーション関数参照用のuseRef
+	const cleanupRef = useRef(null);
 
 	useEffect(() => {
 
@@ -141,8 +143,8 @@ export default function Edit({ attributes, setAttributes }) {
 								path.style.strokeDasharray = "";
 							}
 
-							//ここからオープニング終了アニメーション
-							endingAnimation(ending_type, setAttributes);
+							//エンディングアニメーション関数の実行と参照
+							cleanupRef.current = endingAnimation(ending_type, setAttributes);
 
 						}
 					});
@@ -150,6 +152,14 @@ export default function Edit({ attributes, setAttributes }) {
 			};
 
 			animatePaths(paths);
+
+			// Cleanup function
+			return () => {
+				// Check if cleanup function exists, and if so, call it
+				if (typeof cleanupRef.current === 'function') {
+					cleanupRef.current();
+				}
+			}
 		} else {
 			strokeRef.current = true;
 		}

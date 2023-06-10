@@ -32,7 +32,9 @@ jQuery(function ($) {
         splashbg.classList.add(ending_type);//フェードアウト後クラス付与
         splashbg2.classList.add('appear');//フェードアウト後appearクラス付与
         splashbg2.classList.add(ending_type);//フェードアウト後appearクラス付与
-
+        splashbg2.addEventListener('animationend', function () {
+          splash.parentElement.style.zIndex = "-1";
+        });
         //スライド型	
       } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
         splash.animate(
@@ -49,6 +51,11 @@ jQuery(function ($) {
           splashbg.classList.add('appear');//フェードアウト後appearクラス付与
           splashbg.classList.add(ending_type);//フェードアウト後appearクラス付与
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
+          //最終処理
+          fixbg.addEventListener('transitionend', function () {
+            splash.parentElement.style.zIndex = "-1";
+          });
+
 
         });
         //円形拡張型	
@@ -66,7 +73,10 @@ jQuery(function ($) {
         ).addEventListener("finish", () => {
           splashCirclebg.classList.add('appear');//フェードアウト後appearクラス付与
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
-
+          //最終処理
+          fixbg.addEventListener('transitionend', function () {
+            splash.parentElement.style.zIndex = "-1";
+          });
         });
       }
     });

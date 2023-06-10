@@ -11,12 +11,18 @@ export default function save({ attributes }) {
 		duration,
 		ending_type
 	} = attributes;
+	//フロントは全面表示
+	const frontStyle = {
+		style: {
+			zIndex: 9999,
+		}
+	}
 	//テロップの文字分割
 	const characters = telop.split('');
 	//単色かグラデーションかの選択
 	const bgColor = bg_Color || bg_Gradient;
 	return (
-		<div {...useBlockProps.save()}>
+		<div {...useBlockProps.save(frontStyle)}>
 			<div id="splash"
 				data-ending-type={ending_type}
 				data-duration={duration}

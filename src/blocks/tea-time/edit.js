@@ -41,18 +41,29 @@ export default function Edit({ attributes, setAttributes }) {
 	//is_frontフラグによってブロックのzIndexを設定
 	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
 
-	// マウント後の最初のuseEffectの内容をスキップするためのフラグ
+	// マウント後の最初のuseEffectの内容をスキップするためのuseRef
 	const strokeRef = useRef(null);
+	//エンディングアニメーション関数参照用のuseRef
+	const cleanupRef = useRef(null);
 
 	useEffect(() => {
 
 		if (strokeRef.current) {//マウント時には実行しない
 			// アニメーションを開始
 			setAttributes({ is_anime: true });
+			//指定時間の後に実行
 			setTimeout(() => {
-				endingAnimation(ending_type, setAttributes);
+				//エンディングアニメーション関数の実行と参照
+				cleanupRef.current = endingAnimation(ending_type, setAttributes);
 			}, duration * 1000);
-
+			// Cleanup function
+			return () => {
+				// エンディングアニメーション関数のイベントリスナをクリア
+				// Check if cleanup function exists, and if so, call it
+				if (typeof cleanupRef.current === 'function') {
+					cleanupRef.current();
+				}
+			}
 		} else {
 			strokeRef.current = true;
 		}

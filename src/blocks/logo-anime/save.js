@@ -12,7 +12,13 @@ export default function save({ attributes }) {
 		bg_Gradient,
 		ending_type
 	} = attributes;
-	const blockProps = useBlockProps.save();
+	//フロントは全面表示
+	const frontStyle = {
+		style: {
+			zIndex: 9999,
+		}
+	}
+	const blockProps = useBlockProps.save(frontStyle);
 	const bgColor = bg_Color || bg_Gradient;
 	return (
 		<div {...blockProps}>

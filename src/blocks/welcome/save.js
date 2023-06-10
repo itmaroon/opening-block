@@ -12,8 +12,14 @@ export default function save({ attributes }) {
 
 	//単色かグラデーションかの選択
 	const bgColor = bg_Color || bg_Gradient;
+	//フロントは全面表示
+	const frontStyle = {
+		style: {
+			zIndex: 9999,
+		}
+	}
 	return (
-		<div {...useBlockProps.save()}>
+		<div {...useBlockProps.save(frontStyle)}>
 			<div id="splash"
 				data-ending-type={ending_type}
 				style={{ background: bgColor }}

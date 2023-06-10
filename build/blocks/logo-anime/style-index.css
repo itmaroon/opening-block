@@ -8,11 +8,18 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
 :root {
   --custom-easing: cubic-bezier(.34, .1, .85, 1.04);
 }
 
 .wp-block-itmar-logo-anime {
+  /*=============== 全ブロック共通 =================*/
   /*=============== 全ブロック共通 =================*/
   position: fixed !important;
   top: 0;
