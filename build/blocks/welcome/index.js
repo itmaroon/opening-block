@@ -777,7 +777,7 @@ module.exports = window["wp"]["i18n"];
   \***************************************/
 /***/ ((module) => {
 
-module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/welcom","title":"WelCome","category":"design","version":"0.1.0","description":"Webサイトのオープニングに使用するブロックです","supports":{"multiple":false,"html":false},"attributes":{"bg_Color":{"type":"string","default":"#d2def3"},"bg_Gradient":{"type":"string"},"logo_fillColor":{"type":"string","default":"#000"},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"ending_type":{"type":"string","default":"virtical_slide"}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"itmar/welcome","title":"WelCome","category":"design","version":"0.1.0","description":"Webサイトのオープニングに使用するブロックです","supports":{"multiple":false,"html":false},"attributes":{"bg_Color":{"type":"string","default":"#d2def3"},"bg_Gradient":{"type":"string"},"logo_fillColor":{"type":"string","default":"#000"},"trigger_anime":{"type":"boolean","default":false},"is_anime":{"type":"boolean","default":false},"is_front":{"type":"boolean","default":true},"ending_type":{"type":"string","default":"virtical_slide"}},"textdomain":"opening-block","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

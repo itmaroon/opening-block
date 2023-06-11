@@ -69,6 +69,7 @@ export default function Edit({ attributes, setAttributes }) {
 		}
 	}, [trigger_anime]);
 
+
 	return (
 		<>
 			<InspectorControls group="settings">

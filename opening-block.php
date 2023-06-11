@@ -47,6 +47,15 @@ function itmar_opening_block_add_plugin() {
 	wp_localize_script( 'itmar-script-handle', 'plugin', array(
 			'plugin_url' => $plugin_url
 	));
+
+	//ブロックの２重登録の監視
+	wp_enqueue_script(
+		'itmar-check-script',
+		plugins_url( 'build/check-blocks.js?'.date('YmdHis'), __FILE__ ),
+		array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-hooks' ),
+		true
+  );
+	
 }
 add_action('enqueue_block_assets', 'itmar_opening_block_add_plugin');
 

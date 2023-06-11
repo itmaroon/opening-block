@@ -1,7 +1,9 @@
 // webpack.config.js in your project root
 const path = require('path');
 const fs = require('fs');
+const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
+//プロジェクト内フォルダのファイル一覧プラグイン
 class FileListPlugin {
   apply(compiler) {
     compiler.hooks.emit.tapAsync('FileListPlugin', (compilation, callback) => {
@@ -25,8 +27,18 @@ class FileListPlugin {
   }
 }
 
-module.exports = () => {
-  let defaultConfig = require("@wordpress/scripts/config/webpack.config");
+//オリジナルのReactコンポーネントのトランスパイルエントリポイントの追加
+const newEntryConfig = async () => {
+  const originalEntry = await defaultConfig.entry();
+
+  return {
+    ...originalEntry,
+    'check-blocks': path.resolve(__dirname, './src/check-blocks.js')
+  };
+};
+
+module.exports = async () => {
+  defaultConfig.entry = await newEntryConfig();
   defaultConfig.plugins.push(new FileListPlugin());
   return defaultConfig;
 };
