@@ -33,6 +33,8 @@ function itmar_opening_block_add_plugin() {
 		'0.4.4',
 		true
 	);
+
+	
 	wp_enqueue_script( 
 		'itmar-script-handle', 
 		plugins_url( '/assets/opening.js?'.date('YmdHis'), __FILE__ ), 
@@ -49,12 +51,15 @@ function itmar_opening_block_add_plugin() {
 	));
 
 	//ブロックの２重登録の監視
-	wp_enqueue_script(
-		'itmar-check-script',
-		plugins_url( 'build/check-blocks.js?'.date('YmdHis'), __FILE__ ),
-		array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-hooks' ),
-		true
-  );
+	if (is_admin() && !wp_doing_ajax()) {//管理画面でのみ読み込む）
+		wp_enqueue_script(
+			'itmar-check-script',
+			plugins_url( 'build/check-blocks.js?'.date('YmdHis'), __FILE__ ),
+			array( 'wp-blocks', 'wp-element', 'wp-data', 'wp-hooks' ),
+			true
+		);
+	}
+	
 	
 }
 add_action('enqueue_block_assets', 'itmar_opening_block_add_plugin');

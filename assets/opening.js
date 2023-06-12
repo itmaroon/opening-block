@@ -145,6 +145,7 @@ jQuery(function ($) {
   /*コーヒーカップ*/
   /*===========================================================*/
   if ($('#splash .coffee').get(0)) {
+    console.log("exec!!!")
     let splashElement = $('#splash');
     let ending_type = splashElement.data('ending-type');
     let duration = splashElement.data('duration');
