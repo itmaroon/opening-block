@@ -33,13 +33,20 @@ function itmar_opening_block_add_plugin() {
 		'0.4.4',
 		true
 	);
-
-	
+	//cookieライブラリの読込
+	wp_enqueue_script( 
+		'js-cookie','https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js', 
+		array(), 
+		null,
+		true
+	);
+	//自作スクリプトの読み込み
+	$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
 	wp_enqueue_script( 
 		'itmar-script-handle', 
-		plugins_url( '/assets/opening.js?'.date('YmdHis'), __FILE__ ), 
+		plugins_url( '/assets/opening.js', __FILE__ ), 
 		array('jquery'), 
-		'1.0.0',
+		filemtime($script_path),
 		true
 	);
 

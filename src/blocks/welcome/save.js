@@ -63,6 +63,13 @@ export default function save({ attributes }) {
 			<div className="splashbg" style={{ background: bgColor }}></div>
 			<div className="splashbg2" style={{ background: bgColor }}></div>
 			<div className="splashCirclebg" style={{ background: bgColor }}></div>
+			<div className="is_skip_check">
+				<label>
+					<input type="checkbox" name="anim_is_skip" />
+					<span></span>
+					<p rel="次回からアニメーションをスキップ">次回からアニメーションをスキップ</p>
+				</label>
+			</div>
 		</div >
 	);
 }

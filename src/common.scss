@@ -4,8 +4,34 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+// レイアウト幅
+$layout-screen-inner: 1920px;
+$layout-width-inner: 1400px;
+// ブレークポイント
+$breakpoints: (
+	"sp": "(max-width: 767px)",
+	"tab": "(min-width: 768px) and (max-width: #{$layout-width-inner - 1px})",
+	//タブレットサイズからスマホまで
+	"tab-down": "(max-width: #{$layout-width-inner - 1px})",
+	//タブレットサイズより小さいものすべて
+	"pc": "(min-width: #{$layout-width-inner}) and (max-width: #{$layout-screen-inner })",
+	//カンプの指定サイズからタブレットサイズまで
+	"pc-up": "(min-width:  #{$layout-width-inner + 1px})",
+	//インナーの指定サイズより大きい
+	"sr-up": "(min-width:  #{$layout-screen-inner + 1px})",
+	//スクリーンの指定サイズより大きい
+	"retina": "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)",
+);
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
 
 @mixin wp-block-common {
+
 	/*=============== 全ブロック共通 =================*/
 
 	position: fixed !important;
@@ -26,6 +52,7 @@
 		height: 100vh;
 		z-index: 1000;
 		text-align: center;
+		display: none;
 		//transition: opacity 1s ease 0.8s;
 
 		&.disappear {
@@ -157,6 +184,123 @@
 			animation-name: scale_down;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
+		}
+	}
+
+	//チェックボックス
+	.is_skip_check {
+		position: absolute;
+		right: 3em;
+		bottom: 3em;
+		z-index: 1000;
+		width: fit-content;
+
+		@include mq(sp) {
+			padding-top: 1em;
+			margin-top: 0;
+		}
+
+		input[type='checkbox'] {
+			display: none;
+		}
+
+		label {
+			font-size: 1em;
+			position: relative;
+			display: flex;
+			padding: 0.3em 1em;
+			align-items: center;
+			color: #9e9e9e;
+			transition: color 250ms cubic-bezier(.4, .0, .23, 1), background-position 0.3s;
+			border-radius: 15px;
+			background-image: linear-gradient(to right, rgb(247, 224, 174) 50%, rgb(243, 192, 223) 50%);
+			background-position: 0 0;
+			background-size: 200% auto;
+
+			@include mq(sp) {
+				padding: 1em 0;
+			}
+
+			p {
+				position: relative;
+
+				@include mq(sp) {
+					font-size: 1.4em;
+				}
+
+				&:before {
+					content: attr(rel);
+					position: absolute;
+					top: 0;
+					left: 0;
+					color: #02350f;
+					transition: opacity 300ms cubic-bezier(.4, .0, .23, 1);
+					opacity: 0;
+				}
+			}
+
+			span {
+				flex: 0 0 auto;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 1em;
+				width: 1.2em;
+				height: 1.2em;
+				background: transparent;
+				border: 2px solid #9E9E9E;
+				border-radius: 2px;
+				position: relative;
+				transition: all 250ms cubic-bezier(.4, .0, .23, 1);
+				box-sizing: border-box;
+
+				@include mq(sp) {
+					width: 0.8em;
+					height: 0.8em;
+					margin-right: 0.5em;
+				}
+			}
+		}
+
+		label:hover {
+			color: #000;
+			cursor: pointer;
+
+			span {
+				background: rgba(255, 255, 255);
+			}
+		}
+
+		input[type='checkbox']:checked {
+			~p {
+				&::before {
+					opacity: 1;
+				}
+			}
+
+			~span {
+				border: 0.6em solid #FFEB3B;
+
+				@include mq(sp) {
+					border: .4em solid #FFEB3B;
+				}
+
+				animation: shrink-bounce 200ms cubic-bezier(.4, .0, .23, 1);
+
+				&:before {
+					content: "";
+					position: absolute;
+					//top: -0.2em;
+					//left: -0.2em;
+					width: 80%;
+					height: 80%;
+					border-right: 3px solid transparent;
+					border-bottom: 3px solid transparent;
+					transform: rotate(45deg);
+					transform-origin: 0% 50%;
+					animation: checkbox-check 125ms 250ms cubic-bezier(.4, .0, .23, 1) forwards;
+				}
+			}
 		}
 	}
 

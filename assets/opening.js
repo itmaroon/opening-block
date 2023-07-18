@@ -1,6 +1,24 @@
 
 
 jQuery(function ($) {
+  // cookie名を設定します。
+  const ANIM_COOKIE_SKIP = 'animation_shown';
+  let is_anime_skip = $.cookie(ANIM_COOKIE_SKIP) === 'true';
+  if (!is_anime_skip) {
+    //let splashElement = $('#splash');
+    splash.style.display = "block";
+  }
+
+  // チェックボックスのクリックイベントを監視します。
+  $("input[name='anim_is_skip']").on('change', function () {
+    if ($(this).is(':checked')) {
+      // チェックボックスが選択されたら、アニメーションが表示されたことをcookieに記録します。
+      $.cookie(ANIM_COOKIE_SKIP, 'true', { expires: 1 });
+    } else {
+      // チェックボックスの選択が解除されたら、cookieを削除します。
+      $.removeCookie(ANIM_COOKIE_SKIP);
+    }
+  });
   /*===========================================================*/
   /*エンディングアニメーション*/
   /*===========================================================*/
@@ -33,7 +51,8 @@ jQuery(function ($) {
         splashbg2.classList.add('appear');//フェードアウト後appearクラス付与
         splashbg2.classList.add(ending_type);//フェードアウト後appearクラス付与
         splashbg2.addEventListener('animationend', function () {
-          splash.parentElement.style.zIndex = "-1";
+          //splash.parentElement.style.zIndex = "-1";
+          splash.parentElement.style.display = "none";
         });
         //スライド型	
       } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
@@ -53,7 +72,8 @@ jQuery(function ($) {
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
           //最終処理
           fixbg.addEventListener('transitionend', function () {
-            splash.parentElement.style.zIndex = "-1";
+            //splash.parentElement.style.zIndex = "-1";
+            splash.parentElement.style.display = "none";
           });
 
 
@@ -75,7 +95,8 @@ jQuery(function ($) {
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
           //最終処理
           fixbg.addEventListener('transitionend', function () {
-            splash.parentElement.style.zIndex = "-1";
+            //splash.parentElement.style.zIndex = "-1";
+            splash.parentElement.style.display = "none";
           });
         });
       }
@@ -89,55 +110,57 @@ jQuery(function ($) {
   //SVGアニメーションの描画
 
   if ($('#logo_anime').get(0)) {
-    //HTMLからスタイル要素を取得
-    let splashElement = $('#splash');
-    let fillColor = splashElement.data('fill-color');
-    let strokeColor = splashElement.data('stroke-color');
-    let ending_type = splashElement.data('ending-type');
-    //初期設定
-    $("#logo_anime path").each(function () {
-      const length = $(this).get(0).getTotalLength();
-      $(this).css({
-        'stroke': strokeColor,
-        'strokeDasharray': length,
-        'strostrokeDashoffsetke': length
-      });
-    });
-
-    // アニメーションを開始
-
-    const animatePaths = (paths) => {
-      paths.each((index, pathElement) => {
-        const path = $(pathElement);
-        const length = path.get(0).getTotalLength();
-
-        path.get(0).animate(
-          [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
-          { duration: 1000, fill: "both", delay: index * 800 }
-        ).addEventListener("finish", () => {
-          if (index === paths.length - 1) {
-            $("#logo_anime").addClass("done"); //描画が終わったらdoneというクラスを追加
-            $("#logo_anime path").css({
-              'fill': fillColor, 'stroke': 'none'
-            });
-            // Reset all paths
-            paths.each((i, pathToReset) => {
-              $(pathToReset).css({
-                'stroke-dashoffset': '',
-                'stroke-dasharray': ''
-              });
-            });
-
-            //ここからオープニング終了アニメーション
-            endingAnimation(ending_type);
-
-          }
+    if (!is_anime_skip) {//スキップフラグがonでない
+      //HTMLからスタイル要素を取得
+      let splashElement = $('#splash');
+      let fillColor = splashElement.data('fill-color');
+      let strokeColor = splashElement.data('stroke-color');
+      let ending_type = splashElement.data('ending-type');
+      //初期設定
+      $("#logo_anime path").each(function () {
+        const length = $(this).get(0).getTotalLength();
+        $(this).css({
+          'stroke': strokeColor,
+          'strokeDasharray': length,
+          'strostrokeDashoffsetke': length
         });
       });
-    };
 
-    animatePaths($("#logo_anime path"));
+      // アニメーションを開始
 
+      const animatePaths = (paths) => {
+        paths.each((index, pathElement) => {
+          const path = $(pathElement);
+          const length = path.get(0).getTotalLength();
+
+          path.get(0).animate(
+            [{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
+            { duration: 1000, fill: "both", delay: index * 800 }
+          ).addEventListener("finish", () => {
+            if (index === paths.length - 1) {
+              $("#logo_anime").addClass("done"); //描画が終わったらdoneというクラスを追加
+              $("#logo_anime path").css({
+                'fill': fillColor, 'stroke': 'none'
+              });
+              // Reset all paths
+              paths.each((i, pathToReset) => {
+                $(pathToReset).css({
+                  'stroke-dashoffset': '',
+                  'stroke-dasharray': ''
+                });
+              });
+
+              //ここからオープニング終了アニメーション
+              endingAnimation(ending_type);
+
+            }
+          });
+        });
+      };
+
+      animatePaths($("#logo_anime path"));
+
+    }
   }
 
 
@@ -145,28 +168,33 @@ jQuery(function ($) {
   /*コーヒーカップ*/
   /*===========================================================*/
   if ($('#splash .coffee').get(0)) {
-    console.log("exec!!!")
-    let splashElement = $('#splash');
-    let ending_type = splashElement.data('ending-type');
-    let duration = splashElement.data('duration');
-    setTimeout(() => {
-      //ここからオープニング終了アニメーション
-      endingAnimation(ending_type);
-    }, duration * 1000);
+    if (!is_anime_skip) {//スキップフラグがonでない
+      let splashElement = $('#splash');
+      let ending_type = splashElement.data('ending-type');
+      let duration = splashElement.data('duration');
+      setTimeout(() => {
+        //ここからオープニング終了アニメーション
+        endingAnimation(ending_type);
+      }, duration * 1000);
+    }
+
+
   }
 
   /*===========================================================*/
   /*Welcome*/
   /*===========================================================*/
   if ($('#splash .wrapper__letters').get(0)) {
-    let splashElement = $('#splash');
-    let ending_type = splashElement.data('ending-type');
-    // 要素を取得
-    const letter_mask = document.getElementById('letters-svg-mask');
-    letter_mask.addEventListener('animationend', function () {
-      //ここからオープニング終了アニメーション
-      endingAnimation(ending_type);
-    });
-
+    if (!is_anime_skip) {//スキップフラグがonでない
+      let splashElement = $('#splash');
+      let ending_type = splashElement.data('ending-type');
+      // 要素を取得
+      const letter_mask = document.getElementById('letters-svg-mask');
+      letter_mask.addEventListener('animationend', function () {
+        //ここからオープニング終了アニメーション
+        endingAnimation(ending_type);
+      });
+    }
   }
+
 });

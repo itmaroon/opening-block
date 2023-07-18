@@ -3057,7 +3057,14 @@ function save(_ref) {
     style: {
       background: bgColor
     }
-  }));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "is_skip_check"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "checkbox",
+    name: "anim_is_skip"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+    rel: "\u6B21\u56DE\u304B\u3089\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u3092\u30B9\u30AD\u30C3\u30D7"
+  }, "\u6B21\u56DE\u304B\u3089\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u3092\u30B9\u30AD\u30C3\u30D7"))));
 }
 
 /***/ }),
