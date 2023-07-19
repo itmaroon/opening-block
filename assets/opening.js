@@ -5,8 +5,8 @@ jQuery(function ($) {
   const ANIM_COOKIE_SKIP = 'animation_shown';
   let is_anime_skip = $.cookie(ANIM_COOKIE_SKIP) === 'true';
   if (!is_anime_skip) {
-    //let splashElement = $('#splash');
-    splash.style.display = "block";
+
+    $('#splash').css('display', 'block');
   }
 
   // チェックボックスのクリックイベントを監視します。
