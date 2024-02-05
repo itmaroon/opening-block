@@ -1,0 +1,26 @@
+{
+    "name": "itmar/opening-block-composer",
+    "description": "Gutenberg block class package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Itmar\\BlockClassPakage\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "itmaroon",
+            "email": "master@itmaroon.net"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/itmaroon/block-class-package"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "itmar/block-class-package": "dev-master"
+    }
+}

@@ -1,26 +1,17 @@
 
 import { __ } from '@wordpress/i18n';
 import {
-	PanelBody,
-	PanelRow,
-	TextControl,
-	Button,
-	RangeControl,
-	Toolbar,
-	RadioControl
+	PanelBody
 } from '@wordpress/components';
 import {
 	useBlockProps,
 	InspectorControls,
-	BlockControls,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
 
-import { ReactComponent as play } from '../../../assets/icon/circle-play.svg';
-import { ReactComponent as toFront } from '../../../assets/icon/turn-up.svg';
-import { ReactComponent as toBack } from '../../../assets/icon/turn-down.svg';
+
 import { useEffect, useRef } from '@wordpress/element';
-import { endingAnimation } from '../../../EndingAnime';
+import EndingAnime, { endingAnimation } from '../../../EndingAnime';
 import '../../editor.scss';
 
 
@@ -37,40 +28,48 @@ export default function Edit({ attributes, setAttributes }) {
 
 	//単色かグラデーションかの選択
 	const bgColor = bg_Color || bg_Gradient;
-	//is_frontフラグによってブロックのzIndexを設定
-	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
-	// マウント後の最初のuseEffectの内容をスキップするためのuseRef
-	const strokeRef = useRef(null);
+
+	// ブロック参照用のuseRef
+	const blockRef = useRef(null);
 	//エンディングアニメーション関数参照用のuseRef
 	const cleanupRef = useRef(null);
 
+	const blockProps = useBlockProps({
+		ref: blockRef,// ここで参照を blockProps に渡しています
+		style: is_front ? { zIndex: 100 } : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
+	});
+
+
 	useEffect(() => {
-		if (strokeRef.current) {//マウント時には実行しない
-			const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
-			//iframeの有無で操作するドキュメント要素を峻別
-			const target_doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document
-			// 要素を取得
-			const letter_mask = target_doc.getElementById('letters-svg-mask');
-			// アニメーションを開始
-			setAttributes({ is_anime: true });
-			//ここからオープニング終了アニメーション
-			const handleAnimationEnd = () => {
-				//エンディングアニメーション関数の実行と参照
-				cleanupRef.current = endingAnimation(ending_type, setAttributes);
-			};
-			letter_mask.addEventListener('animationend', handleAnimationEnd);
-			// Cleanup function
-			return () => {
-				letter_mask.removeEventListener('animationend', handleAnimationEnd);
-				// エンディングアニメーション関数のイベントリスナをクリア
-				// Check if cleanup function exists, and if so, call it
-				if (typeof cleanupRef.current === 'function') {
-					cleanupRef.current();
+		if (blockRef.current) {//マウント時には実行しない
+			if (trigger_anime) {
+
+				// 要素を取得
+				const letter_mask = blockRef.current.querySelector('#letters-svg-mask');
+				// アニメーションを開始
+				setAttributes({ is_anime: true });
+				//エンディングのハンドル
+				const handleEnding = (flg) => {
+					setAttributes({ is_anime: flg, is_front: flg, trigger_anime: flg }); //アニメボタンの変更、背面へ
+				}
+				//ここからオープニング終了アニメーション
+				const handleAnimationEnd = () => {
+					//エンディングアニメーション関数の実行と参照
+					cleanupRef.current = endingAnimation(blockRef.current, ending_type, handleEnding);
+				};
+				letter_mask.addEventListener('animationend', handleAnimationEnd);
+				// Cleanup function
+				return () => {
+					letter_mask.removeEventListener('animationend', handleAnimationEnd);
+					// エンディングアニメーション関数のイベントリスナをクリア
+					// Check if cleanup function exists, and if so, call it
+					if (typeof cleanupRef.current === 'function') {
+						cleanupRef.current();
+					}
 				}
 			}
-		} else {
-			strokeRef.current = true;
 		}
+
 	}, [trigger_anime]);
 
 	return (
@@ -107,52 +106,15 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 					/>
 				</PanelBody>
-				<PanelBody title="エンディングアニメーション" initialOpen={true} className="ending_ctrl">
 
-					<RadioControl
-						selected={ending_type}
-						options={[
-							{ label: '縦方向スライド', value: "virtical_slide" },
-							{ label: '横方向スライド', value: "horizen_slide" },
-							{ label: '縦開きスライド', value: "virtical_open" },
-							{ label: '横開きスライド', value: "horizen_open" },
-							{ label: '円形エクスパンド', value: "circle_expand" },
-						]}
-						onChange={(newValue) => {
-							setAttributes({ ending_type: newValue });
-						}}
-					/>
-				</PanelBody>
 			</InspectorControls>
-			<BlockControls>
-				<Toolbar>
-					<Button
-						//表示するラベルを切り替え
-						label={is_anime ? "実行中" : "停止中"}
-						//表示するアイコンを切り替え
-						icon={play}
 
-						//setAttributes を使って属性の値を更新（真偽値を反転）
-						onClick={() => {
-							setAttributes({ trigger_anime: !trigger_anime })
-
-						}}
-						disabled={!is_front || is_anime}
-					/>
-					<Button
-						//表示するラベルを切り替え
-						label={is_front ? "最背面へ" : "最前面へ"}
-						//表示するアイコンを切り替え
-						icon={is_front ? toBack : toFront}
-
-						//setAttributes を使って属性の値を更新（真偽値を反転）
-						onClick={() => {
-							setAttributes({ is_front: !is_front })
-						}}
-						disabled={is_anime ? true : false}
-					/>
-				</Toolbar>
-			</BlockControls>
+			<EndingAnime
+				attributes={attributes}
+				onChange={(newObj) => {
+					setAttributes(newObj);
+				}}
+			/>
 
 			<div {...blockProps}>
 				<div id="splash" style={{ background: bgColor, display: is_front ? 'block' : 'none' }}>

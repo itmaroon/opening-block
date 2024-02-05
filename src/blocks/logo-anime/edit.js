@@ -4,25 +4,17 @@ import {
 	PanelBody,
 	PanelRow,
 	TextControl,
-	Button,
 	RangeControl,
-	Toolbar,
-	RadioControl
 } from '@wordpress/components';
 import {
 	useBlockProps,
 	InspectorControls,
-	BlockControls,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
-
-import { ReactComponent as play } from '../../../assets/icon/circle-play.svg';
-import { ReactComponent as toFront } from '../../../assets/icon/turn-up.svg';
-import { ReactComponent as toBack } from '../../../assets/icon/turn-down.svg';
 import { useEffect, useRef } from '@wordpress/element';
 import '../../editor.scss';
 import CustomFontFace from '../../../CustomFontFace';
-import { endingAnimation } from '../../../EndingAnime';
+import EndingAnime, { endingAnimation } from '../../../EndingAnime';
 import opentype from 'opentype.js';
 import Select from 'react-select';
 
@@ -40,12 +32,13 @@ export default function Edit({ attributes, setAttributes }) {
 		logo_strokeColor,
 		logo_fillColor,
 		logo_fillGradient,
-		is_anime,
 		trigger_anime,
 		is_front,
 		fontFamilyOptions,
 		ending_type
 	} = attributes;
+
+
 
 	//単色かグラデーションかの選択
 	const bgColor = bg_Color || bg_Gradient;
@@ -59,9 +52,17 @@ export default function Edit({ attributes, setAttributes }) {
 			fontStyle: state.data.fontStyle,
 		}),
 	};
-	//is_frontフラグによってブロックのzIndexを設定
-	const blockProps = is_front ? useBlockProps() : useBlockProps({ style: { zIndex: -1 } });
+	// ブロック参照用のuseRef
+	const blockRef = useRef(null);
+	//エンディングアニメーション関数参照用のuseRef
+	const cleanupRef = useRef(null);
 
+	const blockProps = useBlockProps({
+		ref: blockRef,// ここで参照を blockProps に渡しています
+		style: is_front ? { zIndex: 100 } : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
+	});
+
+	//フォントのセレクトオブジェクト
 	const FontSelect = ({ label, value }) => (
 		<>
 			{label && <label className="components-base-control__label">{label}</label>}
@@ -77,7 +78,7 @@ export default function Edit({ attributes, setAttributes }) {
 	);
 
 	useEffect(() => {
-		opentype.load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
+		opentype.load(opening_block.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
 			if (err) {
 				console.error('Could not load the font: ' + err);
 			} else {
@@ -100,68 +101,62 @@ export default function Edit({ attributes, setAttributes }) {
 		});
 	}, [logo_text, logo_font, logo_size, logo_gap]);
 
-	// マウント後の最初のuseEffectの内容をスキップするためのuseRef
-	const strokeRef = useRef(null);
-	//エンディングアニメーション関数参照用のuseRef
-	const cleanupRef = useRef(null);
-
 	useEffect(() => {
+		if (blockRef.current) {//マウント時には実行しない
+			if (trigger_anime) {
+				// 要素を取得
+				const logoElement = blockRef.current.querySelector('#logo_anime')
 
-		if (strokeRef.current) {//マウント時には実行しない
-			const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
-			//iframeの有無で操作するドキュメント要素を峻別
-			const target_doc = iframe ? (iframe.contentDocument || iframe.contentWindow.document) : document
-			// 要素を取得
-			const logoElement = target_doc.getElementById('logo_anime');
+				//パスの初期化
+				const paths = logoElement.getElementsByTagName('path');
 
-			//パスの初期化
-			const paths = logoElement.getElementsByTagName('path');
-			for (let path of paths) {
-				const length = path.getTotalLength();
-				path.style.strokeDasharray = length;
-				path.style.strokeDashoffset = length;
-			}
-
-			// アニメーションを開始
-			setAttributes({ is_anime: true }); // アニメーション開始
-			logoElement.classList.remove('done');
-
-			const animatePaths = (paths) => {
-				Array.from(paths).forEach((path, index) => {
+				for (let path of paths) {
 					const length = path.getTotalLength();
-
-					path.animate(
-						[{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
-						{ duration: 1000, fill: "both", delay: index * 800 }
-					).addEventListener("finish", () => {
-						// アニメーション終了
-						if (index === paths.length - 1) {
-							logoElement.classList.add("done");
-							// Reset all paths
-							for (let path of paths) {
-								path.style.strokeDashoffset = "";
-								path.style.strokeDasharray = "";
-							}
-
-							//エンディングアニメーション関数の実行と参照
-							cleanupRef.current = endingAnimation(ending_type, setAttributes);
-
-						}
-					});
-				});
-			};
-
-			animatePaths(paths);
-
-			// Cleanup function
-			return () => {
-				// Check if cleanup function exists, and if so, call it
-				if (typeof cleanupRef.current === 'function') {
-					cleanupRef.current();
+					path.style.strokeDasharray = length;
+					path.style.strokeDashoffset = length;
 				}
+
+				// アニメーションを開始
+				setAttributes({ is_anime: true }); // アニメーション開始
+				logoElement.classList.remove('done');
+				//エンディングのハンドル
+				const handleEnding = (flg) => {
+					setAttributes({ is_anime: flg, is_front: flg, trigger_anime: flg }); //アニメボタンの変更、背面へ
+				}
+
+				const animatePaths = (paths) => {
+					Array.from(paths).forEach((path, index) => {
+						const length = path.getTotalLength();
+
+						path.animate(
+							[{ strokeDashoffset: length }, { strokeDashoffset: 0 }],
+							{ duration: 1000, fill: "both", delay: index * 800 }
+						).addEventListener("finish", () => {
+							// アニメーション終了
+							if (index === paths.length - 1) {
+								logoElement.classList.add("done");
+								// Reset all paths
+								for (let path of paths) {
+									path.style.strokeDashoffset = "";
+									path.style.strokeDasharray = "";
+								}
+
+								//エンディングアニメーション関数の実行と参照
+								cleanupRef.current = endingAnimation(blockRef.current, ending_type, handleEnding);
+							}
+						});
+					});
+				};
+
+				animatePaths(paths);
 			}
-		} else {
-			strokeRef.current = true;
+		}
+		// Cleanup function
+		return () => {
+			// Check if cleanup function exists, and if so, call it
+			if (typeof cleanupRef.current === 'function') {
+				cleanupRef.current();
+			}
 		}
 	}, [trigger_anime]);
 
@@ -252,62 +247,30 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 					/>
 				</PanelBody>
-				<PanelBody title="エンディングアニメーション" initialOpen={true} className="ending_ctrl">
-
-					<RadioControl
-						selected={ending_type}
-						options={[
-							{ label: '縦方向スライド', value: "virtical_slide" },
-							{ label: '横方向スライド', value: "horizen_slide" },
-							{ label: '縦開きスライド', value: "virtical_open" },
-							{ label: '横開きスライド', value: "horizen_open" },
-							{ label: '円形エクスパンド', value: "circle_expand" },
-						]}
-						onChange={(newValue) => {
-							setAttributes({ ending_type: newValue });
-						}}
-					/>
-				</PanelBody>
 			</InspectorControls>
 
-			<BlockControls>
-				<Toolbar>
-					<Button
-						//表示するラベルを切り替え
-						label={is_anime ? "実行中" : "停止中"}
-						//表示するアイコンを切り替え
-						icon={play}
-
-						//setAttributes を使って属性の値を更新（真偽値を反転）
-						onClick={() => {
-							setAttributes({ trigger_anime: !trigger_anime })
-
-						}}
-						disabled={!is_front || is_anime}
-					/>
-					<Button
-						//表示するラベルを切り替え
-						label={is_front ? "最背面へ" : "最前面へ"}
-						//表示するアイコンを切り替え
-						icon={is_front ? toBack : toFront}
-
-						//setAttributes を使って属性の値を更新（真偽値を反転）
-						onClick={() => {
-							setAttributes({ is_front: !is_front })
-						}}
-						disabled={is_anime ? true : false}
-					/>
-				</Toolbar>
-			</BlockControls>
+			<EndingAnime
+				attributes={attributes}
+				onChange={(newObj) => {
+					setAttributes(newObj);
+				}}
+			/>
 
 			<div {...blockProps}>
 				<div id="splash" style={{ background: bgColor, display: is_front ? 'block' : 'none' }}>
 					<div id="splash_logo">
-						<svg id="logo_anime" className="done" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>
+						<svg
+							id="logo_anime"
+							className="done"
+							width="250px"
+							height="120px"
+							viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}
+						>
 							<g>
-								{char_paths.map((path, i) => (
-									<path style={{ fill: fillColor, stroke: logo_strokeColor }} key={i} d={path} />
-								))}
+								{char_paths.map((path, i) => {
+									return (<path key={i} style={{ fill: fillColor, stroke: logo_strokeColor }} d={path} />)
+								}
+								)}
 							</g>
 						</svg>
 					</div>

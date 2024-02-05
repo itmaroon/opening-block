@@ -29,6 +29,7 @@ jQuery(function ($) {
     const splashbg2 = document.getElementsByClassName('splashbg2')[0];
     const splashCirclebg = document.getElementsByClassName('splashCirclebg')[0];
     const fixbg = document.getElementsByClassName('fixbg')[0];
+    const $fixbg = $(fixbg);
 
     splash_logo.animate(
       [
@@ -71,12 +72,11 @@ jQuery(function ($) {
           splashbg.classList.add(ending_type);//フェードアウト後appearクラス付与
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
           //最終処理
-          fixbg.addEventListener('transitionend', function () {
-            //splash.parentElement.style.zIndex = "-1";
+          $fixbg.on('transitionend', function () {
             splash.parentElement.style.display = "none";
+            // design-groupのアニメーション発火のためのカスタムイベントを発生させる
+            $(this).trigger('openAnimationEnd');
           });
-
-
         });
         //円形拡張型	
       } else if (ending_type === 'circle_expand') {
@@ -94,9 +94,10 @@ jQuery(function ($) {
           splashCirclebg.classList.add('appear');//フェードアウト後appearクラス付与
           fixbg.classList.add('disappear');//フェードアウト後disappearクラス付与
           //最終処理
-          fixbg.addEventListener('transitionend', function () {
-            //splash.parentElement.style.zIndex = "-1";
+          $fixbg.on('transitionend', function () {
             splash.parentElement.style.display = "none";
+            // design-groupのアニメーション発火のためのカスタムイベントを発生させる
+            $(this).trigger('openAnimationEnd');
           });
         });
       }

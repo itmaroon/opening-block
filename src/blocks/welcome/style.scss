@@ -28,6 +28,12 @@
 		transform: translate(-50%, -40%);
 		width: 30vw;
 		height: 27vw;
+
+		@include common.mq(sp) {
+			top: -10em;
+			left: -10em;
+			transform: none;
+		}
 	}
 
 	.letters_pen {
@@ -48,6 +54,11 @@
 
 		&.play {
 			animation: move-pen 5.5s var(--custom-easing) forwards;
+		}
+
+		@include common.mq(sp) {
+			width: 25vw;
+			height: 25vw;
 		}
 	}
 

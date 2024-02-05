@@ -12,7 +12,7 @@ const CustomFontFace = ({ attributes, setAttributes }) => {
     black: 900,
   };
   useEffect(() => {
-    fetch(plugin.plugin_url + '/build/fileList.json')
+    fetch(opening_block.plugin_url + '/build/fileList.json')
       .then(response => response.json())
       .then((data) => {
         const newFontFamilyOptions = data.map((fontInfo) => {
@@ -26,7 +26,7 @@ const CustomFontFace = ({ attributes, setAttributes }) => {
           styleElement.textContent = `
             @font-face {
               font-family: '${font_arr[1]}';
-              src: url('${plugin.plugin_url}/assets/fonts/${font_arr[0]}') format('truetype');
+              src: url('${opening_block.plugin_url}/assets/fonts/${font_arr[0]}') format('truetype');
               font-weight: ${weight_val};
               font-style: ${style};
             }

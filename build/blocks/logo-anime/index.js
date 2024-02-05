@@ -2347,7 +2347,7 @@ const CustomFontFace = _ref => {
     black: 900
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    fetch(plugin.plugin_url + '/build/fileList.json').then(response => response.json()).then(data => {
+    fetch(opening_block.plugin_url + '/build/fileList.json').then(response => response.json()).then(data => {
       const newFontFamilyOptions = data.map(fontInfo => {
         const font_arr = fontInfo.match(/(.*)-(.*)\.ttf/);
         const style = font_arr[2].includes("Italic") ? "italic" : "normal";
@@ -2359,7 +2359,7 @@ const CustomFontFace = _ref => {
         styleElement.textContent = `
             @font-face {
               font-family: '${font_arr[1]}';
-              src: url('${plugin.plugin_url}/assets/fonts/${font_arr[0]}') format('truetype');
+              src: url('${opening_block.plugin_url}/assets/fonts/${font_arr[0]}') format('truetype');
               font-weight: ${weight_val};
               font-style: ${style};
             }
@@ -2399,20 +2399,35 @@ const CustomFontFace = _ref => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ EndingAnime),
 /* harmony export */   endingAnimation: () => (/* binding */ endingAnimation)
 /* harmony export */ });
-function endingAnimation(ending_type, setAttributes) {
-  const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
-  //iframeの有無で操作するドキュメント要素を峻別
-  const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/icon/circle-play.svg */ "./assets/icon/circle-play.svg");
+/* harmony import */ var _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/icon/turn-up.svg */ "./assets/icon/turn-up.svg");
+/* harmony import */ var _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./assets/icon/turn-down.svg */ "./assets/icon/turn-down.svg");
 
+
+
+
+
+
+
+const endingAnimation = (elmRef, ending_type, onEnding) => {
   //要素を取得
-  const splash = target_doc.getElementById('splash');
-  const splash_logo = target_doc.getElementById('splash_logo');
-  const splashbg = target_doc.getElementsByClassName('splashbg')[0];
-  const splashbg2 = target_doc.getElementsByClassName('splashbg2')[0];
-  const splashCirclebg = target_doc.getElementsByClassName('splashCirclebg')[0];
-  const fixbg = target_doc.getElementsByClassName('fixbg')[0];
+  const splash = elmRef.querySelector('#splash');
+  const splash_logo = elmRef.querySelector('#splash_logo');
+  const splashbg = elmRef.querySelector('.splashbg');
+  const splashbg2 = elmRef.querySelector('.splashbg2');
+  const splashCirclebg = elmRef.querySelector('.splashCirclebg');
+  const fixbg = elmRef.querySelector('.fixbg');
   //イベントハンドラ
   const open_listener = () => {
     fixbg.classList.remove('hide'); //フェード用背景非表示
@@ -2434,14 +2449,8 @@ function endingAnimation(ending_type, setAttributes) {
       duration: 0,
       fill: 'both'
     });
-    setAttributes({
-      is_anime: false
-    }); //アニメボタンの変更
-    setAttributes({
-      is_front: false
-    }); //背面へ
+    onEnding(false);
   };
-
   const slide_end_listener = () => {
     splashbg.classList.remove('appear'); //フェードアウト後appearクラス削除
     splashbg.classList.remove(ending_type); //フェードアウト後appearクラス削除
@@ -2458,14 +2467,8 @@ function endingAnimation(ending_type, setAttributes) {
       duration: 0,
       fill: 'both'
     });
-    setAttributes({
-      is_anime: false
-    }); //アニメボタンの変更
-    setAttributes({
-      is_front: false
-    }); //背面へ
+    onEnding(false);
   };
-
   const slide_listener = () => {
     splashbg.classList.add('appear'); //フェードアウト後appearクラス付与
     splashbg.classList.add(ending_type); //フェードアウト後appearクラス付与
@@ -2487,14 +2490,8 @@ function endingAnimation(ending_type, setAttributes) {
       duration: 0,
       fill: 'both'
     });
-    setAttributes({
-      is_anime: false
-    }); //アニメボタンの変更
-    setAttributes({
-      is_front: false
-    }); //背面へ
+    onEnding(false);
   };
-
   const circle_listener = () => {
     splashCirclebg.classList.add('appear'); //フェードアウト後appearクラス付与
     fixbg.classList.add('disappear'); //フェードアウト後disappearクラス付与
@@ -2562,6 +2559,80 @@ function endingAnimation(ending_type, setAttributes) {
     splash.removeEventListener("finish", circle_listener);
     splash_logo.removeEventListener("finish", feedOut_listener);
   };
+};
+function EndingAnime(_ref) {
+  let {
+    attributes,
+    onChange
+  } = _ref;
+  const {
+    ending_type,
+    is_anime,
+    is_front,
+    trigger_anime
+  } = attributes;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
+    group: "settings"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    title: "\u30A8\u30F3\u30C7\u30A3\u30F3\u30B0\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3",
+    initialOpen: true,
+    className: "ending_ctrl"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+    selected: ending_type,
+    options: [{
+      label: '縦方向スライド',
+      value: "virtical_slide"
+    }, {
+      label: '横方向スライド',
+      value: "horizen_slide"
+    }, {
+      label: '縦開きスライド',
+      value: "virtical_open"
+    }, {
+      label: '横開きスライド',
+      value: "horizen_open"
+    }, {
+      label: '円形エクスパンド',
+      value: "circle_expand"
+    }],
+    onChange: newValue => {
+      onChange({
+        ending_type: newValue
+      });
+    }
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
+  //表示するラベルを切り替え
+  , {
+    label: is_anime ? "実行中" : "停止中"
+    //表示するアイコンを切り替え
+    ,
+    icon: _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
+
+    //setAttributes を使って属性の値を更新（真偽値を反転）
+    ,
+    onClick: () => {
+      onChange({
+        trigger_anime: !trigger_anime
+      });
+    },
+    disabled: !is_front || is_anime
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
+  //表示するラベルを切り替え
+  , {
+    label: is_front ? "最背面へ" : "最前面へ"
+    //表示するアイコンを切り替え
+    ,
+    icon: is_front ? _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent : _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
+
+    //setAttributes を使って属性の値を更新（真偽値を反転）
+    ,
+    onClick: () => {
+      onChange({
+        is_front: !is_front
+      });
+    },
+    disabled: is_anime ? true : false
+  }))));
 }
 
 /***/ }),
@@ -2585,17 +2656,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/icon/circle-play.svg */ "./assets/icon/circle-play.svg");
-/* harmony import */ var _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/icon/turn-up.svg */ "./assets/icon/turn-up.svg");
-/* harmony import */ var _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../assets/icon/turn-down.svg */ "./assets/icon/turn-down.svg");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../editor.scss */ "./src/editor.scss");
-/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
-/* harmony import */ var _EndingAnime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../EndingAnime */ "./EndingAnime.js");
-/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
-/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
-
-
-
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../editor.scss */ "./src/editor.scss");
+/* harmony import */ var _CustomFontFace__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../CustomFontFace */ "./CustomFontFace.js");
+/* harmony import */ var _EndingAnime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../EndingAnime */ "./EndingAnime.js");
+/* harmony import */ var opentype_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! opentype.js */ "./node_modules/opentype.js/dist/opentype.module.js");
+/* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
 
 
 
@@ -2624,7 +2689,6 @@ function Edit(_ref) {
     logo_strokeColor,
     logo_fillColor,
     logo_fillGradient,
-    is_anime,
     trigger_anime,
     is_front,
     fontFamilyOptions,
@@ -2643,12 +2707,22 @@ function Edit(_ref) {
       fontStyle: state.data.fontStyle
     })
   };
-  //is_frontフラグによってブロックのzIndexを設定
-  const blockProps = is_front ? (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)() : (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
-    style: {
-      zIndex: -1
-    }
+  // ブロック参照用のuseRef
+  const blockRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  //エンディングアニメーション関数参照用のuseRef
+  const cleanupRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)({
+    ref: blockRef,
+    // ここで参照を blockProps に渡しています
+    style: is_front ? {
+      zIndex: 100
+    } : {
+      zIndex: -1,
+      opacity: 0
+    } //is_frontフラグによってブロックのzIndexを設定
   });
+
+  //フォントのセレクトオブジェクト
   const FontSelect = _ref2 => {
     let {
       label,
@@ -2656,7 +2730,7 @@ function Edit(_ref) {
     } = _ref2;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, label && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
       className: "components-base-control__label"
-    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    }, label), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_select__WEBPACK_IMPORTED_MODULE_8__["default"], {
       options: fontFamilyOptions,
       value: fontFamilyOptions.find(option => option.value === value),
       onChange: newOption => {
@@ -2668,7 +2742,7 @@ function Edit(_ref) {
     }));
   };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    opentype_js__WEBPACK_IMPORTED_MODULE_10__["default"].load(plugin.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
+    opentype_js__WEBPACK_IMPORTED_MODULE_7__["default"].load(opening_block.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
       if (err) {
         console.error('Could not load the font: ' + err);
       } else {
@@ -2696,74 +2770,74 @@ function Edit(_ref) {
       }
     });
   }, [logo_text, logo_font, logo_size, logo_gap]);
-
-  // マウント後の最初のuseEffectの内容をスキップするためのuseRef
-  const strokeRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  //エンディングアニメーション関数参照用のuseRef
-  const cleanupRef = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (strokeRef.current) {
+    if (blockRef.current) {
       //マウント時には実行しない
-      const iframe = document.getElementsByName('editor-canvas')[0]; // name属性を利用
-      //iframeの有無で操作するドキュメント要素を峻別
-      const target_doc = iframe ? iframe.contentDocument || iframe.contentWindow.document : document;
-      // 要素を取得
-      const logoElement = target_doc.getElementById('logo_anime');
+      if (trigger_anime) {
+        // 要素を取得
+        const logoElement = blockRef.current.querySelector('#logo_anime');
 
-      //パスの初期化
-      const paths = logoElement.getElementsByTagName('path');
-      for (let path of paths) {
-        const length = path.getTotalLength();
-        path.style.strokeDasharray = length;
-        path.style.strokeDashoffset = length;
-      }
-
-      // アニメーションを開始
-      setAttributes({
-        is_anime: true
-      }); // アニメーション開始
-      logoElement.classList.remove('done');
-      const animatePaths = paths => {
-        Array.from(paths).forEach((path, index) => {
+        //パスの初期化
+        const paths = logoElement.getElementsByTagName('path');
+        for (let path of paths) {
           const length = path.getTotalLength();
-          path.animate([{
-            strokeDashoffset: length
-          }, {
-            strokeDashoffset: 0
-          }], {
-            duration: 1000,
-            fill: "both",
-            delay: index * 800
-          }).addEventListener("finish", () => {
-            // アニメーション終了
-            if (index === paths.length - 1) {
-              logoElement.classList.add("done");
-              // Reset all paths
-              for (let path of paths) {
-                path.style.strokeDashoffset = "";
-                path.style.strokeDasharray = "";
-              }
-
-              //エンディングアニメーション関数の実行と参照
-              cleanupRef.current = (0,_EndingAnime__WEBPACK_IMPORTED_MODULE_9__.endingAnimation)(ending_type, setAttributes);
-            }
-          });
-        });
-      };
-      animatePaths(paths);
-
-      // Cleanup function
-      return () => {
-        // Check if cleanup function exists, and if so, call it
-        if (typeof cleanupRef.current === 'function') {
-          cleanupRef.current();
+          path.style.strokeDasharray = length;
+          path.style.strokeDashoffset = length;
         }
-      };
-    } else {
-      strokeRef.current = true;
+
+        // アニメーションを開始
+        setAttributes({
+          is_anime: true
+        }); // アニメーション開始
+        logoElement.classList.remove('done');
+        //エンディングのハンドル
+        const handleEnding = flg => {
+          setAttributes({
+            is_anime: flg,
+            is_front: flg,
+            trigger_anime: flg
+          }); //アニメボタンの変更、背面へ
+        };
+
+        const animatePaths = paths => {
+          Array.from(paths).forEach((path, index) => {
+            const length = path.getTotalLength();
+            path.animate([{
+              strokeDashoffset: length
+            }, {
+              strokeDashoffset: 0
+            }], {
+              duration: 1000,
+              fill: "both",
+              delay: index * 800
+            }).addEventListener("finish", () => {
+              // アニメーション終了
+              if (index === paths.length - 1) {
+                logoElement.classList.add("done");
+                // Reset all paths
+                for (let path of paths) {
+                  path.style.strokeDashoffset = "";
+                  path.style.strokeDasharray = "";
+                }
+
+                //エンディングアニメーション関数の実行と参照
+                cleanupRef.current = (0,_EndingAnime__WEBPACK_IMPORTED_MODULE_6__.endingAnimation)(blockRef.current, ending_type, handleEnding);
+              }
+            });
+          });
+        };
+        animatePaths(paths);
+      }
     }
+    // Cleanup function
+    return () => {
+      // Check if cleanup function exists, and if so, call it
+      if (typeof cleanupRef.current === 'function') {
+        cleanupRef.current();
+      }
+    };
   }, [trigger_anime]);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_CustomFontFace__WEBPACK_IMPORTED_MODULE_5__["default"], {
     attributes: attributes,
     setAttributes: setAttributes
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, {
@@ -2849,66 +2923,12 @@ function Edit(_ref) {
         logo_fillGradient: newValue
       })
     }]
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: "\u30A8\u30F3\u30C7\u30A3\u30F3\u30B0\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3",
-    initialOpen: true,
-    className: "ending_ctrl"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
-    selected: ending_type,
-    options: [{
-      label: '縦方向スライド',
-      value: "virtical_slide"
-    }, {
-      label: '横方向スライド',
-      value: "horizen_slide"
-    }, {
-      label: '縦開きスライド',
-      value: "virtical_open"
-    }, {
-      label: '横開きスライド',
-      value: "horizen_open"
-    }, {
-      label: '円形エクスパンド',
-      value: "circle_expand"
-    }],
-    onChange: newValue => {
-      setAttributes({
-        ending_type: newValue
-      });
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_EndingAnime__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    attributes: attributes,
+    onChange: newObj => {
+      setAttributes(newObj);
     }
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
-  //表示するラベルを切り替え
-  , {
-    label: is_anime ? "実行中" : "停止中"
-    //表示するアイコンを切り替え
-    ,
-    icon: _assets_icon_circle_play_svg__WEBPACK_IMPORTED_MODULE_4__.ReactComponent
-
-    //setAttributes を使って属性の値を更新（真偽値を反転）
-    ,
-    onClick: () => {
-      setAttributes({
-        trigger_anime: !trigger_anime
-      });
-    },
-    disabled: !is_front || is_anime
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button
-  //表示するラベルを切り替え
-  , {
-    label: is_front ? "最背面へ" : "最前面へ"
-    //表示するアイコンを切り替え
-    ,
-    icon: is_front ? _assets_icon_turn_down_svg__WEBPACK_IMPORTED_MODULE_6__.ReactComponent : _assets_icon_turn_up_svg__WEBPACK_IMPORTED_MODULE_5__.ReactComponent
-
-    //setAttributes を使って属性の値を更新（真偽値を反転）
-    ,
-    onClick: () => {
-      setAttributes({
-        is_front: !is_front
-      });
-    },
-    disabled: is_anime ? true : false
-  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
     style: {
       background: bgColor,
@@ -2922,14 +2942,16 @@ function Edit(_ref) {
     width: "250px",
     height: "120px",
     viewBox: `${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
-    style: {
-      fill: fillColor,
-      stroke: logo_strokeColor
-    },
-    key: i,
-    d: path
-  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      key: i,
+      style: {
+        fill: fillColor,
+        stroke: logo_strokeColor
+      },
+      d: path
+    });
+  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "fixbg"
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "splashbg",
@@ -3007,6 +3029,7 @@ function save(_ref) {
   const {
     logo_strokeColor,
     logo_fillColor,
+    logo_fillGradient,
     char_paths,
     logo_width,
     logo_height,
@@ -3022,6 +3045,7 @@ function save(_ref) {
   };
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(frontStyle);
   const bgColor = bg_Color || bg_Gradient;
+  const fillColor = logo_fillColor || logo_fillGradient;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", blockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     id: "splash",
     "data-fill-color": logo_fillColor,
@@ -3038,6 +3062,10 @@ function save(_ref) {
     height: "120px",
     viewBox: `${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, char_paths.map((path, i) => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+    style: {
+      fill: fillColor,
+      stroke: logo_strokeColor
+    },
     key: i,
     d: path
   })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -3057,14 +3085,7 @@ function save(_ref) {
     style: {
       background: bgColor
     }
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "is_skip_check"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
-    type: "checkbox",
-    name: "anim_is_skip"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    rel: "\u6B21\u56DE\u304B\u3089\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u3092\u30B9\u30AD\u30C3\u30D7"
-  }, "\u6B21\u56DE\u304B\u3089\u30A2\u30CB\u30E1\u30FC\u30B7\u30E7\u30F3\u3092\u30B9\u30AD\u30C3\u30D7"))));
+  }));
 }
 
 /***/ }),

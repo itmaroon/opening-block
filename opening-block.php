@@ -14,18 +14,19 @@
  * @package           itmar
  */
 
+//composerによるリモートリポジトリからの読み込みを要求
+require_once __DIR__ . '/vendor/autoload.php';
 
-function itmar_opening_block_block_init() {
-	foreach (glob(plugin_dir_path(__FILE__) . 'build/blocks/*') as $block) {
-		// Static block
-		register_block_type($block);
-	}
-}
-add_action( 'init', 'itmar_opening_block_block_init' );
+$block_entry = new \Itmar\BlockClassPakage\ItmarEntryClass();
+
+//ブロックの初期登録
+add_action( 'init', function() use ($block_entry ) {
+  $text_domain = 'opening-block'; // ここで引数を設定
+  $block_entry->block_init($text_domain, __FILE__);
+});
 
 //プラグインの読み込み
 function itmar_opening_block_add_plugin() {
-  $dir = dirname( __FILE__ );
   //JavaScript ファイルの読み込み（エンキュー）
 	wp_enqueue_script( 
 		'vivus','https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js', 
@@ -41,21 +42,18 @@ function itmar_opening_block_add_plugin() {
 		true
 	);
 	//自作スクリプトの読み込み
-	$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
-	wp_enqueue_script( 
-		'itmar-script-handle', 
-		plugins_url( '/assets/opening.js', __FILE__ ), 
-		array('jquery'), 
-		filemtime($script_path),
-		true
-	);
-
+	if(!is_admin()){//フロントエンドでのみ読み込む
+		$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
+		wp_enqueue_script( 
+			'itmar-script-handle', 
+			plugins_url( '/assets/opening.js', __FILE__ ), 
+			array('jquery'), 
+			filemtime($script_path),
+			true
+		);
+	}
 	
-	//urlパスの引き渡し
-  $plugin_url = plugins_url("",__FILE__);
-	wp_localize_script( 'itmar-script-handle', 'plugin', array(
-			'plugin_url' => $plugin_url
-	));
+
 
 	//ブロックの２重登録の監視
 	if (is_admin() && !wp_doing_ajax()) {//管理画面でのみ読み込む）
