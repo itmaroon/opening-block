@@ -1,5 +1,5 @@
-const { select, subscribe, dispatch } = wp.data;
-
+import { __ } from '@wordpress/i18n';
+import { select, subscribe, dispatch } from '@wordpress/data';
 //初めのブロックの状態を取得
 let blocksInEditor = select('core/block-editor').getBlocks();
 let noticeCreated = false;  //エラーメッセージ表示フラグ
@@ -24,7 +24,7 @@ subscribe(() => {
         noticeCreated = true;
         dispatch('core/notices').createNotice(
           'error',
-          'オープニングブロックは一つしか配置できません。',
+          __("Only one opening block can be placed.", 'opening-block'),
           { type: 'snackbar' }
         );
       }

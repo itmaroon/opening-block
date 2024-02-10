@@ -41,7 +41,7 @@ $breakpoints: (
 	color: #ffffff;
 	width: 100vw;
 	height: 100vh;
-	z-index: 50;
+	z-index: 100;
 
 	/* Loading背景画面　*/
 	#splash {
@@ -188,8 +188,6 @@ $breakpoints: (
 		}
 	}
 
-
-
 	@keyframes scale_down {
 		0% {
 			/*丸のスタート位置と形状*/
@@ -296,4 +294,40 @@ $breakpoints: (
 		}
 	}
 
+}
+
+.opening_check {
+	position: fixed;
+	z-index: 200;
+	bottom: 3em;
+	right: 3em;
+	opacity: 1;
+	transition: opacity 0.3s ease 0s;
+	display: none;
+
+	@include mq(sp) {
+		bottom: 1em;
+		right: 0.5em;
+	}
+
+	.waiting {
+		color: var(--wp--preset--color--accent-2);
+	}
+
+	&.closing {
+		opacity: 0;
+
+		div {
+			color: var(--wp--preset--color--content);
+		}
+
+		span {
+			border: 0.2em solid var(--wp--preset--color--accent-2);
+		}
+
+	}
+
+	&:hover {
+		opacity: 1;
+	}
 }

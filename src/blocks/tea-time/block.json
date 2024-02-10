@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Tea Time",
 	"category": "design",
-	"description": "Webサイトのオープニングに使用するブロックです",
 	"supports": {
 		"multiple": false,
 		"html": false
@@ -45,6 +44,10 @@
 		"ending_type": {
 			"type": "string",
 			"default": "virtical_slide"
+		},
+		"is_check_enable": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"textdomain": "opening-block",

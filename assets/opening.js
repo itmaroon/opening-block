@@ -3,21 +3,39 @@
 jQuery(function ($) {
   // cookie名を設定します。
   const ANIM_COOKIE_SKIP = 'animation_shown';
-  let is_anime_skip = $.cookie(ANIM_COOKIE_SKIP) === 'true';
-  if (!is_anime_skip) {
+  let is_anime_skip = false;
+  if ($(".opening_check").length == 0) {
+    // オープニングスキップのチェックボックスがなければ、cookieを削除します。 
+    $.removeCookie(ANIM_COOKIE_SKIP);
+  } else {
+    is_anime_skip = $.cookie(ANIM_COOKIE_SKIP) === 'true';
+    $("input[name='anim_is_skip']").prop('checked', is_anime_skip);
+    //読込終了後に表示
+    $(".opening_check").css('display', 'block');
+  }
 
+  if (!is_anime_skip) {
+    //アニメーションをスキップしない処理
     $('#splash').css('display', 'block');
+  } else {
+    //アニメーションをスキップする場合の処理
+    $('.fixbg').trigger('openAnimationEnd');//アニメーションが終了したことのトリガーを発生
+    $('.opening_check').addClass('closing');//チェックボックスのスタイルを変更
+    $('.wp-block-itmar-logo-anime, .wp-block-itmar-tea-time, .wp-block-itmar-welcome').css('display', 'none');//アニメーションブロックの消去
   }
 
   // チェックボックスのクリックイベントを監視します。
   $("input[name='anim_is_skip']").on('change', function () {
     if ($(this).is(':checked')) {
       // チェックボックスが選択されたら、アニメーションが表示されたことをcookieに記録します。
-      $.cookie(ANIM_COOKIE_SKIP, 'true', { expires: 1 });
+      $.cookie(ANIM_COOKIE_SKIP, 'true', { expires: 1, secure: true, sameSite: 'None' });
+      is_anime_skip = true;
     } else {
       // チェックボックスの選択が解除されたら、cookieを削除します。
       $.removeCookie(ANIM_COOKIE_SKIP);
+      is_anime_skip = false;
     }
+
   });
   /*===========================================================*/
   /*エンディングアニメーション*/
@@ -76,6 +94,8 @@ jQuery(function ($) {
             splash.parentElement.style.display = "none";
             // design-groupのアニメーション発火のためのカスタムイベントを発生させる
             $(this).trigger('openAnimationEnd');
+            // $fixbgの親要素の直後の兄弟要素にclosingクラスを付加
+            $(this).parent().next().addClass('closing');
           });
         });
         //円形拡張型	
@@ -98,6 +118,8 @@ jQuery(function ($) {
             splash.parentElement.style.display = "none";
             // design-groupのアニメーション発火のためのカスタムイベントを発生させる
             $(this).trigger('openAnimationEnd');
+            // $fixbgの親要素の直後の兄弟要素にclosingクラスを付加
+            $(this).parent().next().addClass('closing');
           });
         });
       }

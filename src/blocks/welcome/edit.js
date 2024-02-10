@@ -5,6 +5,7 @@ import {
 } from '@wordpress/components';
 import {
 	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
@@ -13,7 +14,7 @@ import {
 import { useEffect, useRef } from '@wordpress/element';
 import EndingAnime, { endingAnimation } from '../../../EndingAnime';
 import '../../editor.scss';
-
+import SkipAnime from '../../../SkipAnime';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -36,9 +37,8 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const blockProps = useBlockProps({
 		ref: blockRef,// ここで参照を blockProps に渡しています
-		style: is_front ? { zIndex: 100 } : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
+		style: is_front ? {} : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
 	});
-
 
 	useEffect(() => {
 		if (blockRef.current) {//マウント時には実行しない
@@ -75,15 +75,15 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls group="settings">
-				<PanelBody title="背景設定" initialOpen={true} className="back_design_ctrl">
+				<PanelBody title={__("Background Settings", 'opening-block')} initialOpen={true} className="back_design_ctrl">
 					<PanelColorGradientSettings
-						title={__("Background Color Setting")}
+						title={__("Background Color Setting", 'opening-block')}
 						settings={[
 							{
 								colorValue: bg_Color,
 								gradientValue: bg_Gradient,
 
-								label: __("Choice color or gradient"),
+								label: __("Choice color or gradient", 'opening-block'),
 								onColorChange: (newValue) => {
 									setAttributes({ bg_Color: newValue === undefined ? '' : newValue });
 								},
@@ -94,18 +94,7 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 					/>
 				</PanelBody>
-				<PanelBody title="ロゴ設定" initialOpen={true} className="logo_design_ctrl">
 
-					<PanelColorGradientSettings
-						title={__("Logo Color Setting")}
-						settings={[{
-							colorValue: logo_fillColor,
-							label: __("Stroke color"),
-							onColorChange: (newValue) => setAttributes({ logo_fillColor: newValue }),
-						}
-						]}
-					/>
-				</PanelBody>
 
 			</InspectorControls>
 
@@ -158,6 +147,10 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="splashbg2" style={{ background: bgColor }}></div>
 				<div className="splashCirclebg" style={{ background: bgColor }}></div>
 			</div>
+			<SkipAnime
+				isFront={is_front}
+				onChange={(enableObj) => setAttributes(enableObj)}
+			/>
 		</>
 
 	);

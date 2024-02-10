@@ -17,6 +17,8 @@ import CustomFontFace from '../../../CustomFontFace';
 import EndingAnime, { endingAnimation } from '../../../EndingAnime';
 import opentype from 'opentype.js';
 import Select from 'react-select';
+import SkipAnime from '../../../SkipAnime';
+
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -38,8 +40,6 @@ export default function Edit({ attributes, setAttributes }) {
 		ending_type
 	} = attributes;
 
-
-
 	//単色かグラデーションかの選択
 	const bgColor = bg_Color || bg_Gradient;
 	const fillColor = logo_fillColor || logo_fillGradient;
@@ -59,7 +59,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const blockProps = useBlockProps({
 		ref: blockRef,// ここで参照を blockProps に渡しています
-		style: is_front ? { zIndex: 100 } : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
+		style: is_front ? {} : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
 	});
 
 	//フォントのセレクトオブジェクト
@@ -76,6 +76,7 @@ export default function Edit({ attributes, setAttributes }) {
 			/>
 		</>
 	);
+
 
 	useEffect(() => {
 		opentype.load(opening_block.plugin_url + `/assets/fonts/${logo_font}`, (err, font) => {
@@ -168,16 +169,16 @@ export default function Edit({ attributes, setAttributes }) {
 			/>
 
 			<InspectorControls group="settings">
-				<PanelBody title="背景設定" initialOpen={true} className="back_design_ctrl">
+				<PanelBody title={__("Background Settings", 'opening-block')} initialOpen={true} className="back_design_ctrl">
 
 					<PanelColorGradientSettings
-						title={__("Background Color Setting")}
+						title={__("Background Color Setting", 'opening-block')}
 						settings={[
 							{
 								colorValue: bg_Color,
 								gradientValue: bg_Gradient,
 
-								label: __("Choice color or gradient"),
+								label: __("Choice color or gradient", 'opening-block'),
 								onColorChange: (newValue) => {
 									setAttributes({ bg_Color: newValue === undefined ? '' : newValue });
 								},
@@ -188,10 +189,10 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 					/>
 				</PanelBody>
-				<PanelBody title="ロゴ設定" initialOpen={true} className="logo_design_ctrl">
+				<PanelBody title={__("Logo Settings", 'opening-block')} initialOpen={true} className="logo_design_ctrl">
 					<PanelRow>
 						<TextControl
-							label="ロゴ文字"
+							label={__("Logo Letters", 'opening-block')}
 							labelPosition="top"
 							value={logo_text}
 							isPressEnterToChange
@@ -199,13 +200,13 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</PanelRow>
 					<FontSelect
-						label="フォントファミリー"
+						label={__("Font Family", 'opening-block')}
 						value={logo_font}
 					/>
 					<PanelRow className='logoSizeCtrl'>
 						<RangeControl
 							value={logo_size}
-							label="ロゴの大きさ"
+							label={__("Logo Size", 'opening-block')}
 							max={100}
 							min={10}
 							onChange={(val) => setAttributes({ logo_size: val })}
@@ -218,7 +219,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<PanelRow className='logoSizeCtrl'>
 						<RangeControl
 							value={logo_gap}
-							label="ロゴの間隔"
+							label={__("Logo Spacing", 'opening-block')}
 							max={20}
 							min={1}
 							onChange={(val) => setAttributes({ logo_gap: val })}
@@ -229,10 +230,10 @@ export default function Edit({ attributes, setAttributes }) {
 
 					</PanelRow>
 					<PanelColorGradientSettings
-						title={__("Logo Color Setting")}
+						title={__("Logo Color Setting", 'opening-block')}
 						settings={[{
 							colorValue: logo_strokeColor,
-							label: __("Stroke color"),
+							label: __("Stroke color", 'opening-block'),
 							onColorChange: (newValue) => setAttributes({ logo_strokeColor: newValue }),
 						},
 
@@ -240,7 +241,7 @@ export default function Edit({ attributes, setAttributes }) {
 							colorValue: logo_fillColor,
 							gradientValue: logo_fillGradient,
 
-							label: __("Fill color"),
+							label: __("Fill Color", 'opening-block'),
 							onColorChange: (newValue) => setAttributes({ logo_fillColor: newValue }),
 							onGradientChange: (newValue) => setAttributes({ logo_fillGradient: newValue }),
 						}
@@ -280,6 +281,11 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="splashbg2" style={{ background: bgColor }}></div>
 				<div className="splashCirclebg" style={{ background: bgColor }}></div>
 			</div>
+			<SkipAnime
+				isFront={is_front}
+				onChange={(enableObj) => setAttributes(enableObj)}
+			/>
+
 		</>
 
 	);

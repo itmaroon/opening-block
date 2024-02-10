@@ -21,6 +21,7 @@
 		"@wordpress/scripts": "^26.5.0"
 	},
 	"dependencies": {
+		"@wordpress/data": "^9.20.0",
 		"@wordpress/icons": "^9.25.0",
 		"gsap": "^3.11.5",
 		"lodash": "^4.17.21",

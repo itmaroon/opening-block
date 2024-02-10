@@ -147,16 +147,16 @@ export default function EndingAnime({ attributes, onChange }) {
   return (
     <>
       <InspectorControls group="settings">
-        <PanelBody title="エンディングアニメーション" initialOpen={true} className="ending_ctrl">
+        <PanelBody title={__("Ending Animation", 'opening-block')} initialOpen={true} className="ending_ctrl">
 
           <RadioControl
             selected={ending_type}
             options={[
-              { label: '縦方向スライド', value: "virtical_slide" },
-              { label: '横方向スライド', value: "horizen_slide" },
-              { label: '縦開きスライド', value: "virtical_open" },
-              { label: '横開きスライド', value: "horizen_open" },
-              { label: '円形エクスパンド', value: "circle_expand" },
+              { label: __("Vertical Slide", 'opening-block'), value: "virtical_slide" },
+              { label: __("Horizen Slide", 'opening-block'), value: "horizen_slide" },
+              { label: __("Vertical Open", 'opening-block'), value: "virtical_open" },
+              { label: __("Horizen Open", 'opening-block'), value: "horizen_open" },
+              { label: __("Circle Expand", 'opening-block'), value: "circle_expand" },
             ]}
             onChange={(newValue) => {
               onChange({ ending_type: newValue });
@@ -169,7 +169,7 @@ export default function EndingAnime({ attributes, onChange }) {
         <Toolbar>
           <Button
             //表示するラベルを切り替え
-            label={is_anime ? "実行中" : "停止中"}
+            label={is_anime ? __("Running", 'opening-block') : __("Stopped", 'opening-block')}
             //表示するアイコンを切り替え
             icon={play}
 
@@ -182,7 +182,7 @@ export default function EndingAnime({ attributes, onChange }) {
           />
           <Button
             //表示するラベルを切り替え
-            label={is_front ? "最背面へ" : "最前面へ"}
+            label={is_front ? __("To Front", 'opening-block') : __("To Back", 'opening-block')}
             //表示するアイコンを切り替え
             icon={is_front ? toBack : toFront}
 

@@ -4,4 +4,34 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.opening_check {
+  position: fixed;
+  z-index: 200;
+  bottom: 3em;
+  right: 3em;
+  opacity: 1;
+  transition: opacity 0.3s ease 0s;
+  display: none;
+}
+@media (max-width: 767px) {
+  .opening_check {
+    bottom: 1em;
+    right: 0.5em;
+  }
+}
+.opening_check .waiting {
+  color: var(--wp--preset--color--accent-2);
+}
+.opening_check.closing {
+  opacity: 0;
+}
+.opening_check.closing div {
+  color: var(--wp--preset--color--content);
+}
+.opening_check.closing span {
+  border: 0.2em solid var(--wp--preset--color--accent-2);
+}
+.opening_check:hover {
+  opacity: 1;
+}
 /*# sourceMappingURL=common.css.map */

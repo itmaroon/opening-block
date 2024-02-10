@@ -8,6 +8,7 @@ import {
 } from '@wordpress/components';
 import {
 	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	__experimentalPanelColorGradientSettings as PanelColorGradientSettings,
 } from '@wordpress/block-editor';
@@ -15,6 +16,7 @@ import {
 import { useEffect, useRef } from '@wordpress/element';
 import '../../editor.scss';
 import EndingAnime, { endingAnimation } from '../../../EndingAnime';
+import SkipAnime from '../../../SkipAnime';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -41,7 +43,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	const blockProps = useBlockProps({
 		ref: blockRef,// ここで参照を blockProps に渡しています
-		style: is_front ? { zIndex: 100 } : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
+		style: is_front ? {} : { zIndex: -1, opacity: 0 }//is_frontフラグによってブロックのzIndexを設定
 	});
 
 	//エンディングのハンドル
@@ -76,16 +78,16 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls group="settings">
-				<PanelBody title="背景設定" initialOpen={true} className="back_design_ctrl">
+				<PanelBody title={__("Background Settings", 'opening-block')} initialOpen={true} className="back_design_ctrl">
 
 					<PanelColorGradientSettings
-						title={__("Background Color Setting")}
+						title={__("Background Color Setting", 'opening-block')}
 						settings={[
 							{
 								colorValue: bg_Color,
 								gradientValue: bg_Gradient,
 
-								label: __("Choice color or gradient"),
+								label: __("Choice color or gradient", 'opening-block'),
 								onColorChange: (newValue) => {
 									setAttributes({ bg_Color: newValue === undefined ? '' : newValue });
 								},
@@ -97,10 +99,10 @@ export default function Edit({ attributes, setAttributes }) {
 					/>
 				</PanelBody>
 
-				<PanelBody title="テロップ設定" initialOpen={true} className="title_design_ctrl">
+				<PanelBody title={__("Telop Settings", 'opening-block')} initialOpen={true} className="title_design_ctrl">
 					<PanelRow>
 						<TextControl
-							label="テロップ"
+							label={__("Telop Settings", 'opening-block')}
 							labelPosition="top"
 							value={telop}
 							isPressEnterToChange
@@ -108,10 +110,10 @@ export default function Edit({ attributes, setAttributes }) {
 						/>
 					</PanelRow>
 					<PanelColorGradientSettings
-						title={__("Color Setting")}
+						title={__("Color Setting", 'opening-block')}
 						settings={[{
 							colorValue: telop_Color,
-							label: __("Telop Color"),
+							label: __("Telop Color", 'opening-block'),
 							onColorChange: (newValue) => setAttributes({ telop_Color: newValue }),
 						}
 						]}
@@ -119,7 +121,7 @@ export default function Edit({ attributes, setAttributes }) {
 					<PanelRow className='durationCtrl'>
 						<RangeControl
 							value={duration}
-							label="アニメーションの継続時間"
+							label={__("Animation duration", 'opening-block')}
 							max={15}
 							min={2}
 							onChange={(val) => setAttributes({ duration: val })}
@@ -165,6 +167,12 @@ export default function Edit({ attributes, setAttributes }) {
 				<div className="splashbg2" style={{ background: bgColor }}></div>
 				<div className="splashCirclebg" style={{ background: bgColor }}></div>
 			</div>
+
+			<SkipAnime
+				isFront={is_front}
+				onChange={(enableObj) => setAttributes(enableObj)}
+			/>
+
 		</>
 	);
 }
