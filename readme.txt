@@ -1,12 +1,18 @@
 === Opening Block ===
-Contributors:      WebクリエイターITmaroon
-Tags:              block
-Tested up to:      6.1
+Contributors:      itmaroon
+Tags:              block, Gutenberg, custom, Opening, Animation
+Requires at least: 6.3
+Tested up to:      6.4.3
 Stable tag:        0.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Requires PHP: 8.0.22
 
-Webサイトのオープニングに使用するブロックです
+This is a block that provides the function to produce the opening animation of a website.
+
+== Related Links ==
+
+* [Github](https://github.com/itmaroon/block-collections)
 
 == Description ==
 

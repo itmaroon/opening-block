@@ -70,8 +70,11 @@ jQuery(function ($) {
         splashbg2.classList.add('appear');//フェードアウト後appearクラス付与
         splashbg2.classList.add(ending_type);//フェードアウト後appearクラス付与
         splashbg2.addEventListener('animationend', function () {
-          //splash.parentElement.style.zIndex = "-1";
           splash.parentElement.style.display = "none";
+          // design-groupのアニメーション発火のためのカスタムイベントを発生させる
+          $fixbg.trigger('openAnimationEnd');
+          // アニメーションスキップのチェック（$fixbgの親要素の直後の兄弟要素）にclosingクラスを付加
+          $(this).parent().next().addClass('closing');
         });
         //スライド型	
       } else if (ending_type === 'virtical_slide' || ending_type === 'horizen_slide') {
@@ -94,7 +97,7 @@ jQuery(function ($) {
             splash.parentElement.style.display = "none";
             // design-groupのアニメーション発火のためのカスタムイベントを発生させる
             $(this).trigger('openAnimationEnd');
-            // $fixbgの親要素の直後の兄弟要素にclosingクラスを付加
+            // アニメーションスキップのチェック（$fixbgの親要素の直後の兄弟要素）にclosingクラスを付加
             $(this).parent().next().addClass('closing');
           });
         });
@@ -118,7 +121,7 @@ jQuery(function ($) {
             splash.parentElement.style.display = "none";
             // design-groupのアニメーション発火のためのカスタムイベントを発生させる
             $(this).trigger('openAnimationEnd');
-            // $fixbgの親要素の直後の兄弟要素にclosingクラスを付加
+            // アニメーションスキップのチェック（$fixbgの親要素の直後の兄弟要素）にclosingクラスを付加
             $(this).parent().next().addClass('closing');
           });
         });

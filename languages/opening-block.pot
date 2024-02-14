@@ -1,0 +1,272 @@
+# Copyright (C) 2024 Web Creator ITmaroon
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Opening Block 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/opening-block\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-02-10T12:28:56+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.8.1\n"
+"X-Domain: opening-block\n"
+
+#. Plugin Name of the plugin
+msgid "Opening Block"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://itmaroon.net"
+msgstr ""
+
+#. Description of the plugin
+msgid "This is a block that displays the opening animation."
+msgstr ""
+
+#. Author of the plugin
+msgid "Web Creator ITmaroon"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:150
+msgid "Ending Animation"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:155
+msgid "Vertical Slide"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:156
+msgid "Horizen Slide"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:157
+msgid "Vertical Open"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:158
+msgid "Horizen Open"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:159
+msgid "Circle Expand"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:172
+msgid "Running"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:172
+msgid "Stopped"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:185
+msgid "To Front"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: EndingAnime.js:185
+msgid "To Back"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: SkipAnime.js:24
+msgid "The plugin that displays the Skip opening checkbox is not enabled."
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: SkipAnime.js:39
+msgid "Checking block status..."
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: SkipAnime.js:48
+msgid "The opening will not be displayed next time."
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: src/blocks/logo-anime/edit.js:172
+#: src/blocks/tea-time/edit.js:81
+#: src/blocks/welcome/edit.js:78
+msgid "Background Settings"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: src/blocks/logo-anime/edit.js:175
+#: src/blocks/tea-time/edit.js:84
+#: src/blocks/welcome/edit.js:80
+msgid "Background Color Setting"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: build/352.js:1
+#: build/528.js:1
+#: src/blocks/logo-anime/edit.js:181
+#: src/blocks/tea-time/edit.js:90
+#: src/blocks/welcome/edit.js:86
+msgid "Choice color or gradient"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:192
+msgid "Logo Settings"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:195
+msgid "Logo Letters"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:203
+msgid "Font Family"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:209
+msgid "Logo Size"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:222
+msgid "Logo Spacing"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:233
+msgid "Logo Color Setting"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:236
+msgid "Stroke color"
+msgstr ""
+
+#: build/300.js:1
+#: build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:244
+msgid "Fill Color"
+msgstr ""
+
+#: build/352.js:1
+#: src/blocks/tea-time/edit.js:102
+#: src/blocks/tea-time/edit.js:105
+msgid "Telop Settings"
+msgstr ""
+
+#: build/352.js:1
+#: src/blocks/tea-time/edit.js:113
+msgid "Color Setting"
+msgstr ""
+
+#: build/352.js:1
+#: src/blocks/tea-time/edit.js:116
+msgid "Telop Color"
+msgstr ""
+
+#: build/352.js:1
+#: src/blocks/tea-time/edit.js:124
+msgid "Animation duration"
+msgstr ""
+
+#: build/blocks/logo-anime/index.js:1
+#: src/blocks/logo-anime/index.js:18
+msgid "This is the opening that animates the logo."
+msgstr ""
+
+#: build/blocks/tea-time/index.js:1
+#: src/blocks/tea-time/index.js:19
+msgid "This is an animation where letters rise like steam from a cup."
+msgstr ""
+
+#: build/blocks/welcome/index.js:1
+#: src/blocks/welcome/index.js:19
+msgid "This is an animation of drawing characters with a pen."
+msgstr ""
+
+#: build/check-blocks.js:1
+#: src/check-blocks.js:27
+msgid "Only one opening block can be placed."
+msgstr ""
+
+#: build/blocks/logo-anime/block.json
+#: src/blocks/logo-anime/block.json
+msgctxt "block title"
+msgid "Logo Anime"
+msgstr ""
+
+#: build/blocks/tea-time/block.json
+#: src/blocks/tea-time/block.json
+msgctxt "block title"
+msgid "Tea Time"
+msgstr ""
+
+#: build/blocks/welcome/block.json
+#: src/blocks/welcome/block.json
+msgctxt "block title"
+msgid "WelCome"
+msgstr ""

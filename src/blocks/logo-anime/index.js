@@ -15,7 +15,7 @@ const BlockEdit = (props) => {
 };
 
 registerBlockType(metadata.name, {
-	description: __("This is the opening that animates the logo.", 'block-collections'),
+	description: __("This is the opening that animates the logo.", 'opening-block'),
 	icon: <Logo />,
 	edit: BlockEdit,
 	save,

@@ -16,7 +16,7 @@ const BlockEdit = (props) => {
 };
 
 registerBlockType(metadata.name, {
-	description: __("This is an animation where letters rise like steam from a cup.", 'block-collections'),
+	description: __("This is an animation where letters rise like steam from a cup.", 'opening-block'),
 	icon: <Teatime />,
 	edit: BlockEdit,
 	save,

@@ -16,7 +16,7 @@ const BlockEdit = (props) => {
 };
 
 registerBlockType(metadata.name, {
-	description: __("This is an animation of drawing characters with a pen.", 'block-collections'),
+	description: __("This is an animation of drawing characters with a pen.", 'opening-block'),
 	icon: <FancyPen />,
 	edit: BlockEdit,
 	save,

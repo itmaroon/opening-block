@@ -41,11 +41,12 @@ export default function SkipAnime({ isFront, onChange }) {
     );
   } else if (isBlockRegistered) {
     //チェックボックス用インナーブロック
+    const check_label = __("The opening will not be displayed next time.", 'opening-block');
     const CHECKTEMPLATE = [
       ['itmar/design-checkbox',
         {
           inputName: 'anim_is_skip',
-          labelContent: __("The opening will not be displayed next time.", 'opening-block'),
+          labelContent: check_label,
           bgColor: 'transparent',
           labelColor: '#ffffff'
         }
