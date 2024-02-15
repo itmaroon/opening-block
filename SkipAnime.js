@@ -11,7 +11,7 @@ export default function SkipAnime({ isFront, onChange }) {
 
   useEffect(function () {
     //ブロックが有効かどうかをカスタムエンドポイントで検証
-    fetch('/wp-json/itmar-rest-api/v1/is-block-registered/?block_name=itmar/design-checkbox')
+    fetch(`${opening_block.home_url}/wp-json/itmar-rest-api/v1/is-block-registered/?block_name=itmar/design-checkbox`)
       .then(response => response.json())
       .then(data => {
         setIsBlockRegistered(data.registered);
