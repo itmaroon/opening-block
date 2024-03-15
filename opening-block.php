@@ -29,14 +29,6 @@ add_action( 'init', function() use ($block_entry ) {
 
 //プラグインの読み込み
 function itmar_opening_block_add_plugin() {
-	//cookieライブラリの読込
-	wp_enqueue_script( 
-		'js-cookie',
-		plugins_url( '/assets/jquery.cookie.js', __FILE__ ), 
-		array(), 
-		null,
-		true
-	);
 	//自作スクリプトの読み込み
 	if(!is_admin()){//フロントエンドでのみ読み込む
 		$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
@@ -60,8 +52,6 @@ function itmar_opening_block_add_plugin() {
 			true
 		);
 	}
-	
-	
 }
 add_action('enqueue_block_assets', 'itmar_opening_block_add_plugin');
 
