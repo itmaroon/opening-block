@@ -30,7 +30,7 @@ jQuery(function ($) {
 	// cookie名を設定します。
 	const ANIM_COOKIE_SKIP = "animation_shown";
 	let is_anime_skip = false;
-	if ($(".opening_check").length == 0) {
+	if ($("#splash").length != 0 && $(".opening_check").length == 0) {
 		// オープニングスキップのチェックボックスがなければ、cookieを削除します。
 		eraseCookie(ANIM_COOKIE_SKIP);
 		//$.removeCookie(ANIM_COOKIE_SKIP);

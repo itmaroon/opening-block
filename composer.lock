@@ -4,23 +4,22 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db2c8701b552764c9f1ddb927bfb0618",
+    "content-hash": "3dad62e4066a81c6344cab6452f66407",
     "packages": [
         {
             "name": "itmar/block-class-package",
-            "version": "dev-master",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/itmaroon/block-class-package.git",
-                "reference": "83b2d961c68b7aa59bebf44640c467e580bf2ca4"
+                "reference": "4dfb0f6a46395f7c3cdfd8d253c46c22aaedeebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/itmaroon/block-class-package/zipball/83b2d961c68b7aa59bebf44640c467e580bf2ca4",
-                "reference": "83b2d961c68b7aa59bebf44640c467e580bf2ca4",
+                "url": "https://api.github.com/repos/itmaroon/block-class-package/zipball/4dfb0f6a46395f7c3cdfd8d253c46c22aaedeebd",
+                "reference": "4dfb0f6a46395f7c3cdfd8d253c46c22aaedeebd",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -38,21 +37,19 @@
             ],
             "description": "Gutenberg block class package",
             "support": {
-                "source": "https://github.com/itmaroon/block-class-package/tree/master",
+                "source": "https://github.com/itmaroon/block-class-package/tree/v1.0.1",
                 "issues": "https://github.com/itmaroon/block-class-package/issues"
             },
-            "time": "2024-01-31T05:12:06+00:00"
+            "time": "2024-04-01T01:46:57+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "itmar/block-class-package": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
