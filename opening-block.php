@@ -35,8 +35,8 @@ function itmar_opening_block_add_plugin()
 	if (!is_admin()) { //フロントエンドでのみ読み込む
 		$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
 		wp_enqueue_script(
-			'itmar-script-handle',
-			plugins_url('/assets/opening.js', __FILE__),
+			'opening-js-handle',
+			plugins_url('\assets\opening.js', __FILE__),
 			array('jquery'),
 			filemtime($script_path),
 			true

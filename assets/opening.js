@@ -14,7 +14,6 @@ jQuery(function ($) {
 	function setCookie(name, value, days) {
 		var expires = "";
 		if (days) {
-			console.log(days);
 			let date = new Date();
 			date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
 			expires = "; expires=" + date.toUTCString();
@@ -23,6 +22,7 @@ jQuery(function ($) {
 	}
 
 	function eraseCookie(name) {
+		console.log("erase");
 		document.cookie =
 			name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 	}
@@ -30,8 +30,8 @@ jQuery(function ($) {
 	// cookie名を設定します。
 	const ANIM_COOKIE_SKIP = "animation_shown";
 	let is_anime_skip = false;
-	if ($("#splash").length != 0 && $(".opening_check").length == 0) {
-		// オープニングスキップのチェックボックスがなければ、cookieを削除します。
+	if ($("#splash").length && $(".opening_check").length == 0) {
+		// オープニングがあってオープニングスキップのチェックボックスがなければ、cookieを削除します。
 		eraseCookie(ANIM_COOKIE_SKIP);
 		//$.removeCookie(ANIM_COOKIE_SKIP);
 	} else {
