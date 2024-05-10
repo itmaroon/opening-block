@@ -14,6 +14,11 @@ This is a block that provides the function to produce the opening animation of a
 
 * [Github](https://github.com/itmaroon/opening-block)
 * [source code](https://github.com/itmaroon/opening-block/tree/master/src)
+* [block-class-package:GitHub](https://github.com/itmaroon/block-class-package)  
+* [block-class-package:Packagist](https://packagist.org/packages/itmar/block-class-package) 
+* [itmar-block-packages:npm](https://www.npmjs.com/package/itmar-block-packages)  
+* [itmar-block-packages:GitHub](https://github.com/itmaroon/itmar-block-packages)
+
 
 == Description ==
 
@@ -73,7 +78,7 @@ OR…
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.0 =
 * Release
 
 == Arbitrary section ==
@@ -82,3 +87,9 @@ OR…
 2. All blocks has a switch function that prevents the opening animation from being displayed, but for this to work the [BLOCK COLLECTIONS plugin](https://ja.wordpress.org/plugins/block-collections/) must be installed and enabled.
 3. The blocks provided by this plugin can be placed one block per web page. Even if you try to place multiple blocks, an error message will appear and you will not be able to place them.
 However, it is possible to place it on web pages other than the top page, so multiple blocks can be placed on the entire website.
+4. PHP class management is now done using Composer.  
+[GitHub](https://github.com/itmaroon/block-class-package)  
+[Packagist](https://packagist.org/packages/itmar/block-class-package) 
+5. I decided to make functions and components common to other plugins into npm packages, and install and use them from npm.  
+[npm](https://www.npmjs.com/package/itmar-block-packages)  
+[GitHub](https://github.com/itmaroon/itmar-block-packages)
