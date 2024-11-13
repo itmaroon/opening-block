@@ -55,10 +55,9 @@ export default function Edit({ attributes, setAttributes }) {
 	const blockRef = useRef(null);
 	//エンディングアニメーション関数参照用のuseRef
 	const cleanupRef = useRef(null);
-
 	const blockProps = useBlockProps({
 		ref: blockRef, // ここで参照を blockProps に渡しています
-		style: is_front ? {} : { zIndex: -1, opacity: 0 }, //is_frontフラグによってブロックのzIndexを設定
+		style: is_front ? { zIndex: 150 } : { zIndex: -1, opacity: 0 }, //is_frontフラグによってブロックのzIndexを設定
 	});
 
 	//フォントのセレクトオブジェクト

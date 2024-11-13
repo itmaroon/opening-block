@@ -1,5 +1,4 @@
-
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 
 export default function save({ attributes }) {
 	const {
@@ -12,10 +11,10 @@ export default function save({ attributes }) {
 		bg_Color,
 		bg_Gradient,
 		ending_type,
-		is_check_enable
+		is_check_enable,
 	} = attributes;
 
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save({ style: { zIndex: 150 } });
 	const bgColor = bg_Color || bg_Gradient;
 	const fillColor = logo_fillColor || logo_fillGradient;
 	return (
@@ -29,10 +28,21 @@ export default function save({ attributes }) {
 					style={{ background: bgColor }}
 				>
 					<div id="splash_logo">
-						<svg id="logo_anime" width="250px" height="120px" viewBox={`${-125 + logo_width / 2} ${-60 - logo_height / 2} 250 120`}>
+						<svg
+							id="logo_anime"
+							width="250px"
+							height="120px"
+							viewBox={`${-125 + logo_width / 2} ${
+								-60 - logo_height / 2
+							} 250 120`}
+						>
 							<g>
 								{char_paths.map((path, i) => (
-									<path style={{ fill: fillColor, stroke: logo_strokeColor }} key={i} d={path} />
+									<path
+										style={{ fill: fillColor, stroke: logo_strokeColor }}
+										key={i}
+										d={path}
+									/>
 								))}
 							</g>
 						</svg>
@@ -43,13 +53,11 @@ export default function save({ attributes }) {
 				<div className="splashbg2" style={{ background: bgColor }}></div>
 				<div className="splashCirclebg" style={{ background: bgColor }}></div>
 			</div>
-			{is_check_enable &&
-				<div className='opening_check'>
+			{is_check_enable && (
+				<div className="opening_check">
 					<InnerBlocks.Content />
 				</div>
-			}
-
+			)}
 		</>
-
 	);
 }
