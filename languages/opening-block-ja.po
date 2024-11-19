@@ -3,208 +3,213 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Opening Block 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/opening-block\n"
-"POT-Creation-Date: 2024-02-14T12:02:44+01:00\n"
-"PO-Revision-Date: 2024-02-14 20:05+0900\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/opening-"
+"block\n"
+"POT-Creation-Date: 2024-11-18T09:54:03+01:00\n"
+"PO-Revision-Date: 2024-11-18 17:58+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 "X-Domain: opening-block\n"
 
 #. Plugin Name of the plugin
+#: opening-block.php
 msgid "Opening Block"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: opening-block.php
 msgid "https://itmaroon.net"
 msgstr ""
 
 #. Description of the plugin
+#: opening-block.php
 msgid "This is a block that displays the opening animation."
 msgstr "オープニングアニメーションを表示するブロックです。"
 
 #. Author of the plugin
+#: opening-block.php
 msgid "Web Creator ITmaroon"
 msgstr "Web クリエーター ITmaroon"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:150
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:131
 msgid "Ending Animation"
 msgstr "終了時アニメーション"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:155
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:139
 msgid "Vertical Slide"
 msgstr "縦型スライド"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:156
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:143
 msgid "Horizen Slide"
 msgstr "横型スライド"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:157
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:147
 msgid "Vertical Open"
 msgstr "縦方向開き"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:158
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:151
 msgid "Horizen Open"
 msgstr "横方向開き"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:159
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:155
 msgid "Circle Expand"
 msgstr "円形エクスパンド"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:172
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:172
 msgid "Running"
 msgstr "実行中"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:172
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:173
 msgid "Stopped"
 msgstr "停止中"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:185
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:187
 msgid "To Front"
 msgstr "前面へ"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: EndingAnime.js:185
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/EndingAnime.js:188
 msgid "To Back"
 msgstr "背面へ"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: SkipAnime.js:24
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/SkipAnime.js:24
 msgid "The plugin that displays the Skip opening checkbox is not enabled."
 msgstr ""
-"オープニングをスキップするためのチェックボックスを表示するプラグインが有効に"
-"なっていません。"
+"オープニングをスキップするためのチェックボックスを表示するプラグインが有"
+"効になっていません。"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: SkipAnime.js:39
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/SkipAnime.js:39
 msgid "Checking block status..."
 msgstr "ブロックの状況を調査中..."
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: SkipAnime.js:44
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/SkipAnime.js:44
 msgid "The opening will not be displayed next time."
 msgstr "次回からオープニングを表示しない。"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: src/blocks/logo-anime/edit.js:172 src/blocks/tea-time/edit.js:81
-#: src/blocks/welcome/edit.js:78
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/blocks/logo-anime/edit.js:180
+#: src/blocks/tea-time/edit.js:83 src/blocks/welcome/edit.js:78
 msgid "Background Settings"
 msgstr "背景設定"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: src/blocks/logo-anime/edit.js:175 src/blocks/tea-time/edit.js:84
-#: src/blocks/welcome/edit.js:80
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/blocks/logo-anime/edit.js:185
+#: src/blocks/tea-time/edit.js:88 src/blocks/welcome/edit.js:83
 msgid "Background Color Setting"
 msgstr "背景色設定"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js build/352.js:1
-#: build/blocks/tea-time/index.js build/528.js:1 build/blocks/welcome/index.js
-#: src/blocks/logo-anime/edit.js:181 src/blocks/tea-time/edit.js:90
-#: src/blocks/welcome/edit.js:86
+#: build/520.js:1 build/blocks/welcome/index.js build/714.js:1
+#: build/blocks/tea-time/index.js build/778.js:1
+#: build/blocks/logo-anime/index.js src/blocks/logo-anime/edit.js:191
+#: src/blocks/tea-time/edit.js:94 src/blocks/welcome/edit.js:89
 msgid "Choice color or gradient"
 msgstr "色かグラデーションを選択"
 
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:192
-msgid "Logo Settings"
-msgstr "ロゴ設定"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:195
-msgid "Logo Letters"
-msgstr "ロゴの文字列"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:203
-msgid "Font Family"
-msgstr "フォントファミリー"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:209
-msgid "Logo Size"
-msgstr "ロゴのサイズ"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:222
-msgid "Logo Spacing"
-msgstr "ロゴの間隔"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:233
-msgid "Logo Color Setting"
-msgstr "ロゴの色設定"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:236
-msgid "Stroke color"
-msgstr "ストローク色"
-
-#: build/300.js:1 build/blocks/logo-anime/index.js
-#: src/blocks/logo-anime/edit.js:244
-msgid "Fill Color"
-msgstr "塗りつぶし色"
-
-#: build/352.js:1 build/blocks/tea-time/index.js
-#: src/blocks/tea-time/edit.js:102 src/blocks/tea-time/edit.js:105
+#: build/714.js:1 build/blocks/tea-time/index.js
+#: src/blocks/tea-time/edit.js:109 src/blocks/tea-time/edit.js:115
 msgid "Telop Settings"
 msgstr "テロップの設定"
 
-#: build/352.js:1 build/blocks/tea-time/index.js
-#: src/blocks/tea-time/edit.js:113
+#: build/714.js:1 build/blocks/tea-time/index.js
+#: src/blocks/tea-time/edit.js:123
 msgid "Color Setting"
 msgstr "色の設定"
 
-#: build/352.js:1 build/blocks/tea-time/index.js
-#: src/blocks/tea-time/edit.js:116
+#: build/714.js:1 build/blocks/tea-time/index.js
+#: src/blocks/tea-time/edit.js:127
 msgid "Telop Color"
 msgstr "テロップの色"
 
-#: build/352.js:1 build/blocks/tea-time/index.js
-#: src/blocks/tea-time/edit.js:124
+#: build/714.js:1 build/blocks/tea-time/index.js
+#: src/blocks/tea-time/edit.js:136
 msgid "Animation duration"
 msgstr "アニメーションの長さ"
 
-#: build/blocks/logo-anime/index.js:1 src/blocks/logo-anime/index.js:18
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:205
+msgid "Logo Settings"
+msgstr "ロゴ設定"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:211
+msgid "Logo Letters"
+msgstr "ロゴの文字列"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:219
+msgid "Font Family"
+msgstr "フォントファミリー"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:225
+msgid "Logo Size"
+msgstr "ロゴのサイズ"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:237
+msgid "Logo Spacing"
+msgstr "ロゴの間隔"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:247
+msgid "Logo Color Setting"
+msgstr "ロゴの色設定"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:251
+msgid "Stroke color"
+msgstr "ストローク色"
+
+#: build/778.js:1 build/blocks/logo-anime/index.js
+#: src/blocks/logo-anime/edit.js:260
+msgid "Fill Color"
+msgstr "塗りつぶし色"
+
+#: build/blocks/logo-anime/index.js:1 src/blocks/logo-anime/index.js:17
 msgid "This is the opening that animates the logo."
 msgstr "ロゴをアニメーションさせるオープニングです。"
 
-#: build/blocks/tea-time/index.js:1 src/blocks/tea-time/index.js:19
+#: build/blocks/tea-time/index.js:1 src/blocks/tea-time/index.js:17
 msgid "This is an animation where letters rise like steam from a cup."
 msgstr "コップから湯気のように文字が立ち上るアニメーションです。"
 
-#: build/blocks/welcome/index.js:1 src/blocks/welcome/index.js:19
+#: build/blocks/welcome/index.js:1 src/blocks/welcome/index.js:17
 msgid "This is an animation of drawing characters with a pen."
 msgstr "ペンで文字を描くアニメーションです。"
 
-#: build/check-blocks.js:1 src/check-blocks.js:27
+#: build/check-blocks.js:25 src/check-blocks.js:41
 msgid "Only one opening block can be placed."
 msgstr "オープニングブロックは 1 つだけしか配置できません。"
 

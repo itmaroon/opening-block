@@ -6,7 +6,7 @@
  * Description:       This is a block that displays the opening animation.
  * Requires at least: 6.3
  * Requires PHP:      8.1.22
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Web Creator ITmaroon
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -54,6 +54,8 @@ function itmar_opening_block_add_plugin()
 			true
 		);
 	}
+	// ２重登録監視スクリプトの翻訳をセット
+	wp_set_script_translations('itmar-check-script', 'opening-block', plugin_dir_path(__FILE__) . 'languages');
 }
 add_action('enqueue_block_assets', 'itmar_opening_block_add_plugin');
 

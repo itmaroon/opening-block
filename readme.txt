@@ -2,8 +2,8 @@
 Contributors:      itmaroon
 Tags:              block, Gutenberg, custom, Opening, Animation
 Requires at least: 6.3
-Tested up to:      6.5.2
-Stable tag:        1.0.0
+Tested up to:      6.7
+Stable tag:        1.0.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 8.1.22
@@ -77,6 +77,12 @@ OR…
 6. A block icon registered by the plugin. Divided into design group.
 
 == Changelog ==
+
+= 1.0.1 =
+- Operation check with WordPress 6.7
+- Set z-index:150 to the root style of the block and compare it with the z-index of other blocks so that it is displayed in front of blocks with a lower value.
+- Fixed a bug that prevented multiple Opening Blocks from being set on the same page from working properly.
+- Fixed a bug that some translation functions did not work.
 
 = 1.0.0 =
 * Release
