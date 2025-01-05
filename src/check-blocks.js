@@ -60,11 +60,13 @@ const BlockRestrictionHandler = ({ disabledBlocks }) => {
 
 // 自動的にレンダリング
 const initializeBlockRestrictionHandler = (disabledBlocks) => {
-	const container = document.createElement("div");
-	document.body.appendChild(container);
+	if (document.body) {
+		const container = document.createElement("div");
+		document.body.appendChild(container);
 
-	const root = ReactDOM.createRoot(container);
-	root.render(<BlockRestrictionHandler disabledBlocks={disabledBlocks} />);
+		const root = ReactDOM.createRoot(container);
+		root.render(<BlockRestrictionHandler disabledBlocks={disabledBlocks} />);
+	}
 };
 
 // 使用例: 制限するブロック名を指定して監視を開始
