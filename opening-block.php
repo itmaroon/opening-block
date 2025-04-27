@@ -4,9 +4,9 @@
  * Plugin Name:       Opening Block
  * Plugin URI:        https://itmaroon.net
  * Description:       This is a block that displays the opening animation.
- * Requires at least: 6.3
+ * Requires at least: 6.4
  * Requires PHP:      8.1.22
- * Version:           1.0.2
+ * Version:           1.1.0
  * Author:            Web Creator ITmaroon
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,7 +24,7 @@ if (!function_exists('get_plugin_data')) {
 }
 
 //composerによるリモートリポジトリからの読み込みを要求
-require_once __DIR__ . '\vendor\itmar\loader-package\src\register_autoloader.php';
+require_once __DIR__ . '/vendor/itmar/loader-package/src/register_autoloader.php';
 
 $block_entry = new \Itmar\BlockClassPackage\ItmarEntryClass();
 

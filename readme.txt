@@ -1,9 +1,9 @@
 === Opening Block ===
 Contributors:      itmaroon
 Tags:              block, Gutenberg, custom, Opening, Animation
-Requires at least: 6.3
-Tested up to:      6.7
-Stable tag:        1.0.2
+Requires at least: 6.4
+Tested up to:      6.8
+Stable tag:        1.1.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 8.1.22
@@ -77,6 +77,10 @@ OR…
 6. A block icon registered by the plugin. Divided into design group.
 
 == Changelog ==
+= 1.1.0 =
+- Regarding the method of loading composer components, a mechanism has been introduced that does not conflict with other plugins. Accordingly, the composer components have been updated.
+- Operation check with WordPress 6.8
+
 = 1.0.2 =
 - Fixed a bug that caused an error when rendering started before the page was loaded.
 
