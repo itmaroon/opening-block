@@ -43,18 +43,6 @@ add_action('init', 'itmar_opening_block_textdomain');
 //プラグインの読み込み
 function itmar_opening_block_add_plugin()
 {
-	//自作スクリプトの読み込み
-	if (!is_admin()) { //フロントエンドでのみ読み込む
-		$script_path = plugin_dir_path(__FILE__) . 'assets/opening.js';
-		wp_enqueue_script(
-			'opening-js-handle',
-			plugins_url('\assets\opening.js', __FILE__),
-			array('jquery'),
-			filemtime($script_path),
-			true
-		);
-	}
-
 	//ブロックの２重登録の監視
 	if (is_admin() && !wp_doing_ajax()) { //管理画面でのみ読み込む）
 		$script_path = plugin_dir_path(__FILE__) . 'build/check-blocks.js';
