@@ -61,7 +61,7 @@ export default function SkipAnime({ isFront, onChange }) {
 				className={`opening_check ${!isFront ? "closing" : ""}`}
 				style={{ display: "block" }}
 			>
-				<InnerBlocks template={CHECKTEMPLATE} templateLock="all" />
+				<InnerBlocks template={CHECKTEMPLATE} templateLock={false} />
 			</div>
 		);
 	} else {
