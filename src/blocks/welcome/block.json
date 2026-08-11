@@ -21,6 +21,66 @@
 			"type": "string",
 			"default": "#000"
 		},
+		"welcome_text": {
+			"type": "string",
+			"default": "Welcome"
+		},
+		"welcome_font": {
+			"type": "string",
+			"default": "Roboto-Black.ttf"
+		},
+		"logo_size": {
+			"type": "number",
+			"default": 72
+		},
+		"logo_gap": {
+			"type": "number",
+			"default": 4
+		},
+		"logo_width": {
+			"type": "number",
+			"default": 0
+		},
+		"logo_height": {
+			"type": "number",
+			"default": 0
+		},
+		"outline_paths": {
+			"type": "array",
+			"default": []
+		},
+		"centerline_paths": {
+			"type": "array",
+			"default": []
+		},
+		"path_lengths": {
+			"type": "array",
+			"default": []
+		},
+		"centerline_order": {
+			"type": "array",
+			"default": []
+		},
+		"centerline_reversed": {
+			"type": "array",
+			"default": []
+		},
+		"animation_duration": {
+			"type": "number",
+			"default": 5.5
+		},
+		"skeleton_scale": {
+			"type": "number",
+			"default": 1.5
+		},
+		"mask_stroke_width": {
+			"type": "number",
+			"default": 8
+		},
+		"use_dynamic_paths": {
+			"type": "boolean",
+			"default": true
+		},
 		"trigger_anime": {
 			"type": "boolean",
 			"default": false

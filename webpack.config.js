@@ -33,7 +33,7 @@ const newEntryConfig = async () => {
 
 	return {
 		...originalEntry,
-		"check-blocks": path.resolve(__dirname, "./src/check-blocks.js"),
+		"check-blocks": path.resolve(__dirname, "./src/check-blocks.tsx"),
 	};
 };
 

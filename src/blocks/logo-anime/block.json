@@ -68,10 +68,6 @@
 			"type": "boolean",
 			"default": true
 		},
-		"fontFamilyOptions": {
-			"type": "array",
-			"default": []
-		},
 		"ending_type": {
 			"type": "string",
 			"default": "virtical_slide"

@@ -25,6 +25,10 @@
 			"type": "string",
 			"default": "#000"
 		},
+		"telop_font": {
+			"type": "string",
+			"default": "Roboto-Regular.ttf"
+		},
 		"duration": {
 			"type": "number",
 			"default": 5

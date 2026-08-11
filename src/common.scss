@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /**
  * The following styles get applied both on the front of your site
  * and in the editor.
@@ -25,7 +27,7 @@ $breakpoints: (
 
 // メディアクエリー
 @mixin mq($breakpoint: sp) {
-	@media #{map-get($breakpoints, $breakpoint)} {
+	@media #{map.get($breakpoints, $breakpoint)} {
 		@content;
 	}
 }
