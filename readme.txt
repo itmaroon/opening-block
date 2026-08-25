@@ -2,8 +2,8 @@
 Contributors:      itmaroon
 Tags:              block, Gutenberg, custom, Opening, Animation
 Requires at least: 6.4
-Tested up to:      7.0
-Stable tag:        2.0.1
+Tested up to:      7.1
+Stable tag:        2.0.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 8.1.22
@@ -77,6 +77,9 @@ OR…
 6. A block icon registered by the plugin. Divided into design group.
 
 == Changelog ==
+= 2.0.2 =
+- Composer component fixed.
+
 = 2.0.1 =
 - Converted JavaScript to TypeScript.
 
